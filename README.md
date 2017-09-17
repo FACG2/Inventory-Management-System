@@ -36,7 +36,4 @@ User test tasks:
 - show inventory graphs.
 - show inventory report.
 
-### User Feedback:
-- User needed notification about any changes relevants to their role.
-- 
 <a href='https://projects.invisionapp.com/d/main#/console/12023712/253370566/preview' >Prototype</a>
