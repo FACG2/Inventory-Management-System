@@ -27,6 +27,6 @@
 - User needed to make tracking for goods easier.
 - User needed our application in mobile version.
 - User needed our application in Arabic Language.
-- User guess that the app will be much easier if he manage his inventory by software rather than paper.
+- User guess that the app will be useful if it manage his inventory by software rather than paper even if I have one warehouse.
 
 <a href='https://projects.invisionapp.com/d/main#/console/12023712/253370566/preview' >Prototype</a>
