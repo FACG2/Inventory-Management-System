@@ -14,11 +14,11 @@
 
 
 ####  user Needs:-
-> - check the inventory status.
-> - tracking goods and manage the inventories in easy way.
-> - get notification about every change happens in their inventories.
-> - See reports and graphs.
-> - Add goods and decide which inventory will have capacity to put it in.
+ - check the inventory status.
+ - tracking goods and manage the inventories in easy way.
+ - get notification about every change happens in their inventories.
+ - See reports and graphs.
+ - Add goods and decide which inventory will have capacity to put it in.
 
 
 ### Synthesis:-
@@ -29,4 +29,14 @@
 - User needed our application in Arabic Language.
 - User guess that the app will be useful if it manage his inventory by software rather than paper even if I have one warehouse.
 
+### user Testing:
+User test tasks:
+- sign up.
+- add new Good.
+- show inventory graphs.
+- show inventory report.
+
+### User Feedback:
+- User needed notification about any changes relevants to their role.
+- 
 <a href='https://projects.invisionapp.com/d/main#/console/12023712/253370566/preview' >Prototype</a>
