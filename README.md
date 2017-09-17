@@ -4,7 +4,7 @@
  Build Website that have a benefit to manage inventory in easy way by software rather than manage it by traditional way using paper. And make the process of tracking goods easier.
 <br>
 
-**It's a website will have advatages:-**
+**It's a website will have advantages:-**
 >    - more efficient (reduce time and effort spend in tracking and manage inventory and goods).
 >   - security and accuracy for goods.
 
