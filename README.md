@@ -21,13 +21,7 @@
  - Add goods and decide which inventory will have capacity to put it in.
 
 
-### Synthesis:-
-- User needed notification about any changes relevants to their role.
-- User needed to know inventory status.
-- User needed to make tracking for goods easier.
-- User needed our application in mobile version.
-- User needed our application in Arabic Language.
-- User guess that the app will be useful if it manage his inventory by software rather than paper even if I have one warehouse.
+
 
 ### user Testing:
 User test tasks:
@@ -35,5 +29,13 @@ User test tasks:
 - add new Good.
 - show inventory graphs.
 - show inventory report.
+
+User Feedback:
+- User needed notification about any changes relevants to their role.
+- User needed to know inventory status.
+- User needed to make tracking for goods easier.
+- User needed our application in mobile version.
+- User needed our application in Arabic Language.
+- User guess that the app will be useful if it manage his inventory by software rather than paper even if I have one warehouse.
 
 <a href='https://projects.invisionapp.com/d/main#/console/12023712/253370566/preview' >Prototype</a>
