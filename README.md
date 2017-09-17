@@ -1,7 +1,7 @@
 # Inventory-Management-System
 
 ### 1 - Idea :-
- Build Website that have a benefit to manage inventory in easy way by software rather than manage it by traditional way using paper. And make the process of tracking goods easy.
+ Build Website that have a benefit to manage inventory in easy way by software rather than manage it by traditional way using paper. And make the process of tracking goods easier.
 <br>
 
 **It's a website will have advatages:-**
