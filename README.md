@@ -3,20 +3,13 @@
 ### 1 - Idea :-
  Build Website that have a benefit to manage inventory in easy way by software rather than manage it by traditional way using paper. And make the process of tracking goods easy.
 <br>
+
 **It's a website will have advatages:-**
 >    - more efficient (reduce time and effort spend in tracking and manage inventory and goods).
- >   - security and accuracy for goods.
-
-### 2 - How did ideate into product :-
-> - Understand.
-> - Define.
-> - Diverge.
-> - Prototype.
-> - Validate.
+>   - security and accuracy for goods.
 
 
-
-### 3 - Users:-
+### 2 - Users:-
 > - Warehouse Manager.
 
 
@@ -26,6 +19,7 @@
 > - get notification about every change happens in their inventories.
 > - See reports and graphs.
 > - Add goods and decide which inventory will have capacity to put it in.
+
 
 ### Synthesis:-
 - User needed notification about any changes relevants to their role.
