@@ -1,0 +1,20 @@
+{
+  "name": "Inventory-Management-System",
+  "version": "1.0.0",
+  "description": "### 1 - Idea :-  Build Website that have a benefit to manage inventory in easy way by software rather than manage it by traditional way using paper. And make the process of tracking goods easier. <br>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACG2/Inventory-Management-System.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACG2/Inventory-Management-System/issues"
+  },
+  "homepage": "https://github.com/FACG2/Inventory-Management-System#readme"
+}
