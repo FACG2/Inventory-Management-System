@@ -1,0 +1,7 @@
+language: node_js
+
+node_js:
+- "stable"
+script:
+  - node test/front-end-test.js
+  - node test/back-end-test.js
