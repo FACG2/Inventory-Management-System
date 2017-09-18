@@ -5,18 +5,18 @@
 <br>
 
 **It's a website will have advantages:-**
->    - more efficient (reduce time and effort spend in tracking and manage inventory and goods).
->   - security and accuracy for goods.
+   - More efficient (reduce time and effort spend in tracking and manage inventory and goods).
+   - Security and accuracy for goods.
 
 
 ### 2 - Users:-
-> - Warehouse Manager.
+ - Warehouse Manager.
 
 
-####  user Needs:-
- - check the inventory status.
- - tracking goods and manage the inventories in easy way.
- - get notification about every change happens in their inventories.
+###  user Needs:-
+ - Check the inventory status.
+ - Tracking goods and manage the inventories in easy way.
+ - Get notification about every change happens in their inventories.
  - See reports and graphs.
  - Add goods and decide which inventory will have capacity to put it in.
 
@@ -25,12 +25,12 @@
 
 ### user Testing:
 User test tasks:
-- sign up.
-- add new Good.
-- show inventory graphs.
-- show inventory report.
+- Sign up.
+- Add new Good.
+- Show inventory graphs.
+- Show inventory report.
 
-User Feedback:
+### User Feedback:
 - User needed notification about any changes relevants to their role.
 - User needed to know inventory status.
 - User needed to make tracking for goods easier.
