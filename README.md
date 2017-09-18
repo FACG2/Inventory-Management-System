@@ -1,24 +1,31 @@
 # Inventory-Management-System
 
-### 1 - Idea :-
- Build Website that have a benefit to manage inventory in easy way by software rather than manage it by traditional way using paper. And make the process of tracking goods easier.
+
+### The main problem:
+
+If you’re still using a  paper sheets to manage inventory, you’re behind the times! paper sheets solve a lot of problems, but keeping track of large inventory on a paper is dangerous and inefficient. A paper sheets can be accidentally deleted and it is very difficult for more than one person to work on it, especially simultaneously. Software specifically built to keep track of your inventory solves both of these problems and many more.
+
+### Idea :
+Create website that have a benefit to manage inventory in easy way by software rather than manage it by traditional way using paper. And make the process of tracking goods easier.
 <br>
 
-**It's a website will have advantages:-**
-   - More efficient (reduce time and effort spend in tracking and manage inventory and goods).
-   - Security and accuracy for goods.
+What kinds of  goals will user be accomplishing as he/she is using our website or app?
 
+  - More efficient (reduce time and effort spend in tracking and manage inventory and goods).
+  - Security.
+  - Accuracy.
 
-### 2 - Users:-
+### Who are the users:
  - Warehouse Manager.
 
 
-###  user Needs:-
+####  User Needs:
  - Check the inventory status.
  - Tracking goods and manage the inventories in easy way.
  - Get notification about every change happens in their inventories.
  - See reports and graphs.
  - Add goods and decide which inventory will have capacity to put it in.
+
 
 
 
