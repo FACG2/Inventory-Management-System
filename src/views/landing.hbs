@@ -1,1 +1,25 @@
-<h1>Landing Page!!!</h1>
+<link rel='stylesheet' href='/css/landing.css' />
+
+<div class='welcome'>
+  <!-- <h1 class='app-title'>سلوى لإدارة المخازن</h1> -->
+  <!-- <p></p> -->
+</div>
+
+
+
+<div class='signin-modal modal'>
+  <div class='modal-content signin-modal-content'>
+    <span class='close signin-close' id='signinClose'>&times;</span>
+      <form action='/sign-in' method='POST'>
+        <label for='signin-username'>اسم المستخدم <input type='text' class='txt' id='signin-username' name='username' placeholder='أدخل اسم المستخدم' required /></label>
+        <br />
+        <label for='signin-password'>كلمة المرور <input type='password' class='txt' id='signin-password' name='password' placeholder='أدخل كلمة المرور' required /></label>
+        <br />
+        <br />
+        <div class='buttons'>
+          <input type='submit' value='تسجيل الدخول' class='submit-btn'/>
+          <a href='#' id='showSignUpModal'>لا تمتلك حساب؟ أنشأ حساب</a>
+        </div>
+      </form>
+  </div>
+</div>
