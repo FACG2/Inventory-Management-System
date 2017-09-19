@@ -6,8 +6,6 @@ dbConnection.query(sql, (err, res) => {
   if (err) {
     throw err;
   } else {
-    {
-      console.log('DONE');
-    }
+    console.log('DONE');
   }
 });
