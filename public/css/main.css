@@ -1,0 +1,99 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+body{
+  background-color: #C3C3C3;
+}
+
+.container{
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.nav-bar{
+  height: 50px;
+  background-color: #181818;
+  color: #FFF;
+  /*padding: 5px;*/
+  padding-top: 15px;
+  position:relative;
+}
+
+.nav-link , .brand{
+  padding: 3px;
+  margin: 3px;
+  text-decoration: none;
+  color: #FFF;
+  position: center;
+}
+
+
+.brand{
+  float: right;
+}
+
+.nav-link{
+  float: left;
+}
+
+
+/* Start Modal Styling */
+.modal{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0 , 0 , 0 , 0.5);
+
+}
+
+.modal-content{
+  position: fixed;
+  /*height: 200px;*/
+  width: 50%;
+  left: 25%;
+  background-color: #CCC;
+  top: 25%;
+  /*height: 0px;*/
+  overflow: hidden;
+  transition: all 0.25s;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.close{
+  font-size: 25px;
+}
+
+.close:hover{
+  color: #F00;
+  cursor: pointer;
+}
+
+.txt{
+  width: 90%;
+  height: 30px;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.submit-btn{
+  padding: 5px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #333;
+  color: #CCC;
+  border: 1px solid #333;
+  transition: 0.5s;
+}
+
+.submit-btn:hover{
+  background-color: #CCC;
+  color: #000;
+  font-weight: bolder;
+  cursor:pointer;
+}
+/* End Modal Styling */

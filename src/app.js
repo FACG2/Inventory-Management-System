@@ -9,6 +9,8 @@ const helmet = require('helmet');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+app.use(express.static('public'));
+
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -23,5 +25,9 @@ app.engine('hbs', expressHandlebars({
 app.use(routes);
 
 app.set('PORT', 3000);
+
+app.use((err, req, res, next) => {
+  res.render('500', {errMessage: err.message});
+});
 
 module.exports = app;
