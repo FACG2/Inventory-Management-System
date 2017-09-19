@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/FACG2/Inventory-Management-System/issues"
   },
-  "homepage": "https://github.com/FACG2/Inventory-Management-System#readme"
+  "homepage": "https://github.com/FACG2/Inventory-Management-System#readme",
+  "devDependencies": {
+    "env": "0.0.2",
+    "env2": "^2.2.0",
+    "fs": "0.0.1-security",
+    "pg": "^7.3.0",
+    "tape": "^4.8.0"
+  }
 }
