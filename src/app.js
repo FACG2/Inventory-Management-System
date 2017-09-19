@@ -6,7 +6,7 @@ const path = require('path');
 const routes = require('./controllers/index');
 const helmet = require('helmet');
 
-app.set('views', path.join(__dirname, 'src', 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 app.use(helmet());
@@ -15,8 +15,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.engine('hbs', expressHandlebars({
   extname: 'hbs',
-  layoutsDir: path.join('views', 'layouts'),
-  partialsDir: path.join('views', 'partials'),
+  layoutsDir: path.join(__dirname, 'views', 'layouts'),
+  partialsDir: path.join(__dirname, 'views', 'partials'),
   defaultLayout: 'main'
 }));
 
