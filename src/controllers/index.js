@@ -4,6 +4,7 @@ const landing = require('./landing');
 // const db = require('../models/db_functions/index');
 // const signup = require('../middlewares/sign_up.js');
 const profile = require('./profile');
+
 const authController = require('./auth');
 
 router.get('/', landing.get);
@@ -13,5 +14,6 @@ router.post('/sign-up', authController.signup);
 router.get('/home', (req, res) => {
   res.send('Home Page!!');
 });
+
 
 module.exports = router;
