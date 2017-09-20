@@ -1,0 +1,36 @@
+<!-- <h1>Landing Page!!!</h1> -->
+{{> header }}
+
+{{> header }}
+<div class="container">
+
+<form method="POST" action="/register">
+
+  <div class="form">
+    <label for="username">Username</label>
+    <input type="text" name="username"  placeholder="Enter username">
+  </div>
+
+<div class="form">
+  <label for="email">Email</label>
+  <input type="email" name="email"   placeholder="Enter Email">
+</div>
+
+<div class="form">
+  <label for="password">Password</label>
+  <input type="password"  name="password"  placeholder="Enter Password">
+</div>
+
+<div class="form">
+  <label for="confirmPassword">ConfirmPassword</label>
+  <input type="password"  name="confirmPassword" class="form-control" placeholder="Enter Password">
+</div>
+
+<div class="form">
+  <label for="role">Role</label>
+  <input type="role"  name="role" class="form-control" >
+</div>
+
+<button type="submit" >Submit </button>
+</form>
+</div>
