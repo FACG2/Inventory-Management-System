@@ -2,11 +2,10 @@ const {validateRegistration} = require('../helpers/validation');
 const {generateToken} = require('../helpers/generateToken');
 const db = require('../models/db_functions/index');
 const cookie = require('cookie');
-// const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 function signup (req, res, next) {
-  if (req.headers.cookie) {
+  if (!req.headers.cookie) {
     const {token} = cookie.parse(req.headers.cookie);
     if (token) {
       res.redirect('/');
@@ -24,12 +23,14 @@ function signup (req, res, next) {
             password: hashedPassword,
             role: '0'
           };
-          validateRegistration(data, (err, result) => {
-            if (err) {
-              next(err);
+          validateRegistration(data, (err1, result) => {
+            if (err1) {
+              console.log(err1);
+              next(err1);
             } else {
               db.addUser(data, (error, userFromDB) => {
                 if (error) {
+                  console.log(error);
                   res.redirect('/');
                 } else {
                   const tokenObj = {
@@ -38,8 +39,9 @@ function signup (req, res, next) {
                   };
                   req.user = tokenObj;
                 // generation token
-                  generateToken(tokenObj, (err, results) => {
-                    if (err) {
+                  generateToken(tokenObj, (err2, results) => {
+                    if (err2) {
+                      console.log(err2);
                       res.redirect('/');
                     } else {
                       results.redirect('/home');
