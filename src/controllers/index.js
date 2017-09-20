@@ -5,9 +5,11 @@ const landing = require('./landing');
 // const signup = require('../middlewares/sign_up.js');
 const profile = require('./profile');
 const signup = require('./signup');
+const inventory = require('./inventory.js');
 
 router.get('/', landing.get);
 router.get('/profile', profile.get);
 router.post('/signup', signup.post);
+router.get('/inventory', inventory.get);
 
 module.exports = router;
