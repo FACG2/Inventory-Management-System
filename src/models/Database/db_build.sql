@@ -65,7 +65,7 @@ INSERT INTO inventories (name, location, capacity, status, user_id) VALUES
         CURRENT_DATE,
       1);
 
-INSERT INTO transactions(transaction_date , worker_name , good_type , good_quantity , inventory_id , user_id) VALUES
+INSERT INTO transactions(transaction_date , worker_name , good_type , good_quantity , inventory_id ) VALUES
                         (CURRENT_DATE , 'سهاد' , 'قميص' ,
                           5 , 1
                         );
