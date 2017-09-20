@@ -1,7 +1,7 @@
 BEGIN;
 
 DROP TABLE IF EXISTS users cascade;
-DROP TABLE IF EXISTS iInventories cascade;
+DROP TABLE IF EXISTS inventories cascade;
 DROP TABLE IF EXISTS goods cascade;
 DROP TABLE IF EXISTS transactions cascade;
 
@@ -40,7 +40,7 @@ CREATE TABLE transactions (
   worker_name VARCHAR(20) NOT NULL,
   good_type VARCHAR NOT NULL,
   good_quantity INTEGER NOT NULL,
-  inventory_id INTEGER REFERENCES inventories(id),
+  inventory_id INTEGER REFERENCES inventories(id)
 );
 
 INSERT INTO users (name, email, role, username, password) VALUES
@@ -67,7 +67,7 @@ INSERT INTO inventories (name, location, capacity, status, user_id) VALUES
 
 INSERT INTO transactions(transaction_date , worker_name , good_type , good_quantity , inventory_id , user_id) VALUES
                         (CURRENT_DATE , 'سهاد' , 'قميص' ,
-                          5 , 1 
+                          5 , 1
                         );
 
 COMMIT;
