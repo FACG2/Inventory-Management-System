@@ -24,10 +24,11 @@ app.engine('hbs', expressHandlebars({
 
 app.use(routes);
 
-app.set('PORT', 3000);
+app.set('PORT', 3001);
 
-app.use((err, req, res, next) => {
-  res.render('500', {errMessage: err.message});
-});
+// app.use((err, req, res, next) => {
+//   res.end(err || 'error');
+//   // res.render('500', {errMessage: err.message});
+// });
 
 module.exports = app;
