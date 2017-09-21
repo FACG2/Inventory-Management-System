@@ -26,9 +26,12 @@ app.use(routes);
 
 app.set('PORT', 3001);
 
-// app.use((err, req, res, next) => {
-//   res.end(err || 'error');
-//   // res.render('500', {errMessage: err.message});
-// });
+app.use((err, req, res, next) => {
+  if (err) {
+    res.send(JSON.stringify(err));
+  } else {
+    res.send('error');
+  }
+});
 
 module.exports = app;
