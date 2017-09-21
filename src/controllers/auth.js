@@ -1,94 +1,11 @@
-// const signUpHelper = require('../helpers/sign_up');
-// const loginHelper = require('../helpers/login');
-//
-// const signup = (req, res, next) => {
-//   signUpHelper();
-// };
-//
-// const login = (req, res, next) => {
-//   loginHelper.login(req, res, next);
-// };
-//
-// module.exports = {
-//   signup,
-//   login
-// };
-// const {validateRegistration} = require('../helpers/validation');
-// const {generateToken} = require('../helpers/generateToken');
-// const db = require('../models/db_functions/index');
-// const cookie = require('cookie');
-// // const jwt = require('jsonwebtoken');
-// const bcrypt = require('bcrypt');
-
-// const signup = (req, res, next) => {
-//
-// };
-
-// const signup = (req, res, next) => {
-//   if (!req.headers.cookie) {
-//     // const {token} = cookie.parse(req.headers.cookie);
-//     // if (token) {
-//       // res.redirect('/');
-//     // }
-//     if (req.body.password === req.body.confirmPassword) {
-//       bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
-//         if (err) {
-//           console.log(err, ' error 1');
-//           res.redirect('/');
-//         } else {
-//           const data = {
-//             name: req.body.name,
-//             username: req.body.username,
-//             email: req.body.email,
-//             password: hashedPassword,
-//             role: '0'
-//           };
-//           validateRegistration(data, (err1, result) => {
-//             if (err1) {
-//               console.log(err1, 'error 2');
-//               // next(err1);
-//               res.redirect('/');
-//             } else {
-//               db.Users.addUser(data, (error, userFromDB) => {
-//                 if (error) {
-//                   console.log(error, 'error 3');
-//                   res.redirect('/');
-//                 } else {
-//                   const tokenObj = {
-//                     id: userFromDB.id,
-//                     username: userFromDB.username
-//                   };
-//                   req.user = tokenObj;
-//                 // generation token
-//                   generateToken(tokenObj, (err2, results) => {
-//                     if (err2) {
-//                       console.log(err2, 'error 4');
-//                       res.redirect('/');
-//                     } else {
-//                       results.redirect('/home');
-//                       // next();
-//                     }
-//                   });
-//                 }
-//               });
-//             }
-//           });
-//         }
-//       });
-//     }
-//   } else {
-//     res.redirect('/');
-//   }
-// };
-
 require('env2')('config.env');
 const db = require('../models/db_functions/index');
-// const cookie = require('cookie');
+const cookie = require('cookie');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const {generateToken} = require('../helpers/generateToken');
 
 const signup = (req, res) => {
-  // console.log(Array.isArray(req.body.password), 'req.body.password value');
   bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
     if (err) {
       console.log(err, 'error 1');
@@ -125,6 +42,67 @@ const signup = (req, res) => {
   });
 };
 
+const signIn = (req, res, next) => {
+  if (req.headers.cookie) {
+    const {token} = cookie.parse(req.headers.cookie);
+    if (token) {
+      res.redirect('/home');
+    } else {
+      res.redirect('/logout');
+    }
+  } else {
+    bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
+      if (err) {
+        console.log(err);
+        next(err);
+      } else {
+        db.Users.getUserByName(req.body.username, (err1, userFromDB) => {
+          if (err1) {
+            console.log(err1);
+            next(err1);
+          } else {
+            if (userFromDB) {
+              bcrypt.compare(req.body.password, hashedPassword, (err2, result) => {
+                if (err2) {
+                  console.log(err2);
+                  next(err2);
+                } else {
+                  if (result) {
+                    const tokenObj = {
+                      id: userFromDB.id,
+                      username: userFromDB.username
+                    };
+                    generateToken(tokenObj, (err3, token) => {
+                      if (err3) {
+                        console.log(err3);
+                        next(err3);
+                      } else {
+                        res.setHeader('Set-Cookie', `token=${token}; Max-Age=99999`);
+                        res.redirect('/home');
+                      }
+                    });
+                  } else {
+                    next({message: 'error hashing password'});
+                  }
+                }
+              });
+            } else {
+              res.redirect('/logout');
+            }
+          }
+        });
+      }
+    });
+  }
+};
+
+const logout = (req, res) => {
+  res.setHeader('Set-Cookie', `token=0; Max-Age=0`);
+  res.redirect('/');
+};
+
 module.exports = {
-  signup
+  signup,
+  logout,
+  signIn
 };
