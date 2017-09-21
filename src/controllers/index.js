@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const landing = require('./landing');
-// const db = require('../models/db_functions/index');
-// const signup = require('../middlewares/sign_up.js');
 const profile = require('./profile');
 
 const authController = require('./auth');
+const error = require('./error');
 const authMiddleware = require('../middlewares/auth');
+
 
 router.get('/', authMiddleware.checkAuth, landing.get);
 router.get('/profile', authMiddleware.checkAuth, profile.get);
@@ -17,6 +17,8 @@ router.get('/logout', authController.logout);
 router.get('/home', authMiddleware.checkAuth, (req, res) => {
   res.send('Home Page!!');
 });
+router.use(error.client);
+router.use(error.server);
 
 router.get('/test', authMiddleware.checkAuth, (req, res) => {
   res.send('secret route');
