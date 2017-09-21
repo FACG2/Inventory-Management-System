@@ -1,40 +1,122 @@
-<link rel='stylesheet' href='/css/inventory.css' />
 
-<div class = 'containar'>
-  <button class="button1">تقارير</button>
-  <button class="button2">رسم بياني</button>
+{{>homeHeader}}
+<main class='main'>
 
-<div class='good1'>
-  <div class="polaroid1">
-  <img src="http://omnas.com/landingpages/new/uploads/Inventory-Screen2.png" alt="Norway" style="width:100%">
-</div>
-<div class="shadow1">
-  <li> الاسم: قمصان </li>
-  <li> الكمية: 5 وحدات </li>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' />
+  <link rel='stylesheet' href='/css/inventory.css' />
+
+  <!-- Start Add Good Modal -->
+  <div class='add-good-modal modal'>
+    <div class='modal-content add-good-modal-content'>
+      <span class='close add-good-close' id='add-goodClose'>&times;</span>
+        <form action='/goods/new' method='POST'>
+          <label for='add-good-name'>الاسم <input type='text' class='txt' id='add-good-name' name='goodName' placeholder='ادخل الاسم' required /></label>
+          <br />
+          <label for='add-good-username'>النوع  <input type='text' class='txt' id='add-good-username' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
+          <br />
+          <label for='add-good-email'>تاريخ الانتهاء<input type='date' class='txt' id='add-good-email' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate'/></label>
+          <label for='add-good-password'>صورة الصنف<input type='file' class='txt' id='add-good-password' name='image' placeholder='أدخل كلمة المرور' required /></label>
+          <!-- <br /> -->
+          <!-- <label for='add-good-password'>تأكيد كلمة المرور <input type='password' class='txt' id='add-good-password' name='confirmPassword' placeholder='أدخل كلمة المرور' required /></label> -->
+          <div class='image-place-holder'>
+            <img class='image-inside-div' src='https://lh3.googleusercontent.com/gN6iBKP1b2GTXZZoCxhyXiYIAh8QJ_8xzlhEK6csyDadA4GdkEdIEy9Bc8s5jozt1g=w300' alt='صورة الصنف'  />
+          </div>
+          <br />
+          <br />
+          <div class='buttons'>
+            <input type='submit' value='تسجيل' class='submit-btn'/>
+            <a href='#' id='showSignInModal'>تمتلك حساب ؟ تسجيل الدخول</a>
+          </div>
+        </form>
+    </div>
   </div>
-</div>
+  <!-- End Add Good Modal -->
 
-<div class='good2'>
-  <div class="polaroid">
-  <img src="http://omnas.com/landingpages/new/uploads/Inventory-Screen2.png" alt="Norway" style="width:100%">
-</div>
-<div class="shadow2">
-  <li> الاسم: قمصان </li>
-  <li> الكمية: 5 وحدات </li>
+  <!-- Start Edit Good Modal -->
+  <div class='edit-good-modal modal'>
+    <div class='modal-content edit-good-modal-content'>
+      <span class='close edit-good-close' id='edit-goodClose'>&times;</span>
+        <form action='/goods/new' method='POST'>
+          <label for='edit-good-name'>الاسم <input type='text' class='txt' id='edit-good-name' name='goodName' placeholder='ادخل الاسم' required /></label>
+          <br />
+          <label for='edit-good-username'>النوع  <input type='text' class='txt' id='edit-good-username' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
+          <br />
+          <label for='edit-good-email'>تاريخ الانتهاء<input type='date' class='txt' id='edit-good-email' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate'/></label>
+          <label for='edit-good-password'>صورة الصنف<input type='file' class='txt' id='edit-good-password' name='image' placeholder='أدخل كلمة المرور' required /></label>
+          <div class='image-place-holder'>
+            <img class='image-inside-div' src='https://lh3.googleusercontent.com/gN6iBKP1b2GTXZZoCxhyXiYIAh8QJ_8xzlhEK6csyDadA4GdkEdIEy9Bc8s5jozt1g=w300' alt='صورة الصنف'  />
+          </div>
+          <br />
+          <br />
+          <div class='buttons'>
+            <input type='submit' value='تسجيل' class='submit-btn'/>
+            <a href='#' id='showSignInModal'>تمتلك حساب ؟ تسجيل الدخول</a>
+          </div>
+        </form>
+    </div>
   </div>
-</div>
+  <!-- End Edit Good Modal -->
+  <div class='container'>
+    <div class='page-content'>
+      <div class='page-buttons'>
+        <a href='#' class='btn'>التقارير</a>
+        <a href='#' class='btn'>رسم بياني</a>
+        <a href='#' class='btn add-good-btn'>إضافة صنف جديد</a>
+        <label class=''>حالة المخزن: <span class=''>الحالة</span></label>
+      </div>
 
-<div class='good'>
-  <div class="polaroid">
-  <img src="http://omnas.com/landingpages/new/uploads/Inventory-Screen2.png" alt="Norway" style="width:100%">
-</div>
-<div class="shadow">
-  <li> الاسم: قمصان </li>
-  <li> الكمية: 5 وحدات </li>
+      <div class='goods'>
+
+        <div class='good'>
+          <div class='good-description'>
+            <a class='delete-good-btn'>&times;</a> <span class='edit-good-btn'><i class='fa fa-edit'></i></span>
+              <span class='text'>
+                <label class='desc-txt'>الاسم: قميص</label>
+                <label class='desc-txt'>النوع: ملابس</label>
+                <label class='desc-txt'>تاريخ الشحن: 15/9/2017</label>
+                <label class='desc-txt'>تاريخ الانتهاء: لا يوجد</label>
+                <label class='desc-txt'>الكمية: 100</label>
+              </span>
+              <button class='incr-btn good-btn'>+</button>
+              <button class='decr-btn good-btn'>-</button>
+          </div>
+        </div>
+        <div class='good'>
+          <div class='good-description'>
+            <a class='delete-good-btn'>&times;</a> <span class='edit-good-btn'><i class='fa fa-edit'></i></span>
+              <span class='text'>
+                <label class='desc-txt'>الاسم: قميص</label>
+                <label class='desc-txt'>النوع: ملابس</label>
+                <label class='desc-txt'>تاريخ الشحن: 15/9/2017</label>
+                <label class='desc-txt'>تاريخ الانتهاء: لا يوجد</label>
+                <label class='desc-txt'>الكمية: 100</label>
+              </span>
+              <button class='incr-btn good-btn'>+</button>
+              <button class='decr-btn good-btn'>-</button>
+          </div>
+        </div>
+        <div class='good'>
+          <div class='good-description'>
+            <a class='delete-good-btn'>&times;</a> <span class='edit-good-btn'><i class='fa fa-edit'></i></span>
+              <span class='text'>
+                <label class='desc-txt'>الاسم: قميص</label>
+                <label class='desc-txt'>النوع: ملابس</label>
+                <label class='desc-txt'>تاريخ الشحن: 15/9/2017</label>
+                <label class='desc-txt'>تاريخ الانتهاء: لا يوجد</label>
+                <label class='desc-txt'>الكمية: 100</label>
+              </span>
+              <button class='incr-btn good-btn'>+</button>
+              <button class='decr-btn good-btn'>-</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
   </div>
-</div>
+</main>
 
-
-
-
-</div> <!-- container -->
+<script src='/js/inventory.js'></script>
