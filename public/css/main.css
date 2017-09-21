@@ -12,6 +12,9 @@ body{
   max-width: 1200px;
   margin: auto;
 }
+.main {
+  flex: 1;
+}
 
 .nav-bar{
   height: 50px;
@@ -118,3 +121,36 @@ body{
   height: auto;
 }
 /* End Modal Styling */
+
+
+.main {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+
+/*error*/
+
+.error {
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+  flex-wrap: wrap;
+}
+
+.error__desc {
+  text-align: center;
+  font-size: 3em;
+}
+
+.error__msg {
+  /*color: #999;*/
+   color: rgba(0 , 0 , 0 , 0.5);
+}
+
+.error__image{
+    width: 60%;
+    height: 40%;
+    background-size: cover;
+    background-position: center;
+}

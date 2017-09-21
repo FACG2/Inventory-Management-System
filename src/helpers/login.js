@@ -1,4 +1,4 @@
-const {verifyToken} = require('./verifyToken');
+// const {verifyToken} = require('./verifyToken');
 const cookie = require('cookie');
 const generateToken = require('./generateToken');
 const db = require('../models/db_functions/index');
@@ -8,13 +8,7 @@ const login = (req, res, next) => {
   if (req.headers.cookie) {
     const {token} = cookie.parse(req.headers.cookie);
     if (token) {
-      verifyToken(token, (err, decoded) => {
-        if (err) {
-          next(err);
-        } else {
-          res.redirect('/home');
-        }
-      });
+      res.redirect('/home');
     } else {
       next({message: 'You are not allowed to login again'});
     }

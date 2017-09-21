@@ -3,7 +3,9 @@ const db = require('../models/db_functions/index');
 const cookie = require('cookie');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+
 const {generateToken} = require('../helpers/generateToken');
+
 
 const signup = (req, res) => {
   bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
