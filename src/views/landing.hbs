@@ -1,8 +1,11 @@
+{{>header}}
+
 <link rel='stylesheet' href='/css/landing.css' />
 
-<div class='signin-modal modal'>
-  <div class='modal-content signin-modal-content'>
-    <span class='close signin-close' id='signinClose'>&times;</span>
+<main class='main'>
+  <div class='signin-modal modal'>
+    <div class='modal-content signin-modal-content'>
+      <span class='close signin-close' id='signinClose'>&times;</span>
       <form action='/sign-in' method='POST'>
         <label for='signin-username'>اسم المستخدم <input type='text' class='txt' id='signin-username' name='username' placeholder='أدخل اسم المستخدم' required /></label>
         <br />
@@ -14,12 +17,12 @@
           <a href='#' id='showSignUpModal'>لا تمتلك حساب؟ أنشأ حساب</a>
         </div>
       </form>
+    </div>
   </div>
-</div>
 
-<div class='signup-modal modal'>
-  <div class='modal-content signup-modal-content'>
-    <span class='close signup-close' id='signupClose'>&times;</span>
+  <div class='signup-modal modal'>
+    <div class='modal-content signup-modal-content'>
+      <span class='close signup-close' id='signupClose'>&times;</span>
       <form action='/sign-up' method='POST'>
         <label for='signup-name'>الاسم <input type='text' class='txt' id='signup-name' name='name' placeholder='ادخل الاسم' required /></label>
         <br />
@@ -36,132 +39,134 @@
           <a href='#' id='showSignInModal'>تمتلك حساب ؟ تسجيل الدخول</a>
         </div>
       </form>
-  </div>
-</div>
-
-<div class='container'>
-
-  <div class='welcome'>
-    <h1 class='app-title'>نظام إدارة المخازن</h1>
-    <br />
-    <p class='app-description'>
-      نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازننظام إدارة المخازننظام إدارة المخازننظام إدارة المخازننظام إدارة المخازن نظام إدارة المخازن
-      نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازننظام إدارة المخازننظام إدارة المخازننظام إدارة المخازننظام إدارة المخازن نظام إدارة المخازن
-    </p>
+    </div>
   </div>
 
-  <section class='first-section'>
-    <div class='image-div'>
-      <img src='http://omnas.com/landingpages/new/uploads/Inventory-Screen2.png' alt='Descriptive Image'/>
-    </div>
-    <div class='description'>
-      <h3>نظام إدارة المخازن</h3>
-      <ul>
-        <li>
-          1
-        </li>
-        <li>
-          2
-        </li>
-        <li>
-          3
-        </li>
-        <li>
-          4
-        </li>
-        <li>
-          5
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <div class='clear'></div>
-  <hr />
-
-  <section class='second-section'>
-    <div class='image-div-reversed'>
-      <img src='http://omnas.com/landingpages/new/uploads/Inventory-Screen2.png' alt='Descriptive Image'/>
-    </div>
-    <div class='description-reversed'>
-      <h3>نظام إدارة المخازن</h3>
-      <ul>
-        <li>
-          1
-        </li>
-        <li>
-          2
-        </li>
-        <li>
-          3
-        </li>
-        <li>
-          4
-        </li>
-        <li>
-          5
-        </li>
-      </ul>
-    </div>
-  </section>
-<!-- </div> -->
-
-  <div class='clear'></div>
-  <hr />
-
-  <section class='third-section'>
-    <div class='image-div'>
-      <img src='http://omnas.com/landingpages/new/uploads/Inventory-Screen2.png' alt='Descriptive Image'/>
-    </div>
-    <div class='description'>
-      <h3>نظام إدارة المخازن</h3>
-      <ul>
-        <li>
-          1
-        </li>
-        <li>
-          2
-        </li>
-        <li>
-          3
-        </li>
-        <li>
-          4
-        </li>
-        <li>
-          5
-        </li>
-      </ul>
-    </div>
-  </section>
-  <div class='clear'></div>
-</div>
-
-<footer class='footer'>
   <div class='container'>
 
-    <section class='contact-us'>
-      <h2 class='contact-us-header'>تواصل معنا</h2>
-      <form action='/contact-us' method='POST'>
-        <div class='right-div'>
-          <label for='name'>الاسم <input type='text' id='name' class='txt' name='name' placeholder='ادخل الاسم' /></label>
-          <label for='email'>البريد الالكتروني <input type='email' id='email' class='txt' name='email' placeholder='ادخل البريد الالكتروني' /></label>
-        </div>
-        <div class='left-div'>
-          <label>محتوى الرسالة <br /><textarea class='txt-area'></textarea></label>
-          <input type='submit' value='إرسال'  class='submit-btn reversed'/>
-        </div>
-        <div class='clear'></div>
-      </form>
+    <div class='welcome'>
+      <h1 class='app-title'>نظام إدارة المخازن</h1>
+      <br />
+      <p class='app-description'>
+        نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازننظام إدارة المخازننظام إدارة المخازننظام إدارة المخازننظام إدارة المخازن نظام إدارة المخازن
+        نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازن نظام إدارة المخازننظام إدارة المخازننظام إدارة المخازننظام إدارة المخازننظام إدارة المخازن نظام إدارة المخازن
+      </p>
+    </div>
+
+    <section class='first-section'>
+      <div class='image-div'>
+        <img src='http://omnas.com/landingpages/new/uploads/Inventory-Screen2.png' alt='Descriptive Image'/>
+      </div>
+      <div class='description'>
+        <h3>نظام إدارة المخازن</h3>
+        <ul>
+          <li>
+            1
+          </li>
+          <li>
+            2
+          </li>
+          <li>
+            3
+          </li>
+          <li>
+            4
+          </li>
+          <li>
+            5
+          </li>
+        </ul>
+      </div>
     </section>
 
+    <div class='clear'></div>
+    <hr />
+
+    <section class='second-section'>
+      <div class='image-div-reversed'>
+        <img src='http://omnas.com/landingpages/new/uploads/Inventory-Screen2.png' alt='Descriptive Image'/>
+      </div>
+      <div class='description-reversed'>
+        <h3>نظام إدارة المخازن</h3>
+        <ul>
+          <li>
+            1
+          </li>
+          <li>
+            2
+          </li>
+          <li>
+            3
+          </li>
+          <li>
+            4
+          </li>
+          <li>
+            5
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- </div> -->
+
+    <div class='clear'></div>
+    <hr />
+
+    <section class='third-section'>
+      <div class='image-div'>
+        <img src='http://omnas.com/landingpages/new/uploads/Inventory-Screen2.png' alt='Descriptive Image'/>
+      </div>
+      <div class='description'>
+        <h3>نظام إدارة المخازن</h3>
+        <ul>
+          <li>
+            1
+          </li>
+          <li>
+            2
+          </li>
+          <li>
+            3
+          </li>
+          <li>
+            4
+          </li>
+          <li>
+            5
+          </li>
+        </ul>
+      </div>
+    </section>
+    <div class='clear'></div>
   </div>
-  <div class='end-footer'>
-    <p>
-      Powered By Triple S Team &copy;
-    </p>
-  </div>
-</footer>
+
+  <footer class='footer'>
+    <div class='container'>
+
+      <section class='contact-us'>
+        <h2 class='contact-us-header'>تواصل معنا</h2>
+        <form action='/contact-us' method='POST'>
+          <div class='right-div'>
+            <label for='name'>الاسم <input type='text' id='name' class='txt' name='name' placeholder='ادخل الاسم' /></label>
+            <label for='email'>البريد الالكتروني <input type='email' id='email' class='txt' name='email' placeholder='ادخل البريد الالكتروني' /></label>
+          </div>
+          <div class='left-div'>
+            <label>محتوى الرسالة <br /><textarea class='txt-area'></textarea></label>
+            <input type='submit' value='إرسال'  class='submit-btn reversed'/>
+          </div>
+          <div class='clear'></div>
+        </form>
+      </section>
+
+    </div>
+    <div class='end-footer'>
+      <p>
+        Powered By Triple S Team &copy;
+      </p>
+    </div>
+  </footer>
+</main>
+
 
 
 

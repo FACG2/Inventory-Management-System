@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const landing = require('./landing');
 const profile = require('./profile');
+const home = require('./inventory');
 
 const authController = require('./auth');
 const error = require('./error');
@@ -14,9 +15,8 @@ router.post('/sign-up', authController.signup);
 router.post('/sign-in', authController.signIn);
 router.get('/logout', authController.logout);
 
-router.get('/home', authMiddleware.checkAuth, (req, res) => {
-  res.send('Home Page!!');
-});
+
+router.get('/home', authMiddleware.checkAuth, home.get);
 router.use(error.client);
 router.use(error.server);
 
