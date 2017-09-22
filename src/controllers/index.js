@@ -4,6 +4,7 @@ const landing = require('./landing');
 const profile = require('./profile');
 const home = require('./inventory');
 const addGoods = require('./addGoods');
+const updateGood = require('./goods.js');
 // const fs = require('fs');
 
 const authController = require('./auth');
@@ -16,7 +17,7 @@ router.post('/sign-up', authController.signup);
 router.post('/sign-in', authController.signIn);
 router.get('/logout', authController.logout);
 router.get('/goods/add', addGoods.get);
-router.post('/goods/add', addGoods.post);
+router.post('/goods/new', updateGood.post);
 
 router.get('/home', authMiddleware.checkAuth, home.get);
 router.use(error.client);
@@ -26,7 +27,7 @@ router.post('/goods/new', (req, res) => {
   console.log(req.body);
   console.log(typeof req.body.image);
   // fs.write
-  res.redirect('/home');
+  res.redirect('/goods/new');
 });
 
 router.use(error.client);
