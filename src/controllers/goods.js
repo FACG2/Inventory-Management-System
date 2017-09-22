@@ -15,7 +15,7 @@ function getEditGood (req, res, next) {
     if (err) {
       next(err);
     } else {
-      res.render('editGood', {good: good[0], name: 'Edit good', csspath: '/css/inventory.css'});
+      res.render('EditGood', {good: good[0], name: 'Edit good', csspath: '/css/inventory.css'});
     }
   });
 }
@@ -29,7 +29,7 @@ function post (req, res, next) {
     if (err) {
       next(err);
     } else {
-      res.redirect('/goods/new/' + req.parms.id);
+      res.redirect('/home' + req.parms.id);
     }
   });
 }

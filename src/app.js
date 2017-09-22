@@ -24,7 +24,7 @@ app.engine('hbs', expressHandlebars({
 
 app.use(routes);
 
-app.set('PORT', 4000);
+app.set('PORT', 3000);
 
 app.use((err, req, res, next) => {
   if (err) {
