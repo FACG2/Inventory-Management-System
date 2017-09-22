@@ -39,6 +39,17 @@ test('Get all goods', (t) => {
   });
 });
 
+// Get good by id
+test('get good by id', (t) => {
+  var id = 1;
+  Goods.getgoodById(id, (err, data) => {
+    t.equal(err, null, 'error should be null');
+    t.equal(data.length, 1, 'should retrun an array with only one object');
+    t.equal(data[0].id, id, 'should retrun the same id');
+    t.end();
+  });
+});
+
 // 3. Update goods
 test('test Update goods', (t) => {
   var good = {
@@ -52,7 +63,7 @@ test('test Update goods', (t) => {
     inventory_id: 1
   };
   Goods.updateGoods(good, (err, res) => {
-    console.log(res);
+    // console.log(res);
     t.equal(err, null, 'Should be null');
     // t.equal(res.type, good.type, `${res.type} should be equal ${good.type}`);
     // t.equal(res.hasOwnProperty('id'), true, 'should equal true');
