@@ -17,19 +17,6 @@ const dbConnection = require('../Database/db_connection.js');
 //   });
 // };
 
-const getAllGoods = (cb) => {
-  const sql = {
-    text: 'SELECT * FROM goods'
-  };
-  dbConnection.query(sql, (err, res) => {
-    if (err) {
-      cb(err);
-    } else {
-      cb(null, res.rows);
-    }
-  });
-};
-
 const getGoodsById = (id, cb) => {
   dbConnection.query({
     text: 'SELECT * FROM goods WHERE id =$1',
@@ -39,6 +26,19 @@ const getGoodsById = (id, cb) => {
       cb(err);
     } else {
       cb(null, goods.rows);
+    }
+  });
+};
+
+const getAllGoods = (cb) => {
+  const sql = {
+    text: 'SELECT * FROM goods'
+  };
+  dbConnection.query(sql, (err, res) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, res.rows);
     }
   });
 };

@@ -90,18 +90,21 @@
 }
 
 .add-good-modal{
-  position: fixed;
+  /*position: fixed;*/
+  /*background-color: rgba(0,140,186 , 0.3);*/
+  /*background-color: rgba(0 , 0 , 0 , 0.5);*/
+  /*padding-top: 0px;*/
 }
 
 .edit-good-btn{
   cursor: pointer;
 }
 
-.image-placeholder{
+/*.image-placeholder{
   height: 100px;
   width: auto;
 }
 
 .image-placeholder .image-inside-div{
   max-height: 50px;
-}
+}*/

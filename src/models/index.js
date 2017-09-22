@@ -1,8 +1,8 @@
 const goodsQuery = require('./db_functions');
 
 module.exports = {
-  getAllGoods: goodsQuery.getAll,
   getGoodsById: goodsQuery.getGoodsById,
+  getAllGoods: goodsQuery.getAll,
   postAddGoods: goodsQuery.addGoods
 
 };

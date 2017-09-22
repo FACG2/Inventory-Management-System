@@ -5,12 +5,12 @@ function get (req, res) {
 }
 
 function post (req, res, next) {
-  const Data = {
+  const data = {
     body: req.bod
     // params: req.params
   };
 
-  queries.addGoods(Data, (err, result) => {
+  queries.addGoods(data, (err, result) => {
     if (err) {
       console.log(err);
       next(err);
