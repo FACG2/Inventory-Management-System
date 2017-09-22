@@ -39,8 +39,7 @@ const getGoodsById = (id, cb) => {
 
 const addGoods = (req, cb) => {
   dbConnection.query({
-    text: `SELECT * FROM inventories WHERE name=$1`,
-    values: [req.body.name]
+    text: `SELECT * FROM inventories WHERE id=1`
   }, (err, inventory) => {
     if (err) {
       cb(err);
@@ -49,7 +48,7 @@ const addGoods = (req, cb) => {
       VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;`;
       dbConnection.query({
         text: sql,
-        values: [req.body.name, req.body.quantity, req.body.type, req.body.charge_date, req.body.image, req.body.expiry_date, inventory.rows[0].id]},
+        values: [req.body.goodName, req.body.goodQuantity, req.body.goodType, req.body.chargeDate, req.body.image, req.body.expiryDate, inventory.rows[0].id]},
         (error, res1) => {
           if (error) {
             cb(error);
