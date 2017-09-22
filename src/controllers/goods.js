@@ -5,7 +5,7 @@ function get (req, res, next) {
     if (err) {
       next(err);
     } else {
-      res.render('good', {good: good[0], name: good[0].name, type: good[0].type, expiry_date: good[0].expiry_date, csspath: '/css/inventory.css'});
+      res.render('good', {title: 'Edit Goods', csspath: '/css/inventory.css'});
     }
   });
 }
