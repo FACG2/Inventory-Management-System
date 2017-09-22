@@ -16,7 +16,7 @@ CREATE TABLE users (
 
 CREATE TABLE inventories(
   id SERIAL PRIMARY KEY,
-  name VARCHAR NOT NULL,
+  name VARCHAR UNIQUE NOT NULL,
   location VARCHAR NOT NULL,
   capacity VARCHAR not NULL,
   status VARCHAR,

@@ -9,13 +9,18 @@
   <div class='add-good-modal modal'>
     <div class='modal-content add-good-modal-content'>
       <span class='close add-good-close' id='add-goodClose'>&times;</span>
-        <form action='/goods/new' method='POST'>
+        <form action='/goods/add' method='POST'>
           <label for='add-good-name'>الاسم <input type='text' class='txt' id='add-good-name' name='goodName' placeholder='ادخل الاسم' required /></label>
           <br />
-          <label for='add-good-username'>النوع  <input type='text' class='txt' id='add-good-username' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
+          <label for='add-good-goodType'>النوع  <input type='text' class='txt' id='add-good-goodType' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
           <br />
-          <label for='add-good-email'>تاريخ الانتهاء<input type='date' class='txt' id='add-good-email' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate'/></label>
-          <label for='add-good-password'>صورة الصنف<input type='file' class='txt' id='add-good-password' name='image' placeholder='أدخل كلمة المرور' required /></label>
+          <label for='edit-good-charge_date'>تاريخ الشحن <input type='date' class='txt' id='edit-good-charge_date' placeholder='ادخل تاريخ الشحن'  name='expiryDate'/></label>
+          <br />
+          <label for='add-good-expiryDate'>تاريخ الانتهاء<input type='date' class='txt' id='add-good-expiryDate' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate'/></label>
+          <br />
+          <label for='add-good-quantity'>الكمية<input type='text' class='txt' id='add-good-quantity' placeholder='ادخل الكمية'  name='quantity'/></label>
+          <br />
+        <label for='add-good-password'>صورة الصنف<input type='file' class='txt' id='add-good-password' name='image' placeholder='أدخل كلمة المرور' required /></label>
           <!-- <br /> -->
           <!-- <label for='add-good-password'>تأكيد كلمة المرور <input type='password' class='txt' id='add-good-password' name='confirmPassword' placeholder='أدخل كلمة المرور' required /></label> -->
           <div class='image-place-holder'>
@@ -24,8 +29,8 @@
           <br />
           <br />
           <div class='buttons'>
-            <input type='submit' value='تسجيل' class='submit-btn'/>
-            <a href='#' id='showSignInModal'>تمتلك حساب ؟ تسجيل الدخول</a>
+            <input type='submit' value='اضافة' class='submit-btn'/>
+            <!-- <a href='#' id='showSignInModal'>تمتلك حساب ؟ تسجيل الدخول</a> -->
           </div>
         </form>
     </div>
