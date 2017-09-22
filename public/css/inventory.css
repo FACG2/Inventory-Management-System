@@ -33,7 +33,7 @@
   width: 200px;
   background-color: #008CBA;
   color: #FFF;
-  transition: text-indent 0.5s;
+  transition: 0.5s;
   display: inline;
   float: right;
   margin: 20px;
@@ -86,7 +86,7 @@
 }
 
 .text:hover{
-  text-indent: -11em;
+  text-indent: -110em;
 }
 
 .add-good-modal{
