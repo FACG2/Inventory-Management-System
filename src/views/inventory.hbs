@@ -14,7 +14,9 @@
           <br />
           <label for='add-good-goodType'>النوع  <input type='text' class='txt' id='add-good-goodType' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
           <br />
-          <label for='edit-good-charge_date'>تاريخ الشحن <input type='date' class='txt' id='edit-good-charge_date' placeholder='ادخل تاريخ الشحن'  name='expiryDate'/></label>
+          <label for='edit-good-charge_date'>تاريخ الشحن <input type='date' class='txt' id='edit-good-charge_date' placeholder='ادخل تاريخ الشحن'  name='chargeDate'/></label>
+          <br />
+          <label for='edit-good-quantity'>الكمية<input type='text' class='txt' id='edit-good-quantity' placeholder='ادخل تاريخ الشحن'  name='goodQuantity'/></label>
           <br />
 
           <label for='add-good-email'>تاريخ الانتهاء<input type='date' class='txt' id='add-good-email' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate'/></label>
@@ -64,49 +66,22 @@
 
       <div class='goods'>
 
+        {{#each result}}
         <div class='good'>
           <div class='good-description'>
             <a class='delete-good-btn'>&times;</a> <span class='edit-good-btn'><i class='fa fa-edit'></i></span>
               <span class='text'>
-                <label for='good-name' class='desc-txt'>الاسم: قميص</label>
-                <input type='text' class='hidden' id='good-name' />
-                <label class='desc-txt'>النوع: ملابس</label>
-                <label class='desc-txt'>تاريخ الشحن: 15/9/2017</label>
-                <label class='desc-txt'>تاريخ الانتهاء: لا يوجد</label>
-                <label class='desc-txt'>الكمية: 100</label>
+                <label class='desc-txt'>الاسم: {{this.name}}</label>
+                <label class='desc-txt'>النوع: {{this.type}}</label>
+                <label class='desc-txt'>تاريخ الشحن: {{this.charge_date}}</label>
+                <label class='desc-txt'>تاريخ الانتهاء: {{this.expiry_date}}</label>
+                <label class='desc-txt'>الكمية: {{this.quantity}}</label>
               </span>
               <button class='incr-btn good-btn'>+</button>
               <button class='decr-btn good-btn'>-</button>
           </div>
         </div>
-        <div class='good'>
-          <div class='good-description'>
-            <a class='delete-good-btn'>&times;</a> <span class='edit-good-btn'><i class='fa fa-edit'></i></span>
-              <span class='text'>
-                <label class='desc-txt'>الاسم: قميص</label>
-                <label class='desc-txt'>النوع: ملابس</label>
-                <label class='desc-txt'>تاريخ الشحن: 15/9/2017</label>
-                <label class='desc-txt'>تاريخ الانتهاء: لا يوجد</label>
-                <label class='desc-txt'>الكمية: 100</label>
-              </span>
-              <button class='incr-btn good-btn'>+</button>
-              <button class='decr-btn good-btn'>-</button>
-          </div>
-        </div>
-        <div class='good'>
-          <div class='good-description'>
-            <a class='delete-good-btn'>&times;</a> <span class='edit-good-btn'><i class='fa fa-edit'></i></span>
-              <span class='text'>
-                <label class='desc-txt'>الاسم: قميص</label>
-                <label class='desc-txt'>النوع: ملابس</label>
-                <label class='desc-txt'>تاريخ الشحن: 15/9/2017</label>
-                <label class='desc-txt'>تاريخ الانتهاء: لا يوجد</label>
-                <label class='desc-txt'>الكمية: 100</label>
-              </span>
-              <button class='incr-btn good-btn'>+</button>
-              <button class='decr-btn good-btn'>-</button>
-          </div>
-        </div>
+        {{/each}}
 
       </div>
 
