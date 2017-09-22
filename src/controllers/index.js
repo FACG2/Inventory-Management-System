@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const landing = require('./landing');
 const profile = require('./profile');
+const home = require('./inventory');
+const fs = require('fs');
 
 const authController = require('./auth');
 const error = require('./error');
@@ -14,18 +16,27 @@ router.post('/sign-up', authController.signup);
 router.post('/sign-in', authController.signIn);
 router.get('/logout', authController.logout);
 
-router.get('/home', authMiddleware.checkAuth, (req, res) => {
-  res.send('Home Page!!');
-});
+
+router.get('/home', authMiddleware.checkAuth, home.get);
 router.use(error.client);
 router.use(error.server);
 
-router.get('/test', authMiddleware.checkAuth, (req, res) => {
-  res.send('secret route');
+router.post('/goods/new', (req, res) => {
+  console.log(req.body);
+  console.log(typeof req.body.image);
+  // fs.write
+  res.redirect('/home');
 });
 
+router.use(error.client);
+router.use(error.server);
+
+// router.get('/test', authMiddleware.checkAuth, (req, res) => {
+//   res.send('secret route');
+// });
+
 router.get('*', (req, res) => {
-  res.send('404 Page Not Found!!!');
+  res.send('500 Internal Server Error!!!');
 });
 
 module.exports = router;

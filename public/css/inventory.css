@@ -1,117 +1,111 @@
-.button1{
-  padding-top: 40px;
-      text-align: center;
-      padding: 6px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 100px 100px;
-       -webkit-transition-duration: 0.4s;
-      transition-duration: 0.4s;
-      cursor: pointer;
-      background-color: #008CBA ;
-      color: black;
-      border: 2px solid #008CBA;
+
+.page-content{
+  padding-top: 100px;
 }
 
-.button1:hover {
-    background-color: white;
-    color: #008CBA;
+.btn{
+  padding: 5px;
+  margin: 3px;
+  width: 100px;
+  height: 60px;
+  text-decoration: none;
+  background-color: #008CBA;
+  color: #FFF;
+  transition: 0.4s;
+  border-radius: 5px;
 }
 
-.button2{
-  padding-top: 40px;
-      text-align: center;
-      padding: 6px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 100px -40px;
-      -webkit-transition-duration: 0.4s;
-      transition-duration: 0.4s;
-      cursor: pointer;
-      background-color: #008CBA ;
-      color: black;
-      border: 2px solid #008CBA;
+.btn:hover{
+  background-color: #FFF;
+  color: #008CBA;
 }
 
-.button2:hover {
-    background-color: white;
-    color: #008CBA;
-}
-
-
-
-
-.shadow1 {
-
-margin: 2px 86px;
-width: 300px;
-height: 200px;
-background: #008cba;
-margin-top: -25px;
-
-text-align: center;
-text-decoration: none;
-display: inline-block;
-}
-
-.good1{
-  float: left;
-}
-
-div.polaroid1 {
-    width: 22%;
-    /* margin-bottom: 10px; */
-    padding: 0px 85px;
-}
-
-
-.shadow2 {
-
-margin: 2px 86px;
-width: 300px;
-height: 200px;
-background: #008cba;
-margin-top: -25px;
-
-text-align: center;
-text-decoration: none;
-display: inline-block;
-}
-
-.good2{
-  float: left;
-}
-
-div.polaroid2 {
-    width: 22%;
-    /* margin-bottom: 10px; */
-    padding: 0px 85px;
-}
-
-.shadow {
-margin: 2px 86px;
-width: 300px;
-height: 200px;
-background: #008cba;
-margin-top: -25px;
-
-text-align: center;
-text-decoration: none;
-display: inline-block;
+.goods{
+  max-width: 1200px;
+  /*margin: 15px;*/
+  margin: auto;
+  padding: 15px;
+  overflow: hidden;
+  display: inline-block;
 }
 
 .good{
-  float: left;
+  height: 210px;
+  width: 200px;
+  background-color: #008CBA;
+  color: #FFF;
+  transition: text-indent 0.5s;
+  display: inline;
+  float: right;
+  margin: 20px;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
+/*.good:hover{
+  text-indent: -11em;
+  background-image: url('https://lh3.googleusercontent.com/gN6iBKP1b2GTXZZoCxhyXiYIAh8QJ_8xzlhEK6csyDadA4GdkEdIEy9Bc8s5jozt1g=w300')
+}*/
 
-div.polaroid {
-    width: 22%;
-    /* margin-bottom: 10px; */
-    padding: 0px 85px;
-    /* padding: 10px 50px; */
+.add-background{
+  background-image: url('https://lh3.googleusercontent.com/gN6iBKP1b2GTXZZoCxhyXiYIAh8QJ_8xzlhEK6csyDadA4GdkEdIEy9Bc8s5jozt1g=w300')
 }
+
+.good-description{
+  margin-top: 5%;
+  margin-right: 5%;
+  width: 90%;
+  height: 90%;
+}
+
+.hidden{
+  display: none;
+}
+
+.desc-txt{
+  display: block;
+  padding: 5px;
+}
+
+.incr-btn , .decr-btn{
+  height: 20px;
+  width: 50px;
+  font-weight: bolder;
+}
+
+.delete-good-btn{
+  background-color: #F00;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.text{
+  transition: 0.5s;
+}
+
+.text:hover{
+  text-indent: -11em;
+}
+
+.add-good-modal{
+  /*position: fixed;*/
+  /*background-color: rgba(0,140,186 , 0.3);*/
+  /*background-color: rgba(0 , 0 , 0 , 0.5);*/
+  /*padding-top: 0px;*/
+}
+
+.edit-good-btn{
+  cursor: pointer;
+}
+
+/*.image-placeholder{
+  height: 100px;
+  width: auto;
+}
+
+.image-placeholder .image-inside-div{
+  max-height: 50px;
+}*/
