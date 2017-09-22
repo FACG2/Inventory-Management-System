@@ -3,7 +3,8 @@ const router = express.Router();
 const landing = require('./landing');
 const profile = require('./profile');
 const home = require('./inventory');
-const fs = require('fs');
+const addGoods = require('./addGoods');
+// const fs = require('fs');
 
 const authController = require('./auth');
 const error = require('./error');
@@ -14,6 +15,8 @@ router.get('/profile', authMiddleware.checkAuth, profile.get);
 router.post('/sign-up', authController.signup);
 router.post('/sign-in', authController.signIn);
 router.get('/logout', authController.logout);
+router.get('/goods/add', addGoods.get);
+router.post('/goods/add', addGoods.post);
 
 router.get('/home', authMiddleware.checkAuth, home.get);
 router.use(error.client);

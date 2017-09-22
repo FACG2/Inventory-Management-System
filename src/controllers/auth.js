@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken');
 
 const {generateToken} = require('../helpers/generateToken');
 
-
 const signup = (req, res) => {
   bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
     if (err) {
