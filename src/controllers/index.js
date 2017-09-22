@@ -12,23 +12,13 @@ const error = require('./error');
 const authMiddleware = require('../middlewares/auth');
 
 router.get('/', authMiddleware.checkAuth, landing.get);
+router.get('/home', authMiddleware.checkAuth, home.get);
 router.get('/profile', authMiddleware.checkAuth, profile.get);
 router.post('/sign-up', authController.signup);
 router.post('/sign-in', authController.signIn);
 router.get('/logout', authController.logout);
-router.get('/goods/add', addGoods.get);
+router.post('/goods/add', addGoods.post);
 router.post('/goods/new', updateGood.post);
-
-router.get('/home', authMiddleware.checkAuth, home.get);
-router.use(error.client);
-router.use(error.server);
-
-router.post('/goods/new', (req, res) => {
-  console.log(req.body);
-  console.log(typeof req.body.image);
-  // fs.write
-  res.redirect('/goods/new');
-});
 
 router.use(error.client);
 router.use(error.server);
