@@ -50,7 +50,7 @@
   <div class='edit-good-modal modal'>
     <div class='modal-content edit-good-modal-content'>
       <span class='close edit-good-close' id='edit-goodClose'>&times;</span>
-        <form action='/goods/new' method='POST'>
+        <form action='/goods/edit' method='POST'>
           <label for='edit-good-name'>الاسم <input type='text' class='txt' id='edit-good-name' name='goodName' placeholder='ادخل الاسم' required /></label>
           <br />
           <label for='edit-good-username'>النوع  <input type='text' class='txt' id='edit-good-username' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
@@ -97,13 +97,13 @@
         <div class='good'>
           <div class='good-description'>
             <a class='delete-good-btn'>&times;</a> <span class='edit-good-btn'><i class='fa fa-edit'></i></span>
-              <!-- <span class='text'> -->
+              <span class='text'>
                 <label class='desc-txt'>الاسم: {{this.name}}</label>
                 <label class='desc-txt'>النوع: {{this.type}}</label>
                 <label class='desc-txt'>تاريخ الشحن: {{this.charge_date}}</label>
                 <label class='desc-txt'>تاريخ الانتهاء: {{this.expiry_date}}</label>
                 <label class='desc-txt'>الكمية: {{this.quantity}}</label>
-              <!-- </span> -->
+              </span>
               <button class='incr-btn good-btn'>+</button>
               <button class='decr-btn good-btn'>-</button>
           </div>

@@ -29,7 +29,7 @@ window.onload = function () {
       deleteGoodModalContent.classList.add('show-modal-content');
       deleteGoodModalContent.classList.add('delete-good');
       // get the good id from event object ?
-      // console.log(event.target.parentNode.parentNode.children[0].children);
+      console.log(event.target.parentNode.parentNode.children[0].children);
       selectedGood = {
 
       };
@@ -101,7 +101,7 @@ window.onload = function () {
     element.addEventListener('click', function () {
       editGoodModal.classList.remove('show-modal');
       editGoodModalContent.classList.remove('show-modal-content');
-      selectedGood = {};
+      // selectedGood = {};
     });
   });
 
