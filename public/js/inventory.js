@@ -21,26 +21,6 @@ window.onload = function () {
     addGoodModalContent.classList.remove('show-modal-content');
   });
 
-  window.onclick = function (event) {
-    if (event.target === addGoodModal) {
-      addGoodModal.classList.remove('show-modal');
-      addGoodModalContent.classList.remove('show-modal-content');
-    } else if (event.target === editGoodModal) {
-      editGoodModal.classList.remove('show-modal');
-      editGoodModalContent.classList.remove('show-modal-content');
-    }
-  };
-
-  // editGoodBtn.addEventListener('click', function () {
-  //   editGoodModal.classList.add('show-modal');
-  //   editGoodModalContent.classList.add('show-modal-content');
-  // });
-  //
-  // editGoodCloseBtn.addEventListener('click', function () {
-  //   editGoodModal.classList.remove('show-modal');
-  //   editGoodModalContent.classList.remove('show-modal-content');
-  // });
-
   Array.from(editGoodBtns).map(function (element) {
     element.addEventListener('click', function () {
       editGoodModal.classList.add('show-modal');
@@ -54,6 +34,26 @@ window.onload = function () {
       editGoodModalContent.classList.remove('show-modal-content');
     });
   });
+
+  // editGoodBtns.addEventListener('click', function () {
+  //   editGoodModal.classList.add('show-modal');
+  //   editGoodModalContent.classList.add('show-modal-content');
+  // });
+  //
+  // editGoodCloseBtns.addEventListener('click', function () {
+  //   editGoodModal.classList.remove('show-modal');
+  //   editGoodModalContent.classList.remove('show-modal-content');
+  // });
+
+  window.onclick = function (event) {
+    if (event.target === addGoodModal) {
+      addGoodModal.classList.remove('show-modal');
+      addGoodModalContent.classList.remove('show-modal-content');
+    } else if (event.target === editGoodModal) {
+      editGoodModal.classList.remove('show-modal');
+      editGoodModalContent.classList.remove('show-modal-content');
+    }
+  };
 
   Array.from(good).map(function (element) {
     element.addEventListener('mouseover', function (event) {

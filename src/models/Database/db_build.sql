@@ -29,7 +29,7 @@ CREATE TABLE goods (
   quantity INTEGER,
   type VARCHAR(250),
   charge_date DATE NOT NULL DEFAULT CURRENT_DATE,
-  image BYTEA NOT NULL,
+  image VARCHAR(500) NOT NULL,
   expiry_date DATE NOT NULL DEFAULT CURRENT_DATE,
   inventory_id INTEGER REFERENCES inventories(id)
 );
