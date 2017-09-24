@@ -24,10 +24,6 @@ router.delete('/goods/:id', updateGood.deleteGoodById);
 router.use(error.client);
 router.use(error.server);
 
-// router.get('/test', authMiddleware.checkAuth, (req, res) => {
-//   res.send('secret route');
-// });
-
 router.get('*', (req, res) => {
   res.send('500 Internal Server Error!!!');
 });
