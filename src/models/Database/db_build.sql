@@ -36,11 +36,11 @@ CREATE TABLE goods (
 
 CREATE TABLE transactions (
   id SERIAL PRIMARY KEY,
+  transaction_type VARCHAR NOT NULL,
   transaction_date DATE NOT NULL,
-  worker_name VARCHAR(20) NOT NULL,
-  good_type VARCHAR NOT NULL,
-  good_quantity INTEGER NOT NULL,
-  inventory_id INTEGER REFERENCES inventories(id)
+  quantity INTEGER NOT NULL,
+  inventory_id INTEGER REFERENCES inventories(id),
+  good_id INTEGER REFERENCES goods(id)
 );
 
 INSERT INTO users (name, email, role, username, password) VALUES
@@ -65,9 +65,9 @@ INSERT INTO inventories (name, location, capacity, status, user_id) VALUES
         CURRENT_DATE,
       1);
 
-INSERT INTO transactions(transaction_date , worker_name , good_type , good_quantity , inventory_id ) VALUES
-                        (CURRENT_DATE , 'سهاد' , 'قميص' ,
-                          5 , 1
+INSERT INTO transactions(transactionType, transaction_date , quantity , inventory_id , good_id) VALUES
+                        ('إضافة',CURRENT_DATE , 5 , 1
+                           , 1
                         );
 
 COMMIT;

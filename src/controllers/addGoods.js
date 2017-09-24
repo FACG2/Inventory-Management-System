@@ -10,10 +10,10 @@ function post (req, res, next) {
     body: req.body,
     imageName: req.files.image.name
   };
-  console.log(req.files.image.name);
+  // console.log(req.files.image.name);
   queries.addGoods(Data, (err, result) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
       next(err);
     } else {
       if (!req.files) {
