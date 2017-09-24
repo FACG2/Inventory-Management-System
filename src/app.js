@@ -5,6 +5,7 @@ const app = express();
 const path = require('path');
 const routes = require('./controllers/index');
 const helmet = require('helmet');
+const fileUpload = require('express-fileupload');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -14,7 +15,7 @@ app.use(express.static('public'));
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(fileUpload());
 app.engine('hbs', expressHandlebars({
   extname: 'hbs',
   layoutsDir: path.join(__dirname, 'views', 'layouts'),
@@ -24,7 +25,7 @@ app.engine('hbs', expressHandlebars({
 
 app.use(routes);
 
-app.set('PORT', 3000);
+app.set('PORT', 4000);
 
 app.use((err, req, res, next) => {
   if (err) {

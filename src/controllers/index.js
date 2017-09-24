@@ -5,6 +5,7 @@ const profile = require('./profile');
 const home = require('./inventory');
 const addGoods = require('./addGoods');
 const updateGood = require('./goods.js');
+
 // const fs = require('fs');
 
 const authController = require('./auth');
