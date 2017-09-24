@@ -11,7 +11,6 @@ window.onload = function () {
   var editGoodBtns = document.querySelectorAll('.edit-good-btn');
   var editGoodCloseBtns = document.querySelectorAll('.edit-good-close');
 
-
   var graphModal = document.querySelector('.graph-modal');
   var graphModalContent = document.querySelector('.graph-modal-content');
   var graphBtn = document.querySelector('.btn-show-graph');
@@ -22,6 +21,8 @@ window.onload = function () {
   var deleteGoodCloseBtn = document.querySelector('.delete-good-close');
   var deleteBtns = document.querySelectorAll('.delete-good-btn');
 
+  var yesBtn = document.querySelector('.yes-btn');
+  var noBtn = document.querySelector('.no-btn');
   var selectedGood = {};
 
   Array.from(deleteBtns).map(function (btn) {
@@ -29,12 +30,24 @@ window.onload = function () {
       deleteGoodModal.classList.add('show-modal');
       deleteGoodModalContent.classList.add('show-modal-content');
       deleteGoodModalContent.classList.add('delete-good');
-      // get the good id from event object ?
-      console.log(event.target.parentNode.parentNode.children[0].children);
-      selectedGood = {
 
+      selectedGood = {
+        id: event.target.parentNode.children[2].children[0].id
       };
     });
+  });
+
+  yesBtn.addEventListener('click', function () {
+    if (selectedGood.hasOwnProperty('id')) {
+      xhrRequest('POST', '/goods/' + selectedGood.id);
+    }
+  });
+
+  noBtn.addEventListener('click', function () {
+    deleteGoodModal.classList.remove('show-modal');
+    deleteGoodModalContent.classList.remove('show-modal-content');
+    deleteGoodModalContent.classList.remove('delete-good');
+    selectedGood = {};
   });
 
   deleteGoodCloseBtn.addEventListener('click', function () {
@@ -56,7 +69,6 @@ window.onload = function () {
     graphModalContent.classList.remove('show-graph-modal');
   });
 
-
   addGoodBtn.addEventListener('click', function () {
     addGoodModal.classList.add('show-modal');
     addGoodModalContent.classList.add('show-modal-content');
@@ -66,17 +78,6 @@ window.onload = function () {
     addGoodModal.classList.remove('show-modal');
     addGoodModalContent.classList.remove('show-modal-content');
   });
-
-//   chartBtn.addEventListener('click', function () {
-//     chartModal.classList.add('show-modal');
-//     chartContent.classList.add('show-modal-content');
-//   });
-//
-//   chartCloseBtn.addEventListener('click', function () {
-//     chartModal.classList.remove('show-modal');
-//     chartContent.classList.remove('show-modal-content');
-//   });
-// };
 
   window.onclick = function (event) {
     if (event.target === addGoodModal) {
@@ -104,9 +105,24 @@ window.onload = function () {
       editGoodModal.classList.add('show-modal');
       editGoodModalContent.classList.add('show-modal-content');
       // get good data from event object
+      // console.log(event.target.parentNode.parentNode.children[2].children[1].children[0].files[0]);
       selectedGood = {
-
+        id: event.target.parentNode.parentNode.children[2].children[0].id,
+        name: event.target.parentNode.parentNode.children[2].children[1].children[0].textContent,
+        type: event.target.parentNode.parentNode.children[2].children[2].children[0].textContent,
+        expiryDate: event.target.parentNode.parentNode.children[2].children[3].children[0].textContent
+        // image: event.target.parentNode.parentNode.children[2].children[1].children[0].files[0]
       };
+      var shortFormatDate = shortDateFormat(selectedGood.expiryDate);
+      console.log(shortFormatDate);
+      // console.log(new Date(selectedGood.expiryDate).format('dd-m-yy'));
+      // console.log(new Date(selectedGood.expiryDate).getDate());
+      document.querySelector('#edit-good-name').value = selectedGood.name;
+      document.querySelector('#edit-good-type').value = selectedGood.type;
+      console.log(document.querySelector('#edit-good-expiryDate'));
+      document.querySelector('#edit-good-expiryDate').value = shortFormatDate;
+      document.querySelector('#edit-good-id').value = selectedGood.id;
+      // document.querySelector('#edit-good-image').files[0] = selectedGood.image;
     });
   });
 
@@ -127,4 +143,35 @@ window.onload = function () {
       this.classList.remove('add-background');
     });
   });
+
+  function xhrRequest (method, url, data) {
+    var xhr = new window.XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+      window.location.href = '/home';
+    };
+
+    xhr.open(method, url, true);
+    if (!data) {
+      data = {};
+    }
+    xhr.send(data);
+  }
+  //
+  // Date.prototype.formatMMDDYYYY = function () {
+  //   return (this.getMonth() + 1) +
+  //   '/' + this.getDate() +
+  //   '/' + this.getFullYear();
+  // };
+
+  function shortDateFormat (longDate) {
+    var date = new Date(longDate);
+    var day = date.getDate();
+    var month = date.getMonth();
+
+    day = day < 10 ? '0' + day : day;
+    month = month < 10 ? '0' + month : month;
+
+    return date.getFullYear() + '-' + month + '-' + day;
+  }
 };

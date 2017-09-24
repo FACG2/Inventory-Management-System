@@ -28,24 +28,7 @@ function post (req, res, next) {
     params: req.params
   };
 
-
   updateGoods(data, (err, result) => {
-    if (err) {
-      next(err);
-    } else {
-      res.redirect('/home');
-    }
-  });
-}
-
-function deleteGoodById (req, res, next) {
-  const data = {
-    body: req.body,
-    params: req.params
-  };
-
-  deletGoods(data, (err, res) => {
-
     if (err) {
       next(err);
     } else {
