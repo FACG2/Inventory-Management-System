@@ -9,7 +9,7 @@
   <div class='add-good-modal modal'>
     <div class='modal-content add-good-modal-content'>
       <span class='close add-good-close' id='add-goodClose'>&times;</span>
-        <form action='/goods/add' method='POST'>
+        <form action='/goods/add' method='POST' encType="multipart/form-data">
           <label for='add-good-name'>الاسم <input type='text' class='txt' id='add-good-name' name='goodName' placeholder='ادخل الاسم' required /></label>
           <br />
           <label for='add-good-goodType'>النوع  <input type='text' class='txt' id='add-good-goodType' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
@@ -21,11 +21,11 @@
 
 
           <label for='add-good-email'>تاريخ الانتهاء<input type='date' class='txt' id='add-good-email' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate'/></label>
-          <label for='add-good-password'>صورة الصنف<input type='file' class='txt' id='add-good-password' name='image' placeholder='أدخل كلمة المرور' required /></label>
+          <label for='add-good-password'>صورة الصنف<input type='file' id='add-good-password' name='image' placeholder='أدخل كلمة المرور' required /></label>
           <br />
           <br />
           <div class='buttons'>
-            <button class='submit-btn'><i class='fa fa-plus'></i> إضافة</button>
+            <button class='submit-btn' value='Upload!'><i class='fa fa-plus'></i> إضافة</button>
           </div>
         </form>
     </div>
@@ -85,8 +85,10 @@
   <div class='container'>
     <div class='page-content'>
       <div class='page-buttons'>
+
         <a href='#' class='btn'>التقارير</a>
         <a href='#' class='btn btn-show-graph'>رسم بياني</a>
+
         <a href='#' class='btn add-good-btn'>إضافة صنف جديد</a>
         <label class=''>حالة المخزن: <span class=''>الحالة</span> <i class='fa fa-edit'></i></label>
       </div>
@@ -114,9 +116,56 @@
 
     </div>
 
-
-
   </div>
+
+<!-- <div class='chart-modal modal'>
+  <div class='modal-content chart-modal-content'>
+    <span class='close edit-good-close' id='chartClose'>&times;</span>
+      <form action='/goods/report' method='GET'>
+        <div class="chart-container">
+          <canvas id="chart_0"></canvas>
+      </div>
+      </form>
+  </div>
+</div>
+<script>
+var data = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+  datasets: [{
+    label: 'Dataset #1',
+    backgroundColor: 'rgba(255,99,132,0.2)',
+    borderColor: 'rgba(255,99,132,1)',
+    borderWidth: 2,
+    hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+    hoverBorderColor: 'rgba(255,99,132,1)',
+    data: [65, 59, 20, 81, 56, 55, 40]
+  }]
+};
+
+var option = {
+  scales: {
+    yAxes: [{
+      stacked: true,
+      gridLines: {
+        display: true,
+        color: 'rgba(255,99,132,0.2)'
+      }
+    }],
+    xAxes: [{
+      gridLines: {
+        display: false
+      }
+    }]
+  }
+};
+
+Chart.Bar('chart_0', {
+  options: option,
+  data: data
+});
+};
+</script> -->
+
 </main>
 
 <script src='/js/inventory.js'></script>

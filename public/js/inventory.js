@@ -11,6 +11,7 @@ window.onload = function () {
   var editGoodBtns = document.querySelectorAll('.edit-good-btn');
   var editGoodCloseBtns = document.querySelectorAll('.edit-good-close');
 
+
   var graphModal = document.querySelector('.graph-modal');
   var graphModalContent = document.querySelector('.graph-modal-content');
   var graphBtn = document.querySelector('.btn-show-graph');
@@ -55,6 +56,7 @@ window.onload = function () {
     graphModalContent.classList.remove('show-graph-modal');
   });
 
+
   addGoodBtn.addEventListener('click', function () {
     addGoodModal.classList.add('show-modal');
     addGoodModalContent.classList.add('show-modal-content');
@@ -64,6 +66,17 @@ window.onload = function () {
     addGoodModal.classList.remove('show-modal');
     addGoodModalContent.classList.remove('show-modal-content');
   });
+
+//   chartBtn.addEventListener('click', function () {
+//     chartModal.classList.add('show-modal');
+//     chartContent.classList.add('show-modal-content');
+//   });
+//
+//   chartCloseBtn.addEventListener('click', function () {
+//     chartModal.classList.remove('show-modal');
+//     chartContent.classList.remove('show-modal-content');
+//   });
+// };
 
   window.onclick = function (event) {
     if (event.target === addGoodModal) {
