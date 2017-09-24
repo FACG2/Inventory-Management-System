@@ -17,7 +17,7 @@ const dbConnection = require('../Database/db_connection.js');
   });
 };
 */
-const deletGoods = (good, cb) => {
+const deleteGoods = (good, cb) => {
   const sql = {
     text: `DELETE FROM goods WHERE id = $1`,
     values: [good.id]
@@ -31,7 +31,6 @@ const deletGoods = (good, cb) => {
   });
 };
 
-// <<<<<<< HEAD
 const addGoods = (req, cb) => {
   dbConnection.query({
     text: `SELECT * FROM inventories WHERE id=1`
@@ -43,7 +42,7 @@ const addGoods = (req, cb) => {
       VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;`;
       dbConnection.query({
         text: sql,
-        values: [req.body.goodName, req.body.goodQuantity, req.body.goodType, req.body.chargeDate, req.body.image, req.body.expiryDate, inventory.rows[0].id]},
+        values: [req.body.goodName, req.body.goodQuantity, req.body.goodType, req.body.chargeDate, req.imageName, req.body.expiryDate, inventory.rows[0].id]},
         (error, res1) => {
           if (error) {
             cb(error);
@@ -90,7 +89,7 @@ const updateGoods = (good, cb) => {
 
 module.exports = {
   addGoods: addGoods,
-  deletGoods: deletGoods,
+  deleteGoods: deleteGoods,
   getAllGoods: getAllGoods,
   updateGoods: updateGoods
 };
