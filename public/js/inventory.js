@@ -11,6 +11,50 @@ window.onload = function () {
   var editGoodBtns = document.querySelectorAll('.edit-good-btn');
   var editGoodCloseBtns = document.querySelectorAll('.edit-good-close');
 
+  var graphModal = document.querySelector('.graph-modal');
+  var graphModalContent = document.querySelector('.graph-modal-content');
+  var graphBtn = document.querySelector('.btn-show-graph');
+  var graphCloseBtn = document.querySelector('.graph-close');
+
+  var deleteGoodModal = document.querySelector('.delete-good-modal');
+  var deleteGoodModalContent = document.querySelector('.delete-good-modal-content');
+  var deleteGoodCloseBtn = document.querySelector('.delete-good-close');
+  var deleteBtns = document.querySelectorAll('.delete-good-btn');
+
+  var selectedGood = {};
+
+  Array.from(deleteBtns).map(function (btn) {
+    btn.addEventListener('click', function (event) {
+      deleteGoodModal.classList.add('show-modal');
+      deleteGoodModalContent.classList.add('show-modal-content');
+      deleteGoodModalContent.classList.add('delete-good');
+      // get the good id from event object ?
+      // console.log(event.target.parentNode.parentNode.children[0].children);
+      selectedGood = {
+
+      };
+    });
+  });
+
+  deleteGoodCloseBtn.addEventListener('click', function () {
+    deleteGoodModal.classList.remove('show-modal');
+    deleteGoodModalContent.classList.remove('show-modal-content');
+    deleteGoodModalContent.classList.remove('delete-good');
+    selectedGood = {};
+  });
+
+  graphBtn.addEventListener('click', function () {
+    graphModal.classList.add('show-modal');
+    graphModalContent.classList.add('show-modal-content');
+    graphModalContent.classList.add('show-graph-modal');
+  });
+
+  graphCloseBtn.addEventListener('click', function () {
+    graphModal.classList.remove('show-modal');
+    graphModalContent.classList.remove('show-modal-content');
+    graphModalContent.classList.remove('show-graph-modal');
+  });
+
   addGoodBtn.addEventListener('click', function () {
     addGoodModal.classList.add('show-modal');
     addGoodModalContent.classList.add('show-modal-content');
@@ -25,26 +69,31 @@ window.onload = function () {
     if (event.target === addGoodModal) {
       addGoodModal.classList.remove('show-modal');
       addGoodModalContent.classList.remove('show-modal-content');
+      selectedGood = {};
     } else if (event.target === editGoodModal) {
       editGoodModal.classList.remove('show-modal');
       editGoodModalContent.classList.remove('show-modal-content');
+      selectedGood = {};
+    } else if (event.target === graphModal) {
+      graphModal.classList.remove('show-modal');
+      graphModalContent.classList.remove('show-modal-content');
+      graphModalContent.classList.remove('show-graph-modal');
+    } else if (event.target === deleteGoodModal) {
+      deleteGoodModal.classList.remove('show-modal');
+      deleteGoodModalContent.classList.remove('show-modal-content');
+      deleteGoodModalContent.classList.remove('delete-good');
+      selectedGood = {};
     }
   };
 
-  // editGoodBtn.addEventListener('click', function () {
-  //   editGoodModal.classList.add('show-modal');
-  //   editGoodModalContent.classList.add('show-modal-content');
-  // });
-  //
-  // editGoodCloseBtn.addEventListener('click', function () {
-  //   editGoodModal.classList.remove('show-modal');
-  //   editGoodModalContent.classList.remove('show-modal-content');
-  // });
-
   Array.from(editGoodBtns).map(function (element) {
-    element.addEventListener('click', function () {
+    element.addEventListener('click', function (event) {
       editGoodModal.classList.add('show-modal');
       editGoodModalContent.classList.add('show-modal-content');
+      // get good data from event object
+      selectedGood = {
+
+      };
     });
   });
 
@@ -52,6 +101,7 @@ window.onload = function () {
     element.addEventListener('click', function () {
       editGoodModal.classList.remove('show-modal');
       editGoodModalContent.classList.remove('show-modal-content');
+      selectedGood = {};
     });
   });
 
