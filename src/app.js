@@ -6,6 +6,7 @@ const path = require('path');
 const routes = require('./controllers/index');
 const helmet = require('helmet');
 const fileUpload = require('express-fileupload');
+const helpers = require('./views/helpers/index');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -20,7 +21,8 @@ app.engine('hbs', expressHandlebars({
   extname: 'hbs',
   layoutsDir: path.join(__dirname, 'views', 'layouts'),
   partialsDir: path.join(__dirname, 'views', 'partials'),
-  defaultLayout: 'main'
+  defaultLayout: 'main',
+  helpers: helpers
 }));
 
 app.use(routes);
