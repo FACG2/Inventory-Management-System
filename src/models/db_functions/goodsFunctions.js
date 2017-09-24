@@ -57,7 +57,7 @@ const addGoods = (req, cb) => {
 
 const getAllGoods = (cb) => {
   const sql = {
-    text: 'SELECT * FROM goods'
+    text: 'SELECT * FROM goods '
   };
   dbConnection.query(sql, (err, res) => {
     if (err) {
@@ -69,41 +69,20 @@ const getAllGoods = (cb) => {
   });
 };
 
-// const updateGoods = (good, cb) => {
-//   dbConnection.query({
-//     text: `SELECT * FROM goods WHERE id = $1`
-//   }, (err, inventory) => {
-//     if (err) {
-//       cb(err);
-//     } else {
-//       const sql = `UPDATE goods SET name = $1, type = $2,  quantity = $3,  image= $4, expiry_date= $5, inventory_id= $6 RETURNING * `;
-//       dbConnection.query({
-//         text: sql,
-//         values: [good.body.name, good.body.quantity, good.body.type, good.body.image, good.body.expiry_date, good.inventory_id]
-//       }, (err, data) => {
-//         if (err) {
-//           cb(err);
-//         } else {
-//           cb(null, data.rows);
-//         }
-//       });
-//     }
-//   });
-// };
-
 const updateGoods = (good, cb) => {
   const sql = {
-    text: `UPDATE  goods SET name = $1, type = $2,  quantity = $3,  image= $4, expiry_date= $5, inventory_id= $6 RETURNING *`,
-    values: [good.body.name, good.body.quantity, good.body.type, good.body.image, good.body.expiry_date, good.inventory_id]
+    text: `UPDATE  goods SET name = $1, type = $2,  quantity = $3,  image= $4 RETURNING *`,
+    values: [good.body.goodName, good.body.goodType, good.body.quantity, good.body.image]
   };
 
   dbConnection.query(sql, (err, res) => {
     if (err) {
+      console.log(err);
       cb(err);
     } else {
       // console.log(res.rows);
       // console.log(res.rows[0].type);
-      cb(null, res.rows[0]);
+      cb(null, res);
     }
   });
 };
