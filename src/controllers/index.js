@@ -19,7 +19,7 @@ router.post('/sign-in', authController.signIn);
 router.get('/logout', authController.logout);
 router.post('/goods/add', addGoods.post);
 router.post('/goods/edit', updateGood.post);
-router.delete('/goods/:id', updateGood.delete);
+router.delete('/goods/:id', updateGood.deleteGoodById);
 
 router.use(error.client);
 router.use(error.server);

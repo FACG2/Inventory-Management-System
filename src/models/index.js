@@ -4,6 +4,7 @@ module.exports = {
   getGoodsById: goodsQueries.getGoodsById,
   getAllGoods: goodsQueries.getAll,
   postAddGoods: goodsQueries.addGoods,
-  postEditeGoods: goodsQueries.updateGoods
+  postEditeGoods: goodsQueries.updateGoods,
+  getDeleteGoods: goodsQueries.deletGoods
 
 };
