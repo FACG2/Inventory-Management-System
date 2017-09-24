@@ -1,11 +1,11 @@
-const {getgoodById, updateGoods} = require('../models/db_functions/goodsFunctions');
+const {getgoodById, updateGoods, deleteGoods} = require('../models/db_functions/goodsFunctions');
 // deletGoods
 function get (req, res, next) {
   getgoodById(req.params.id, (err, good) => {
     if (err) {
       next(err);
     } else {
-      res.render('good', {good: good[0], name: good[0].name, type: good[0].type, expiry_date: good[0].expiry_date, csspath: '/css/inventory.css'});
+      res.render('inventory', {good: good[0], title: good[0].title, csspath: '/css/inventory.css'});
     }
   });
 }
@@ -15,7 +15,7 @@ function getEditGood (req, res, next) {
     if (err) {
       next(err);
     } else {
-      res.render('EditGood', {good: good[0], name: 'Edit good', csspath: '/css/inventory.css'});
+      res.render('inventory', {good: good[0], title: 'Edit good', csspath: '/css/inventory.css'});
     }
   });
 }
@@ -25,7 +25,7 @@ function post (req, res, next) {
     body: req.body,
     params: req.params
   };
-  updateGoods(data, (err, res) => {
+  updateGoods(data, (err, result) => {
     if (err) {
       next(err);
     } else {
@@ -34,8 +34,24 @@ function post (req, res, next) {
   });
 }
 
+function deleteGoodById (req, res, next) {
+  const data = {
+    body: req.body,
+    params: req.params
+  };
+
+  deleteGoods(data, (err, result) => {
+    if (err) {
+      next(err);
+    } else {
+      res.redirect('/home');
+    }
+  });
+}
+
 module.exports = {
   get,
   getEditGood,
-  post
+  post,
+  deleteGoodById
 };
