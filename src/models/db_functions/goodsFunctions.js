@@ -69,12 +69,32 @@ const getAllGoods = (cb) => {
   });
 };
 
+// const updateGoods = (good, cb) => {
+//   dbConnection.query({
+//     text: `SELECT * FROM goods WHERE id = $1`
+//   }, (err, inventory) => {
+//     if (err) {
+//       cb(err);
+//     } else {
+//       const sql = `UPDATE goods SET name = $1, type = $2,  quantity = $3,  image= $4, expiry_date= $5, inventory_id= $6 RETURNING * `;
+//       dbConnection.query({
+//         text: sql,
+//         values: [good.body.name, good.body.quantity, good.body.type, good.body.image, good.body.expiry_date, good.inventory_id]
+//       }, (err, data) => {
+//         if (err) {
+//           cb(err);
+//         } else {
+//           cb(null, data.rows);
+//         }
+//       });
+//     }
+//   });
+// };
+
 const updateGoods = (good, cb) => {
   const sql = {
-    text: `UPDATE blogs SET title =$1 , contents =$2 , img_url =$3 WHERE id = $4 RETURNING *`,
-    values: [good.body.title, good.body.contents, good.body.image, good.params.id]
-    // text: `UPDATE  goods SET name = $1, quantity= $2, type = $3, charge_date= $4, image= $5, expiry_date= $6, inventory_id= $7 RETURNING *`,
-    // values: [good.name, good.quantity, good.type, good.charge_date, good.image, good.expiry_date, good.inventory_id]
+    text: `UPDATE  goods SET name = $1, type = $2,  quantity = $3,  image= $4, expiry_date= $5, inventory_id= $6 RETURNING *`,
+    values: [good.body.name, good.body.quantity, good.body.type, good.body.image, good.body.expiry_date, good.inventory_id]
   };
 
   dbConnection.query(sql, (err, res) => {
