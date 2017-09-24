@@ -22,7 +22,6 @@
 
 .goods{
   max-width: 1200px;
-  /*margin: 15px;*/
   margin: auto;
   padding: 15px;
   overflow: hidden;
@@ -42,10 +41,6 @@
   overflow: hidden;
 }
 
-/*.good:hover{
-  text-indent: -11em;
-  background-image: url('https://lh3.googleusercontent.com/gN6iBKP1b2GTXZZoCxhyXiYIAh8QJ_8xzlhEK6csyDadA4GdkEdIEy9Bc8s5jozt1g=w300')
-}*/
 
 .add-background{
   background-image: url('https://lh3.googleusercontent.com/gN6iBKP1b2GTXZZoCxhyXiYIAh8QJ_8xzlhEK6csyDadA4GdkEdIEy9Bc8s5jozt1g=w300')
@@ -90,22 +85,52 @@
   text-indent: -110em;
 }
 
-.add-good-modal{
-  /*position: fixed;*/
-  /*background-color: rgba(0,140,186 , 0.3);*/
-  /*background-color: rgba(0 , 0 , 0 , 0.5);*/
-  /*padding-top: 0px;*/
-}
 
 .edit-good-btn{
   cursor: pointer;
 }
 
-/*.image-placeholder{
-  height: 100px;
-  width: auto;
+.show-graph-modal{
+  top: 15%;
+  width: 65%;
 }
 
-.image-placeholder .image-inside-div{
-  max-height: 50px;
-}*/
+.delete-good-modal-content{
+  width: 40%;
+}
+
+.delete-good{
+  top: 25%;
+}
+
+.myButton{
+  font-size: 20px;
+  padding: 5px;
+  margin: 3px;
+  width: 50px;
+  transition: 0.5s;
+  /*color: #FFF;*/
+  border-radius: 5px;
+}
+
+.myButton:hover{
+  cursor: pointer;
+}
+
+.no-btn{
+  background-color: #286090;
+  color: #FFF;
+}
+
+.no-btn:hover{
+  background-color: #1d476c;
+}
+
+.yes-btn{
+  background-color: #C9302C;
+  color: #FFF;
+}
+
+.yes-btn:hover{
+  background-color: #a9322f;
+}

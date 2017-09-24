@@ -32,7 +32,6 @@
     "pg": "^7.3.0"
   },
   "devDependencies": {
-    "env2": "^2.2.0",
     "nodemon": "^1.12.1",
     "shot": "^3.4.2",
     "supertest": "^3.0.0",

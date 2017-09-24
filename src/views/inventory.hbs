@@ -19,6 +19,7 @@
           <label for='edit-good-quantity'>الكمية<input type='text' class='txt' id='edit-good-quantity' placeholder='ادخل تاريخ الشحن'  name='goodQuantity'/></label>
           <br />
 
+
           <label for='add-good-email'>تاريخ الانتهاء<input type='date' class='txt' id='add-good-email' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate'/></label>
           <label for='add-good-password'>صورة الصنف<input type='file' id='add-good-password' name='image' placeholder='أدخل كلمة المرور' required /></label>
           <br />
@@ -31,11 +32,25 @@
   </div>
   <!-- End Add Good Modal -->
 
+
+  <!-- Start Delete Good Modal -->
+  <div class='delete-good-modal modal'>
+    <div class='modal-content delete-good-modal-content'>
+      <span class='close delete-good-close' id='delete-goodClose'>&times;</span>
+      <p>تأكيد الحذف ؟</p>
+      <br />
+      <button class='no-btn myButton'>لا</button>
+      <button class='yes-btn myButton'>نعم</button>
+    </div>
+  </div>
+  <!-- End Delete Good Modal -->
+
+
   <!-- Start Edit Good Modal -->
   <div class='edit-good-modal modal'>
     <div class='modal-content edit-good-modal-content'>
       <span class='close edit-good-close' id='edit-goodClose'>&times;</span>
-        <form action='/goods/new' method='POST'>
+        <form action='/goods/edit' method='POST'>
           <label for='edit-good-name'>الاسم <input type='text' class='txt' id='edit-good-name' name='goodName' placeholder='ادخل الاسم' required /></label>
           <br />
           <label for='edit-good-username'>النوع  <input type='text' class='txt' id='edit-good-username' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
@@ -55,13 +70,27 @@
     </div>
   </div>
   <!-- End Edit Good Modal -->
+
+  <!-- Start Graph Modal -->
+  <div class='graph-modal modal'>
+    <div class='modal-content graph-modal-content'>
+      <span class='close graph-close' id='graphClose'>&times;</span>
+
+      <p>
+        Inventory Graph is Here!!!!
+      </p>
+    </div>
+  </div>
+  <!-- End Graph Modal -->
   <div class='container'>
     <div class='page-content'>
       <div class='page-buttons'>
-        <a href='#' class='chartBtn'>التقارير</a>
-        <a href='#' class='btn'>رسم بياني</a>
+
+        <a href='#' class='btn'>التقارير</a>
+        <a href='#' class='btn btn-show-graph'>رسم بياني</a>
+
         <a href='#' class='btn add-good-btn'>إضافة صنف جديد</a>
-        <label class=''>حالة المخزن: <span class=''>الحالة</span></label>
+        <label class=''>حالة المخزن: <span class=''>الحالة</span> <i class='fa fa-edit'></i></label>
       </div>
 
       <div class='goods'>
