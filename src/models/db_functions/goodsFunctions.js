@@ -20,7 +20,7 @@ const dbConnection = require('../Database/db_connection.js');
 const deleteGoods = (good, cb) => {
   const sql = {
     text: `DELETE FROM goods WHERE id = $1`,
-    values: [good.id]
+    values: [good.params.id]
   };
   dbConnection.query(sql, (err, res) => {
     if (err) {
@@ -70,7 +70,7 @@ const getAllGoods = (cb) => {
 
 const updateGoods = (good, cb) => {
   const sql = {
-    text: `UPDATE  goods SET name = $1, type = $2,  quantity = $3,  image= $4 RETURNING *`,
+    text: `UPDATE goods SET name = $1, type = $2,  quantity = $3,  image= $4 WHERE id=${good.body.id} RETURNING *`,
     values: [good.body.goodName, good.body.goodType, good.body.quantity, good.body.image]
   };
 
