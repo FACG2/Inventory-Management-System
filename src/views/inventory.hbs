@@ -102,8 +102,8 @@
                 <span id="{{this.id}}"></span>
                 <label class='desc-txt'>الاسم: <span>{{this.name}}</span></label>
                 <label class='desc-txt'>النوع: <span>{{this.type}}</span></label>
-                <label class='desc-txt'>تاريخ الشحن: <span>{{this.charge_date}}</span></label>
-                <label class='desc-txt'>تاريخ الانتهاء: <span>{{this.expiry_date}}</span></label>
+                <label class='desc-txt'>تاريخ الشحن: <span> {{shortFormatDate this.charge_date}}</span></label>
+                <label class='desc-txt'>تاريخ الانتهاء: <span>{{shortFormatDate this.expiry_date}}</span></label>
                 <label class='desc-txt'>الكمية: <span>{{this.quantity}}</span></label>
               </span>
               <button class='incr-btn good-btn'>+</button>
@@ -118,53 +118,6 @@
 
   </div>
 
-<!-- <div class='chart-modal modal'>
-  <div class='modal-content chart-modal-content'>
-    <span class='close edit-good-close' id='chartClose'>&times;</span>
-      <form action='/goods/report' method='GET'>
-        <div class="chart-container">
-          <canvas id="chart_0"></canvas>
-      </div>
-      </form>
-  </div>
-</div>
-<script>
-var data = {
-  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-  datasets: [{
-    label: 'Dataset #1',
-    backgroundColor: 'rgba(255,99,132,0.2)',
-    borderColor: 'rgba(255,99,132,1)',
-    borderWidth: 2,
-    hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-    hoverBorderColor: 'rgba(255,99,132,1)',
-    data: [65, 59, 20, 81, 56, 55, 40]
-  }]
-};
-
-var option = {
-  scales: {
-    yAxes: [{
-      stacked: true,
-      gridLines: {
-        display: true,
-        color: 'rgba(255,99,132,0.2)'
-      }
-    }],
-    xAxes: [{
-      gridLines: {
-        display: false
-      }
-    }]
-  }
-};
-
-Chart.Bar('chart_0', {
-  options: option,
-  data: data
-});
-};
-</script> -->
 
 </main>
 
