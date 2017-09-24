@@ -83,6 +83,54 @@
     </div>
   </div>
   <!-- End Graph Modal -->
+
+  <!-- start Increment Modal -->
+  <div class='increment-modal modal'>
+    <div class='modal-content increment-modal-content'>
+      <span class='close increment-close' id='incrementClose'>&times;</span>
+      <form action='/transactions/increment' method='POST'>
+        <input type='hidden' value='' name='id' id='increment-transaction-id' />
+        <label for='transaction-good-name'>الاسم <input type='text' class='txt' id='transaction-good-name' name='transactionGoodName' placeholder='ادخل الاسم' required /></label>
+        <br />
+        <label for='transaction-good-type'>النوع  <input type='text' class='txt' id='transaction-good-type' placeholder='ادخل نوع الصنف'  name='transactionGoodType'/></label>
+        <br />
+        <label for='transaction-good-quantity'>الكمية  <input type='text' class='txt' id='transaction-good-quantity' placeholder='ادخل نوع الصنف'  name='transactionGoodQuantity'/></label>
+        <br />
+        <label for='transaction-good-date'>تاريخ الانتهاء<input type='date' class='txt' id='transaction-good-date' placeholder='ادخل تاريخ الانتهاء'  name='transactionDate'/></label>
+        <br />
+        <br />
+        <div class='buttons'>
+          <button class='submit-btn'><i class='fa fa-plus'></i> إضافة</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- end Increment Modal -->
+
+  <!-- Start Decrement Modal -->
+  <div class='modal decrement-modal'>
+    <div class='modal-content decrement-modal-content'>
+      <span class='close decrement-close' id='decrementClose'>&times;</span>
+      <form action='/transactions/decrement' method='POST'>
+        <input type='hidden' value='' name='id' id='decrement-transaction-id' />
+        <label for='transaction-good-name'>الاسم <input type='text' class='txt' id='transaction-good-name' name='transactionGoodName' placeholder='ادخل الاسم' required /></label>
+        <br />
+        <label for='transaction-good-type'>النوع  <input type='text' class='txt' id='transaction-good-type' placeholder='ادخل نوع الصنف'  name='transactionGoodType'/></label>
+        <br />
+        <label for='transaction-good-quantity'>الكمية  <input type='text' class='txt' id='transaction-good-quantity' placeholder='ادخل نوع الصنف'  name='transactionGoodQuantity'/></label>
+        <br />
+        <label for='transaction-good-date'>تاريخ الانتهاء<input type='date' class='txt' id='transaction-good-date' placeholder='ادخل تاريخ الانتهاء'  name='transactionDate'/></label>
+        <br />
+        <br />
+        <div class='buttons'>
+          <button class='submit-btn'><i class='fa fa-plus'></i> إضافة</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- End Decrement Modal -->
+
   <div class='container'>
     <div class='page-content'>
       <div class='page-buttons'>
@@ -97,21 +145,21 @@
       <div class='goods'>
 
         {{#each result}}
-        <div class='good'>
-          <div class='good-description'>
-            <a class='delete-good-btn'>&times;</a> <span class='edit-good-btn'><i class='fa fa-edit'></i></span>
-              <span class='text'>
-                <span id="{{this.id}}"></span>
-                <label class='desc-txt'>الاسم: <span>{{this.name}}</span></label>
-                <label class='desc-txt'>النوع: <span>{{this.type}}</span></label>
-                <label class='desc-txt'>تاريخ الشحن: <span>{{this.charge_date}}</span></label>
-                <label class='desc-txt'>تاريخ الانتهاء: <span>{{this.expiry_date}}</span></label>
-                <label class='desc-txt'>الكمية: <span>{{this.quantity}}</span></label>
-              </span>
-              <button class='incr-btn good-btn'>+</button>
-              <button class='decr-btn good-btn'>-</button>
+          <div class='good'>
+            <div class='good-description'>
+              <a class='delete-good-btn'>&times;</a> <span class='edit-good-btn'><i class='fa fa-edit'></i></span>
+                <span class='text'>
+                  <span id="{{this.id}}"></span>
+                  <label class='desc-txt'>الاسم: <span>{{this.name}}</span></label>
+                  <label class='desc-txt'>النوع: <span>{{this.type}}</span></label>
+                  <label class='desc-txt'>تاريخ الشحن: <span>{{this.charge_date}}</span></label>
+                  <label class='desc-txt'>تاريخ الانتهاء: <span>{{this.expiry_date}}</span></label>
+                  <label class='desc-txt'>الكمية: <span>{{this.quantity}}</span></label>
+                </span>
+                <button class='incr-btn good-btn'>+</button>
+                <button class='decr-btn good-btn'>-</button>
+            </div>
           </div>
-        </div>
         {{/each}}
 
       </div>
@@ -119,54 +167,6 @@
     </div>
 
   </div>
-
-<!-- <div class='chart-modal modal'>
-  <div class='modal-content chart-modal-content'>
-    <span class='close edit-good-close' id='chartClose'>&times;</span>
-      <form action='/goods/report' method='GET'>
-        <div class="chart-container">
-          <canvas id="chart_0"></canvas>
-      </div>
-      </form>
-  </div>
-</div>
-<script>
-var data = {
-  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-  datasets: [{
-    label: 'Dataset #1',
-    backgroundColor: 'rgba(255,99,132,0.2)',
-    borderColor: 'rgba(255,99,132,1)',
-    borderWidth: 2,
-    hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-    hoverBorderColor: 'rgba(255,99,132,1)',
-    data: [65, 59, 20, 81, 56, 55, 40]
-  }]
-};
-
-var option = {
-  scales: {
-    yAxes: [{
-      stacked: true,
-      gridLines: {
-        display: true,
-        color: 'rgba(255,99,132,0.2)'
-      }
-    }],
-    xAxes: [{
-      gridLines: {
-        display: false
-      }
-    }]
-  }
-};
-
-Chart.Bar('chart_0', {
-  options: option,
-  data: data
-});
-};
-</script> -->
 
 </main>
 
