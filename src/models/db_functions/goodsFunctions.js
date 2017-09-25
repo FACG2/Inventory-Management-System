@@ -70,8 +70,8 @@ const getAllGoods = (cb) => {
 
 const updateGoods = (good, cb) => {
   const sql = {
-    text: `UPDATE goods SET name = $1, type = $2,  quantity = $3,  image= $4 WHERE id=${good.body.id} RETURNING *`,
-    values: [good.body.goodName, good.body.goodType, good.body.quantity, good.body.image]
+    text: `UPDATE goods SET name = $1, type = $2, image= $3 WHERE id=${good.body.id} RETURNING *`,
+    values: [good.body.goodName, good.body.goodType, good.body.image]
   };
 
   dbConnection.query(sql, (err, res) => {
