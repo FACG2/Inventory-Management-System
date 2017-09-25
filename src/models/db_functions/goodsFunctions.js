@@ -77,8 +77,10 @@ const update = (data, cb) => {
     values: [data.newQuantity, data.id]
   }, (err, result) => {
     if (err) {
+      console.log(err);
       cb(err);
     } else {
+      console.log(result.rows);
       cb(null, result.rows[0]);
     }
   });
