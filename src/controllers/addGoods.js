@@ -12,7 +12,7 @@ function post (req, res, next) {
   };
   queries.addGoods(Data, (err, result) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
       next(err);
     } else {
       if (!req.files) {
