@@ -1,4 +1,6 @@
-
+.main{
+      padding-right: 60px;
+}
 .image-user{
   margin-top: 40px;
    /*margin-bottom: 100px;*/
@@ -8,6 +10,9 @@
     border-radius: 4px;
     padding: 5px;
     /*width: 150px;*/
+}
+.profile-picture{
+      padding-top: 241px;
 }
 
 .image-user:hover {
@@ -39,11 +44,13 @@
 }
 
 .user-info{
-  margin-top: -260px;
+  margin-top: -135px;
   /* margin-bottom: 100px; */
   margin-right: 396px;
 
   /* margin-left: 80px; */
+
+      /*margin-top: -146px;*/
 }
 
 .userName-style{
