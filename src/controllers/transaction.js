@@ -1,5 +1,4 @@
-const addTransaction = require('../models/db_functions/transaction');
-// , getTransactio
+const db = require('../models/db_functions/index');
 
 function get (req, res) {
   res.render('transaction', {title: 'Add transaction', cssPath: ''});
@@ -8,14 +7,27 @@ function get (req, res) {
 function increment (req, res, next) {
   const data = {
     body: req.body,
-    params: req.params,
-    transactionType: 'اضافة'
+    transactionType: 'إضافة'
   };
-  addTransaction(data, (err, res) => {
+  db.Goods.getGoodById(data.body.id, (err, result) => {
     if (err) {
+      console.log(err);
       next(err);
     } else {
-      res.redirect('/home'); // /transactions/increment
+      db.Transactions.addTransaction(data, (err1, result1) => {
+        if (err1) {
+          next(err1);
+        } else {
+          const newQuantity = parseInt(req.body.transactionGoodQuantity) + result.quantity;
+          db.Goods.update({id: 1, newQuantity: newQuantity}, (err2, result2) => {
+            if (err2) {
+              next(err2);
+            } else {
+              res.redirect('/home');
+            }
+          });
+        }
+      });
     }
   });
 }
@@ -23,14 +35,27 @@ function increment (req, res, next) {
 function decrement (req, res, next) {
   const data = {
     body: req.body,
-    params: req.params,
     transactionType: 'حذف'
   };
-  addTransaction(data, (err, res) => {
+  db.Goods.getGoodById(data.body.id, (err, result) => {
     if (err) {
+      console.log(err);
       next(err);
     } else {
-      res.redirect('/home'); // /transactions/decrement
+      db.Transactions.addTransaction(data, (err1, result1) => {
+        if (err1) {
+          next(err1);
+        } else {
+          const newQuantity = result.quantity - parseInt(req.body.transactionGoodQuantity);
+          db.Goods.update({id: 1, newQuantity: newQuantity}, (err2, result2) => {
+            if (err2) {
+              next(err2);
+            } else {
+              res.redirect('/home');
+            }
+          });
+        }
+      });
     }
   });
 }
