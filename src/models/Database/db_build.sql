@@ -40,7 +40,8 @@ CREATE TABLE transactions (
   transaction_date DATE NOT NULL,
   quantity INTEGER NOT NULL,
   inventory_id INTEGER REFERENCES inventories(id),
-  good_id INTEGER REFERENCES goods(id)
+  good_name VARCHAR(250) NOT NULL,
+  good_type VARCHAR(250) NOT NULL
 );
 
 INSERT INTO users (name, email, role, username, password) VALUES
@@ -65,9 +66,9 @@ INSERT INTO inventories (name, location, capacity, status, user_id) VALUES
         CURRENT_DATE,
       1);
 
-INSERT INTO transactions(transaction_type, transaction_date , quantity , inventory_id , good_id) VALUES
+INSERT INTO transactions(transaction_type, transaction_date , quantity , inventory_id , good_name , good_type) VALUES
                         ('إضافة',CURRENT_DATE , 5 , 1
-                           , 1
+                           , 'قميص' , 'قطن'
                         );
 
 COMMIT;
