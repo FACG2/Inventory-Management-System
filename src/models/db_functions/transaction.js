@@ -10,15 +10,16 @@ const addTransaction = (req, cb) => {
       console.log(err);
       cb(err);
     } else {
+      console.log(res.rows);
       cb(null, res.rows[0]);
     }
   });
 };
 
-const getTransaction = (req, cb) => {
+const getTransaction = (id, cb) => {
   const sql = {
-    text: `SELECT goods.name, goods.type,transactions.transaction_type, transactions.transaction_date, transactions.quantity FROM transactions INNER JOIN goods ON transactions.good_id=goods.id`,
-    values: [req.goods.name, req.goods.type, req.transactions.transaction_date, req.transactions.quantity]
+    text: `SELECT * FROM transactions WHERE id=$1`,
+    values: [id]
   };
   dbConnection.query(sql, (err, res) => {
     if (err) {
