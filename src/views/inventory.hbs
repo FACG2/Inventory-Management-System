@@ -1,5 +1,4 @@
-
-{{>homeHeader}}
+ {{>homeHeader}}
 <main class='main'>
 
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' />
@@ -9,25 +8,25 @@
   <div class='add-good-modal modal'>
     <div class='modal-content add-good-modal-content'>
       <span class='close add-good-close' id='add-goodClose'>&times;</span>
-        <form action='/goods/add' method='POST' encType="multipart/form-data">
-          <label for='add-good-name'>الاسم <input type='text' class='txt' id='add-good-name' name='goodName' placeholder='ادخل الاسم' required /></label>
-          <br />
-          <label for='add-good-goodType'>النوع  <input type='text' class='txt' id='add-good-goodType' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
-          <br />
-          <label for='edit-good-charge_date'>تاريخ الشحن <input type='date' class='txt' id='edit-good-charge_date' placeholder='ادخل تاريخ الشحن'  name='chargeDate'/></label>
-          <br />
-          <label for='edit-good-quantity'>الكمية<input type='text' class='txt' id='edit-good-quantity' placeholder='ادخل تاريخ الشحن'  name='goodQuantity'/></label>
-          <br />
+      <form action='/goods/add' method='POST' encType="multipart/form-data">
+        <label for='add-good-name'>الاسم <input type='text' class='txt' id='add-good-name' name='goodName' placeholder='ادخل الاسم' required /></label>
+        <br />
+        <label for='add-good-goodType'>النوع  <input type='text' class='txt' id='add-good-goodType' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
+        <br />
+        <label for='edit-good-charge_date'>تاريخ الشحن <input type='date' class='txt' id='edit-good-charge_date' placeholder='ادخل تاريخ الشحن'  name='chargeDate'/></label>
+        <br />
+        <label for='edit-good-quantity'>الكمية<input type='text' class='txt' id='edit-good-quantity' placeholder='ادخل تاريخ الشحن'  name='goodQuantity'/></label>
+        <br />
 
 
-          <label for='add-good-email'>تاريخ الانتهاء<input type='date' class='txt' id='add-good-email' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate'/></label>
-          <label for='add-good-password'>صورة الصنف<input type='file' id='add-good-password' name='image' placeholder='أدخل كلمة المرور' required /></label>
-          <br />
-          <br />
-          <div class='buttons'>
-            <button class='submit-btn' value='Upload!'><i class='fa fa-plus'></i> إضافة</button>
-          </div>
-        </form>
+        <label for='add-good-email'>تاريخ الانتهاء<input type='date' class='txt' id='add-good-email' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate'/></label>
+        <label for='add-good-password'>صورة الصنف<input type='file' id='add-good-password' name='image' placeholder='أدخل كلمة المرور' required /></label>
+        <br />
+        <br />
+        <div class='buttons'>
+          <button class='submit-btn' value='Upload!'><i class='fa fa-plus'></i> إضافة</button>
+        </div>
+      </form>
     </div>
   </div>
   <!-- End Add Good Modal -->
@@ -50,24 +49,24 @@
   <div class='edit-good-modal modal'>
     <div class='modal-content edit-good-modal-content'>
       <span class='close edit-good-close' id='edit-goodClose'>&times;</span>
-        <form action='/goods/edit' method='POST'>
-          <input type='hidden' value='' name='id' id='edit-good-id' />
-          <label for='edit-good-name'>الاسم <input type='text' class='txt' id='edit-good-name' name='goodName' placeholder='ادخل الاسم' required /></label>
-          <br />
-          <label for='edit-good-type'>النوع  <input type='text' class='txt' id='edit-good-type' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
-          <br />
-          <label for='edit-good-expiryDate'>تاريخ الانتهاء<input type='date' class='txt' id='edit-good-expiryDate' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate'/></label>
-          <label for='edit-good-image'>صورة الصنف<input type='file' class='txt' id='edit-good-image' name='image' placeholder='أدخل كلمة المرور' required /></label>
-          <div class='image-place-holder'>
-            <img class='image-inside-div' src='https://lh3.googleusercontent.com/gN6iBKP1b2GTXZZoCxhyXiYIAh8QJ_8xzlhEK6csyDadA4GdkEdIEy9Bc8s5jozt1g=w300' alt='صورة الصنف'  />
-          </div>
-          <br />
-          <br />
-          <div class='buttons'>
-            <!-- <input type='submit' value='' class='submit-btn'/> -->
-            <button class='submit-btn'><i class='fa fa-edit'></i> تعديل</button>
-          </div>
-        </form>
+      <form action='/goods/edit' method='POST'>
+        <input type='hidden' value='' name='id' id='edit-good-id' />
+        <label for='edit-good-name'>الاسم <input type='text' class='txt' id='edit-good-name' name='goodName' placeholder='ادخل الاسم' required /></label>
+        <br />
+        <label for='edit-good-type'>النوع  <input type='text' class='txt' id='edit-good-type' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
+        <br />
+        <label for='edit-good-expiryDate'>تاريخ الانتهاء<input type='date' class='txt' id='edit-good-expiryDate' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate'/></label>
+        <label for='edit-good-image'>صورة الصنف<input type='file' class='txt' id='edit-good-image' name='image' placeholder='أدخل كلمة المرور' required /></label>
+        <div class='image-place-holder'>
+          <img class='image-inside-div' src='https://lh3.googleusercontent.com/gN6iBKP1b2GTXZZoCxhyXiYIAh8QJ_8xzlhEK6csyDadA4GdkEdIEy9Bc8s5jozt1g=w300' alt='صورة الصنف' />
+        </div>
+        <br />
+        <br />
+        <div class='buttons'>
+          <!-- <input type='submit' value='' class='submit-btn'/> -->
+          <button class='submit-btn'><i class='fa fa-edit'></i> تعديل</button>
+        </div>
+      </form>
     </div>
   </div>
   <!-- End Edit Good Modal -->
@@ -114,13 +113,13 @@
       <span class='close decrement-close' id='decrementClose'>&times;</span>
       <form action='/transactions/decrement' method='POST'>
         <input type='hidden' value='' name='id' id='decrement-transaction-id' />
-        <label for='transaction-good-name'>الاسم <input type='text' class='txt' id='transaction-good-name' name='transactionGoodName' placeholder='ادخل الاسم' required /></label>
+        <label for='transaction-good-name-decrement'>الاسم <input type='text' class='txt' id='transaction-good-name-decrement' name='transactionGoodName' placeholder='ادخل الاسم' required /></label>
         <br />
-        <label for='transaction-good-type'>النوع  <input type='text' class='txt' id='transaction-good-type' placeholder='ادخل نوع الصنف'  name='transactionGoodType'/></label>
+        <label for='transaction-good-type-decrement'>النوع  <input type='text' class='txt' id='transaction-good-type-decrement' placeholder='ادخل نوع الصنف'  name='transactionGoodType'/></label>
         <br />
-        <label for='transaction-good-quantity'>الكمية  <input type='text' class='txt' id='transaction-good-quantity' placeholder='ادخل نوع الصنف'  name='transactionGoodQuantity'/></label>
+        <label for='transaction-good-quantity-decrement'>الكمية  <input type='text' class='txt' id='transaction-good-quantity-decrement' placeholder='ادخل نوع الصنف'  name='transactionGoodQuantity'/></label>
         <br />
-        <label for='transaction-good-date'>تاريخ الانتهاء<input type='date' class='txt' id='transaction-good-date' placeholder='ادخل تاريخ الانتهاء'  name='transactionDate'/></label>
+        <label for='transaction-good-date-decrement'>تاريخ الانتهاء<input type='date' class='txt' id='transaction-good-date-decrement' placeholder='ادخل تاريخ الانتهاء'  name='transactionDate'/></label>
         <br />
         <br />
         <div class='buttons'>
@@ -148,24 +147,24 @@
           <div class='good'>
             <div class='good-description'>
               <a class='delete-good-btn'>&times;</a> <span class='edit-good-btn'><i class='fa fa-edit'></i></span>
-                <span class='text'>
-                  <span id="{{this.id}}"></span>
-                  <label class='desc-txt'>الاسم: <span>{{this.name}}</span></label>
-                  <label class='desc-txt'>النوع: <span>{{this.type}}</span></label>
-                  <label class='desc-txt'>تاريخ الشحن: <span>{{this.charge_date}}</span></label>
-                  <label class='desc-txt'>تاريخ الانتهاء: <span>{{this.expiry_date}}</span></label>
-                  <label class='desc-txt'>الكمية: <span>{{this.quantity}}</span></label>
-                </span>
-                <button class='incr-btn good-btn'>+</button>
-                <button class='decr-btn good-btn'>-</button>
+              <span class='text'>
+                <span id="{{this.id}}"></span>
+                <label class='desc-txt'>الاسم: <span>{{this.name}}</span></label>
+                <label class='desc-txt'>النوع: <span>{{this.type}}</span></label>
+                <label class='desc-txt'>تاريخ الشحن: <span> {{shortFormatDate this.charge_date}}</span></label>
+                <label class='desc-txt'>تاريخ الانتهاء: <span>{{shortFormatDate this.expiry_date}}</span></label>
+                <label class='desc-txt'>الكمية: <span>{{this.quantity}}</span></label>
+              </span>
+              <button class='incr-btn good-btn'>+</button>
+              <button class='decr-btn good-btn'>-</button>
             </div>
           </div>
         {{/each}}
 
+
       </div>
 
     </div>
-
   </div>
 
 </main>
