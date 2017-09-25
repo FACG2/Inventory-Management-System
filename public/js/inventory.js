@@ -187,7 +187,9 @@ window.onload = function () {
   function xhrRequest (method, url, data) {
     var xhr = new window.XMLHttpRequest();
     xhr.onreadystatechange = function () {
-      window.location.href = '/';
+      if (this.readyState === 4 && this.status === 200) {
+        window.location.href = '/home';
+      }
     };
     xhr.open(method, url, true);
     if (!data) data = {};
