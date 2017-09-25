@@ -22,6 +22,7 @@ router.get('/logout', authController.logout);
 router.post('/goods/add', addGoods.post);
 router.post('/goods/edit', updateGood.post);
 router.post('/goods/:id', updateGood.deleteGoodById);
+router.post('/edit-inventory-status', home.updateInventoryStatus);
 router.get('/goods/report', report.get);
 
 router.use(error.client);

@@ -35,7 +35,7 @@ window.onload = function () {
   var noBtn = document.querySelector('.no-btn');
   var inventoryStateEditBtn = document.querySelector('.inventory-state');
   var inventoryStateSaveBtn = document.querySelector('.inventory-state-btn');
-  // var inventoryStateInput = document.querySelector('.inventory-state-input');
+  var inventoryStateInput = document.querySelector('.inventory-state-input');
   var inventoryStateContainer = document.querySelector('.inventory-state-container');
   var selectedGood = {};
 
@@ -93,7 +93,13 @@ window.onload = function () {
 
   yesBtn.addEventListener('click', function () {
     if (selectedGood.hasOwnProperty('id')) {
-      xhrRequest('POST', '/goods/' + selectedGood.id);
+      xhrRequest('POST', '/goods/' + selectedGood.id, null, function (err, result) {
+        if (err) {
+          window.location.href = '/500';
+        } else {
+          window.location.href = '/home';
+        }
+      });
     }
   });
 
@@ -183,6 +189,18 @@ window.onload = function () {
 
   inventoryStateSaveBtn.addEventListener('click', function () {
     inventoryStateContainer.classList.add('hidden');
+    xhrRequest('POST', '/edit-inventory-status', null, function (err, result) {
+      if (err) {
+        window.location.href = '/500';
+      } else {
+        if (result) {
+          console.log(result);
+          inventoryStateInput.value = result;
+        } else {
+          window.location.href = '/500';
+        }
+      }
+    });
   });
 
   // helper functions
@@ -194,11 +212,11 @@ window.onload = function () {
     modals.map(function (modal, index) { modal.classList.add(classNames[index]); });
   }
 
-  function xhrRequest (method, url, data) {
+  function xhrRequest (method, url, data, cb) {
     var xhr = new window.XMLHttpRequest();
     xhr.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
-        window.location.href = '/home';
+        cb(this.responseText);
       }
     };
     xhr.open(method, url, true);
