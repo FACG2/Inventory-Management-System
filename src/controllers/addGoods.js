@@ -10,21 +10,19 @@ function post (req, res, next) {
     body: req.body,
     imageName: req.files.image.name
   };
-  console.log(req.files.image.name);
   queries.addGoods(Data, (err, result) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
       next(err);
     } else {
       if (!req.files) {
         return res.status(400).send('No files were uploaded.');
       }
 
-      // const image = req.files.image;
       var image = req.files.image;
 
       if (image) {
-        image.mv(path.join(__dirname, '..', '..', 'public', 'images', 'uploadFile', req.files.image.name)/* `../../public/images/uploadFile/${req.files.image.name}` */, (err) => {
+        image.mv(path.join(__dirname, '..', '..', 'public', 'images', 'uploadFile', req.files.image.name), (err) => {
           if (err) {
             console.log(err);
             return res.redirect('/500');
@@ -35,7 +33,6 @@ function post (req, res, next) {
       } else {
         res.redirect('/500');
       }
-      // res.redirect('/home');
     }
   });
 }

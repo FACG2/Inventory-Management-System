@@ -2,21 +2,6 @@ const dbConnection = require('../Database/db_connection.js');
 // add, update, delet, select
 // add new goods
 
-/* const addGoods = (goods, cb) => {
-  const sql = {text: 'INSERT INTO goods (name, quantity, type, charge_date, image, expiry_date, inventory_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-    values: [goods.name, goods.quantity, goods.type, goods.charge_date, goods.image, goods.expiry_date, goods.inventory_id]
-  };
-  dbConnection.query(sql, (err, res) => {
-    if (err) {
-      // console.log('hello', err);
-      cb(err);
-    } else {
-      // console.log(res.rows[0]);
-      cb(null, res.rows[0]);
-    }
-  });
-};
-*/
 const deleteGoods = (good, cb) => {
   const sql = {
     text: `DELETE FROM goods WHERE id = $1`,
@@ -87,9 +72,37 @@ const updateGoods = (goods, cb) => {
   });
 };
 
+const update = (data, cb) => {
+  dbConnection.query({
+    text: 'UPDATE goods SET quantity=$1 WHERE id=$2 RETURNING *',
+    values: [data.newQuantity, data.id]
+  }, (err, result) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, result.rows[0]);
+    }
+  });
+};
+
+const getGoodById = (id, cb) => {
+  dbConnection.query({
+    text: 'SELECT * FROM goods WHERE id=$1',
+    values: [id]
+  }, (err, result) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, result.rows[0]);
+    }
+  });
+};
+
 module.exports = {
-  addGoods: addGoods,
-  deleteGoods: deleteGoods,
-  getAllGoods: getAllGoods,
-  updateGoods: updateGoods
+  addGoods,
+  deleteGoods,
+  getAllGoods,
+  updateGoods,
+  update,
+  getGoodById
 };

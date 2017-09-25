@@ -1,18 +1,20 @@
 .welcome{
   padding-top: 70px;
   text-align: center;
-  height: 500px;
+  height: 350px;
 }
 
 
-.app-title{
+/*.app-title{
   margin-top: 10%;
-}
+}*/
 
 .app-description{
   width: 60%;
   max-width: 960px;
   margin: auto;
+  font-family: 'Open Sans', sans-serif;
+
 }
 
 .clear{
@@ -25,14 +27,20 @@
 
 .image-div{
   float: left;
+  width: 650px;
 }
 
 .description{
   float: right;
+  font-family: 'Open Sans', sans-serif;
+      padding-top: 69px;
+
 }
 
 .second-section , .third-section{
   padding-top: 5%;
+  font-family: 'Open Sans', sans-serif;
+
 }
 
 .image-div-reversed{
@@ -41,6 +49,8 @@
 
 .description-reversed{
   float: left;
+  padding-top: 90px;
+
 }
 
 hr{
