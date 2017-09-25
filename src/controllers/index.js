@@ -5,6 +5,7 @@ const profile = require('./profile');
 const home = require('./inventory');
 const addGoods = require('./addGoods');
 const updateGood = require('./goods.js');
+const transactionGood = require('./transaction.js');
 
 // const fs = require('fs');
 
@@ -21,6 +22,8 @@ router.get('/logout', authController.logout);
 router.post('/goods/add', addGoods.post);
 router.post('/goods/edit', updateGood.post);
 router.post('/goods/:id', updateGood.deleteGoodById);
+router.post('/transactions/increment', transactionGood.increment);
+router.post('/transactions/decrement', transactionGood.decrement);
 
 router.use(error.client);
 router.use(error.server);

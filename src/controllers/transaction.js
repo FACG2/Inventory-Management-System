@@ -1,4 +1,4 @@
-const {addTransaction} = require('../models/db_functions/transactions');
+const addTransaction = require('../models/db_functions/transaction');
 // , getTransactio
 
 function get (req, res) {
