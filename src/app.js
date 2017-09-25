@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const expressHandlebars = require('express-handlebars');
-const app = express();
 const path = require('path');
 const routes = require('./controllers/index');
 const helmet = require('helmet');
 const fileUpload = require('express-fileupload');
 const helpers = require('./views/helpers/index');
+
+const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
