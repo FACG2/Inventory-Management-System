@@ -25,7 +25,36 @@ const getAllInv = (cb) => {
     }
   });
 };
+
+const updateStatus = (data, cb) => {
+  dbConnection.query({
+    text: `UPDATE inventories SET status=$1 WHERE id=$2 RETURNING *`,
+    values: [data.status, data.id]
+  }, (err, result) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, result.rows[0]);
+    }
+  });
+};
+
+const getInventoryStatus = (id, cb) => {
+  dbConnection.query({
+    text: 'SELECT status FROM inventories WHERE id=$1',
+    values: [id]
+  }, (err, result) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, result.rows[0]);
+    }
+  });
+};
+
 module.exports = {
-  addInventory: addInventory,
-  getAllInv: getAllInv
+  addInventory,
+  getAllInv,
+  updateStatus,
+  getInventoryStatus
 };
