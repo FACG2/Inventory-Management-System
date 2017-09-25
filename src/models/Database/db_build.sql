@@ -36,11 +36,11 @@ CREATE TABLE goods (
 
 CREATE TABLE transactions (
   id SERIAL PRIMARY KEY,
+  transaction_type VARCHAR NOT NULL,
   transaction_date DATE NOT NULL,
-  worker_name VARCHAR(20) NOT NULL,
-  good_type VARCHAR NOT NULL,
-  good_quantity INTEGER NOT NULL,
-  inventory_id INTEGER REFERENCES inventories(id)
+  quantity INTEGER NOT NULL,
+  inventory_id INTEGER REFERENCES inventories(id),
+  good_id INTEGER REFERENCES goods(id)
 );
 
 INSERT INTO users (name, email, role, username, password) VALUES
