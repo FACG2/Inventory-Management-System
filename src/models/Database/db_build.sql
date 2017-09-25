@@ -16,10 +16,10 @@ CREATE TABLE users (
 
 CREATE TABLE inventories(
   id SERIAL PRIMARY KEY,
-  name VARCHAR UNIQUE NOT NULL,
-  location VARCHAR NOT NULL,
-  capacity VARCHAR not NULL,
-  status VARCHAR,
+  name VARCHAR(250) UNIQUE NOT NULL,
+  location VARCHAR(250) NOT NULL,
+  capacity VARCHAR(250) NOT NULL,
+  status VARCHAR(250) NOT NULL DEFAULT 'فارغ' ,
   user_id INTEGER REFERENCES users (id)
 );
 
@@ -65,7 +65,7 @@ INSERT INTO inventories (name, location, capacity, status, user_id) VALUES
         CURRENT_DATE,
       1);
 
-INSERT INTO transactions(transactionType, transaction_date , quantity , inventory_id , good_id) VALUES
+INSERT INTO transactions(transaction_type, transaction_date , quantity , inventory_id , good_id) VALUES
                         ('إضافة',CURRENT_DATE , 5 , 1
                            , 1
                         );
