@@ -35,9 +35,24 @@ window.onload = function () {
   var noBtn = document.querySelector('.no-btn');
   var selectedGood = {};
 
+  console.log(decrementBtns);
   Array.from(decrementBtns).map(function (btn) {
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', function (event) {
+      // console.log('btn clicked');
       addClasses([decrementModal, decrementModalContent], ['show-modal', 'show-modal-content']);
+      selectedGood = {
+        id: event.target.parentNode.children[2].children[0].id,
+        name: event.target.parentNode.children[2].children[1].children[0].textContent,
+        type: event.target.parentNode.children[2].children[2].children[0].textContent,
+        transaction_date: shortDateFormat(event.target.parentNode.children[2].children[3].children[0].textContent),
+        quantity: event.target.parentNode.children[2].children[5].children[0].textContent
+      };
+      console.log(selectedGood);
+      document.querySelector('#decrement-transaction-id').value = selectedGood.id;
+      document.querySelector('#transaction-good-name-decrement').value = selectedGood.name;
+      document.querySelector('#transaction-good-type-decrement').value = selectedGood.type;
+      document.querySelector('#transaction-good-quantity-decrement').value = selectedGood.quantity;
+      document.querySelector('#transaction-good-date-decrement').value = selectedGood.transaction_date;
     });
   });
 
@@ -51,6 +66,7 @@ window.onload = function () {
         transaction_date: shortDateFormat(event.target.parentNode.children[2].children[3].children[0].textContent),
         quantity: event.target.parentNode.children[2].children[5].children[0].textContent
       };
+      console.log(selectedGood);
       document.querySelector('#increment-transaction-id').value = selectedGood.id;
       document.querySelector('#transaction-good-name').value = selectedGood.name;
       document.querySelector('#transaction-good-type').value = selectedGood.type;
@@ -133,8 +149,8 @@ window.onload = function () {
         id: event.target.parentNode.parentNode.children[2].children[0].id,
         name: event.target.parentNode.parentNode.children[2].children[1].children[0].textContent,
         type: event.target.parentNode.parentNode.children[2].children[2].children[0].textContent,
-        expiryDate: shortDateFormat(event.target.parentNode.parentNode.children[2].children[3].children[0].textContent),
-        image: event.target.parentNode.parentNode.children[2].children[1].children[0].files[0].filename
+        expiryDate: shortDateFormat(event.target.parentNode.parentNode.children[2].children[3].children[0].textContent)
+        // image: event.target.parentNode.parentNode.children[2].children[1].children[0].files[0].filename
       };
       document.querySelector('#edit-good-name').value = selectedGood.name;
       document.querySelector('#edit-good-type').value = selectedGood.type;
@@ -171,7 +187,7 @@ window.onload = function () {
   function xhrRequest (method, url, data) {
     var xhr = new window.XMLHttpRequest();
     xhr.onreadystatechange = function () {
-      window.location.href = '/home';
+      window.location.href = '/';
     };
     xhr.open(method, url, true);
     if (!data) data = {};
