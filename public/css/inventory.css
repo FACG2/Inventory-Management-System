@@ -134,3 +134,13 @@
 .yes-btn:hover{
   background-color: #a9322f;
 }
+
+
+.inventory-state:hover{
+  cursor: pointer;
+  color: #C9302C;
+}
+
+.hidden{
+  display: none;
+}

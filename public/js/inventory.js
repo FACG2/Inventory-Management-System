@@ -33,25 +33,26 @@ window.onload = function () {
 
   var yesBtn = document.querySelector('.yes-btn');
   var noBtn = document.querySelector('.no-btn');
+  var inventoryStateEditBtn = document.querySelector('.inventory-state');
+  var inventoryStateSaveBtn = document.querySelector('.inventory-state-btn');
+  // var inventoryStateInput = document.querySelector('.inventory-state-input');
+  var inventoryStateContainer = document.querySelector('.inventory-state-container');
   var selectedGood = {};
 
-  console.log(decrementBtns);
+  // console.log(decrementBtns);
   Array.from(decrementBtns).map(function (btn) {
     btn.addEventListener('click', function (event) {
-      // console.log('btn clicked');
       addClasses([decrementModal, decrementModalContent], ['show-modal', 'show-modal-content']);
       selectedGood = {
         id: event.target.parentNode.children[2].children[0].id,
         name: event.target.parentNode.children[2].children[1].children[0].textContent,
         type: event.target.parentNode.children[2].children[2].children[0].textContent,
-        transaction_date: shortDateFormat(event.target.parentNode.children[2].children[3].children[0].textContent),
-        quantity: event.target.parentNode.children[2].children[5].children[0].textContent
+        transaction_date: shortDateFormat(event.target.parentNode.children[2].children[3].children[0].textContent)
       };
       console.log(selectedGood);
       document.querySelector('#decrement-transaction-id').value = selectedGood.id;
       document.querySelector('#transaction-good-name-decrement').value = selectedGood.name;
       document.querySelector('#transaction-good-type-decrement').value = selectedGood.type;
-      document.querySelector('#transaction-good-quantity-decrement').value = selectedGood.quantity;
       document.querySelector('#transaction-good-date-decrement').value = selectedGood.transaction_date;
     });
   });
@@ -176,6 +177,15 @@ window.onload = function () {
     });
   });
 
+  inventoryStateEditBtn.addEventListener('click', function () {
+    inventoryStateContainer.classList.toggle('hidden');
+  });
+
+  inventoryStateSaveBtn.addEventListener('click', function () {
+    inventoryStateContainer.classList.add('hidden');
+  });
+
+  // helper functions
   function removeClasses (modals, classNames) {
     modals.map(function (modal, index) { modal.classList.remove(classNames[index]); });
   }
