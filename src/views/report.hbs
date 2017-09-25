@@ -105,26 +105,17 @@
                   </tr>
                 </thead>
                 <tbody>
-
+                {{#each result}}
                   <tr>
                     <td>{{this.number}}</td>
-                    <td>{{this.name}}</td>
-                    <td>{{this.type}}</td>
+                    <td>{{this.good_name}}</td>
+                    <td>{{this.good_type}}</td>
                     <td>{{this.quantity}}</td>
-                    <td>{{this.charge_date}}</td>
-                    <td></td>
+                    <td>{{shortFormatDate this.transaction_date}}</td>
+                    <td>{{this.transaction_type}}</td>
                   </tr>
-
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr>
+                {{/each}}
+                  <!-- <tr>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -142,7 +133,6 @@
                     <td></td>
 
                   </tr>
-
                   <tr>
                     <td></td>
                     <td></td>
@@ -202,6 +192,16 @@
                     <td></td>
 
                   </tr>
+
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                  </tr> -->
                 </tbody>
 
 
