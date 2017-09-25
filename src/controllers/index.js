@@ -5,6 +5,7 @@ const profile = require('./profile');
 const home = require('./inventory');
 const addGoods = require('./addGoods');
 const updateGood = require('./goods.js');
+const report = require('./report');
 
 // const fs = require('fs');
 
@@ -21,6 +22,7 @@ router.get('/logout', authController.logout);
 router.post('/goods/add', addGoods.post);
 router.post('/goods/edit', updateGood.post);
 router.post('/goods/:id', updateGood.deleteGoodById);
+router.get('/goods/report', report.get);
 
 router.use(error.client);
 router.use(error.server);
