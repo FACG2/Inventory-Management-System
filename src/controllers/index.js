@@ -10,7 +10,6 @@ const transactionGood = require('./transaction.js');
 
 const report = require('./report');
 
-
 // const fs = require('fs');
 
 const authController = require('./auth');
@@ -32,7 +31,6 @@ router.post('/transactions/decrement', transactionGood.decrement);
 
 router.post('/edit-inventory-status', home.updateInventoryStatus);
 router.get('/goods/report', report.get);
-
 
 router.use(error.client);
 router.use(error.server);
