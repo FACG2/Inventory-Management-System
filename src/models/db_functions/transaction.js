@@ -2,11 +2,12 @@ const dbConnection = require('../Database/db_connection.js');
 
 const addTransaction = (req, cb) => {
   const sql = {
-    text: `INSERT INTO transactions (transaction_type, transaction_date, quantity, good_id, inventory_id) VALUES ($1,$2,$3,$4)`,
-    values: [req.transaction_type, req.transaction_date, req.quantity, req.good_id, req.inventory_id, 1]
+    text: `INSERT INTO transactions (transaction_type, transaction_date, quantity, good_name , good_type, inventory_id) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *`,
+    values: [req.transactionType, req.body.transactionDate, req.body.transactionGoodQuantity, req.body.transactionGoodName, req.body.transactionGoodType, 1]
   };
   dbConnection.query(sql, (err, res) => {
     if (err) {
+      console.log(err);
       cb(err);
     } else {
       cb(null, res.rows[0]);

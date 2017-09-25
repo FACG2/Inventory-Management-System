@@ -35,7 +35,7 @@ window.onload = function () {
   var noBtn = document.querySelector('.no-btn');
   var inventoryStateEditBtn = document.querySelector('.inventory-state');
   var inventoryStateSaveBtn = document.querySelector('.inventory-state-btn');
-  var inventoryStateInput = document.querySelector('.inventory-state-input');
+  // var inventoryStateInput = document.querySelector('.inventory-state-input');
   var inventoryStateContainer = document.querySelector('.inventory-state-container');
   var selectedGood = {};
 
@@ -46,14 +46,14 @@ window.onload = function () {
       selectedGood = {
         id: event.target.parentNode.children[2].children[0].id,
         name: event.target.parentNode.children[2].children[1].children[0].textContent,
-        type: event.target.parentNode.children[2].children[2].children[0].textContent,
-        transaction_date: shortDateFormat(event.target.parentNode.children[2].children[3].children[0].textContent)
+        type: event.target.parentNode.children[2].children[2].children[0].textContent
+        // transaction_date: shortDateFormat(event.target.parentNode.children[2].children[3].children[0].textContent)
       };
       console.log(selectedGood);
       document.querySelector('#decrement-transaction-id').value = selectedGood.id;
       document.querySelector('#transaction-good-name-decrement').value = selectedGood.name;
       document.querySelector('#transaction-good-type-decrement').value = selectedGood.type;
-      document.querySelector('#transaction-good-date-decrement').value = selectedGood.transaction_date;
+      // document.querySelector('#transaction-good-date-decrement').value = selectedGood.transaction_date;
     });
   });
 
@@ -63,16 +63,16 @@ window.onload = function () {
       selectedGood = {
         id: event.target.parentNode.children[2].children[0].id,
         name: event.target.parentNode.children[2].children[1].children[0].textContent,
-        type: event.target.parentNode.children[2].children[2].children[0].textContent,
-        transaction_date: shortDateFormat(event.target.parentNode.children[2].children[3].children[0].textContent),
-        quantity: event.target.parentNode.children[2].children[5].children[0].textContent
+        type: event.target.parentNode.children[2].children[2].children[0].textContent
+        // transaction_date: shortDateFormat(event.target.parentNode.children[2].children[3].children[0].textContent),
+        // quantity: event.target.parentNode.children[2].children[5].children[0].textContent
       };
       console.log(selectedGood);
       document.querySelector('#increment-transaction-id').value = selectedGood.id;
       document.querySelector('#transaction-good-name').value = selectedGood.name;
       document.querySelector('#transaction-good-type').value = selectedGood.type;
-      document.querySelector('#transaction-good-quantity').value = selectedGood.quantity;
-      document.querySelector('#transaction-good-date').value = selectedGood.transaction_date;
+      // document.querySelector('#transaction-good-quantity').value = selectedGood.quantity;
+      // document.querySelector('#transaction-good-date').value = selectedGood.transaction_date;
     });
   });
 
@@ -95,6 +95,7 @@ window.onload = function () {
     if (selectedGood.hasOwnProperty('id')) {
       xhrRequest('POST', '/goods/' + selectedGood.id, null, function (err, result) {
         if (err) {
+          console.log(err);
           window.location.href = '/500';
         } else {
           window.location.href = '/home';
@@ -189,18 +190,6 @@ window.onload = function () {
 
   inventoryStateSaveBtn.addEventListener('click', function () {
     inventoryStateContainer.classList.add('hidden');
-    xhrRequest('POST', '/edit-inventory-status', null, function (err, result) {
-      if (err) {
-        window.location.href = '/500';
-      } else {
-        if (result) {
-          console.log(result);
-          inventoryStateInput.value = result;
-        } else {
-          window.location.href = '/500';
-        }
-      }
-    });
   });
 
   // helper functions
@@ -216,7 +205,7 @@ window.onload = function () {
     var xhr = new window.XMLHttpRequest();
     xhr.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
-        cb(this.responseText);
+        cb(null, this.responseText);
       }
     };
     xhr.open(method, url, true);
