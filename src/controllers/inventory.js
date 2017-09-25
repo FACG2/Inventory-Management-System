@@ -6,7 +6,7 @@ const get = (req, res) => {
       res.redirect('/500');
     } else {
       // console.log(result);
-      res.render('inventory.hbs', {result});
+      res.render('inventory', {result});
     }
   });
 };
