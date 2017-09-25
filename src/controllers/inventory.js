@@ -12,7 +12,6 @@ const get = (req, res) => {
         } else {
           if (status) {
             result.status = status;
-            console.log(result.status);
             res.render('inventory', { result });
           } else {
             res.redirect('/500');
