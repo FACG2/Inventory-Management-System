@@ -45,6 +45,7 @@ function deleteGoodById (req, res, next) {
 
   deleteGoods(data, (err, result) => {
     if (err) {
+      console.log(err);
       next(err);
     } else {
       res.redirect('/home');
