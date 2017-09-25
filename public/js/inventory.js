@@ -21,19 +21,72 @@ window.onload = function () {
   var deleteGoodCloseBtn = document.querySelector('.delete-good-close');
   var deleteBtns = document.querySelectorAll('.delete-good-btn');
 
+  var incrementModal = document.querySelector('.increment-modal');
+  var incrementModalContent = document.querySelector('.increment-modal-content');
+  var incrementModalClosebtn = document.querySelector('.increment-close');
+  var incrementBtns = document.querySelectorAll('.incr-btn');
+
+  var decrementModal = document.querySelector('.decrement-modal');
+  var decrementModalContent = document.querySelector('.decrement-modal-content');
+  var decrementModalCloseBtn = document.querySelector('.decrement-close');
+  var decrementBtns = document.querySelectorAll('.decr-btn');
+
   var yesBtn = document.querySelector('.yes-btn');
   var noBtn = document.querySelector('.no-btn');
   var selectedGood = {};
 
+  console.log(decrementBtns);
+  Array.from(decrementBtns).map(function (btn) {
+    btn.addEventListener('click', function (event) {
+      // console.log('btn clicked');
+      addClasses([decrementModal, decrementModalContent], ['show-modal', 'show-modal-content']);
+      selectedGood = {
+        id: event.target.parentNode.children[2].children[0].id,
+        name: event.target.parentNode.children[2].children[1].children[0].textContent,
+        type: event.target.parentNode.children[2].children[2].children[0].textContent,
+        transaction_date: shortDateFormat(event.target.parentNode.children[2].children[3].children[0].textContent),
+        quantity: event.target.parentNode.children[2].children[5].children[0].textContent
+      };
+      console.log(selectedGood);
+      document.querySelector('#decrement-transaction-id').value = selectedGood.id;
+      document.querySelector('#transaction-good-name-decrement').value = selectedGood.name;
+      document.querySelector('#transaction-good-type-decrement').value = selectedGood.type;
+      document.querySelector('#transaction-good-quantity-decrement').value = selectedGood.quantity;
+      document.querySelector('#transaction-good-date-decrement').value = selectedGood.transaction_date;
+    });
+  });
+
+  Array.from(incrementBtns).map(function (btn) {
+    btn.addEventListener('click', function (event) {
+      addClasses([incrementModal, incrementModalContent], ['show-modal', 'show-modal-content']);
+      selectedGood = {
+        id: event.target.parentNode.children[2].children[0].id,
+        name: event.target.parentNode.children[2].children[1].children[0].textContent,
+        type: event.target.parentNode.children[2].children[2].children[0].textContent,
+        transaction_date: shortDateFormat(event.target.parentNode.children[2].children[3].children[0].textContent),
+        quantity: event.target.parentNode.children[2].children[5].children[0].textContent
+      };
+      console.log(selectedGood);
+      document.querySelector('#increment-transaction-id').value = selectedGood.id;
+      document.querySelector('#transaction-good-name').value = selectedGood.name;
+      document.querySelector('#transaction-good-type').value = selectedGood.type;
+      document.querySelector('#transaction-good-quantity').value = selectedGood.quantity;
+      document.querySelector('#transaction-good-date').value = selectedGood.transaction_date;
+    });
+  });
+
+  incrementModalClosebtn.addEventListener('click', function () {
+    removeClasses([incrementModal, incrementModalContent], ['show-modal', 'show-modal-content']);
+  });
+
+  decrementModalCloseBtn.addEventListener('click', function () {
+    removeClasses([decrementModal, decrementModalContent], ['show-modal', 'show-modal-content']);
+  });
+
   Array.from(deleteBtns).map(function (btn) {
     btn.addEventListener('click', function (event) {
-      deleteGoodModal.classList.add('show-modal');
-      deleteGoodModalContent.classList.add('show-modal-content');
-      deleteGoodModalContent.classList.add('delete-good');
-
-      selectedGood = {
-        id: event.target.parentNode.children[2].children[0].id
-      };
+      addClasses([deleteGoodModal, deleteGoodModalContent, deleteGoodModalContent], ['show-modal', 'show-modal-content', 'delete-good']);
+      selectedGood = {id: event.target.parentNode.children[2].children[0].id};
     });
   });
 
@@ -44,134 +97,109 @@ window.onload = function () {
   });
 
   noBtn.addEventListener('click', function () {
-    deleteGoodModal.classList.remove('show-modal');
-    deleteGoodModalContent.classList.remove('show-modal-content');
-    deleteGoodModalContent.classList.remove('delete-good');
+    removeClasses([deleteGoodModal, deleteGoodModalContent, deleteGoodModalContent], ['show-modal', 'show-modal-content', 'delete-good']);
     selectedGood = {};
   });
 
   deleteGoodCloseBtn.addEventListener('click', function () {
-    deleteGoodModal.classList.remove('show-modal');
-    deleteGoodModalContent.classList.remove('show-modal-content');
-    deleteGoodModalContent.classList.remove('delete-good');
+    removeClasses([deleteGoodModal, deleteGoodModalContent, deleteGoodModalContent], ['show-modal', 'show-modal-content', 'delete-good']);
     selectedGood = {};
   });
 
   graphBtn.addEventListener('click', function () {
-    graphModal.classList.add('show-modal');
-    graphModalContent.classList.add('show-modal-content');
-    graphModalContent.classList.add('show-graph-modal');
+    addClasses([graphModal, graphModalContent, graphModalContent], ['show-modal', 'show-modal-content', 'show-graph-modal']);
   });
 
   graphCloseBtn.addEventListener('click', function () {
-    graphModal.classList.remove('show-modal');
-    graphModalContent.classList.remove('show-modal-content');
-    graphModalContent.classList.remove('show-graph-modal');
+    removeClasses([graphModal, graphModalContent, graphModalContent], ['show-modal', 'show-modal-content', 'show-graph-modal']);
   });
 
   addGoodBtn.addEventListener('click', function () {
-    addGoodModal.classList.add('show-modal');
-    addGoodModalContent.classList.add('show-modal-content');
+    addClasses([addGoodModal, addGoodModalContent], ['show-modal', 'show-modal-content']);
   });
 
   addGoodCloseBtn.addEventListener('click', function () {
-    addGoodModal.classList.remove('show-modal');
-    addGoodModalContent.classList.remove('show-modal-content');
+    removeClasses([addGoodModal, addGoodModalContent], ['show-modal', 'show-modal-content']);
   });
 
   window.onclick = function (event) {
     if (event.target === addGoodModal) {
-      addGoodModal.classList.remove('show-modal');
-      addGoodModalContent.classList.remove('show-modal-content');
+      removeClasses([addGoodModal, addGoodModalContent], ['show-modal', 'show-modal-content']);
       selectedGood = {};
     } else if (event.target === editGoodModal) {
-      editGoodModal.classList.remove('show-modal');
-      editGoodModalContent.classList.remove('show-modal-content');
+      removeClasses([editGoodModal, editGoodModalContent], ['show-modal', 'show-modal-content']);
       selectedGood = {};
     } else if (event.target === graphModal) {
-      graphModal.classList.remove('show-modal');
-      graphModalContent.classList.remove('show-modal-content');
-      graphModalContent.classList.remove('show-graph-modal');
+      removeClasses([graphModal, graphModalContent, graphModalContent], ['show-modal', 'show-modal-content', 'show-graph-modal']);
     } else if (event.target === deleteGoodModal) {
-      deleteGoodModal.classList.remove('show-modal');
-      deleteGoodModalContent.classList.remove('show-modal-content');
-      deleteGoodModalContent.classList.remove('delete-good');
+      removeClasses([deleteGoodModal, deleteGoodModalContent, deleteGoodModalContent], ['show-modal', 'show-modal-content', 'delete-good']);
       selectedGood = {};
+    } else if (event.target === incrementModal) {
+      removeClasses([incrementModal, incrementModalContent], ['show-modal', 'show-modal-content']);
+    } else if (event.target === decrementModal) {
+      removeClasses([decrementModal, decrementModalContent], ['show-modal', 'show-modal-content']);
     }
   };
 
   Array.from(editGoodBtns).map(function (element) {
     element.addEventListener('click', function (event) {
-      editGoodModal.classList.add('show-modal');
-      editGoodModalContent.classList.add('show-modal-content');
+      addClasses([editGoodModal, editGoodModalContent], ['show-modal', 'show-modal-content']);
       // get good data from event object
-      // console.log(event.target.parentNode.parentNode.children[2].children[1].children[0].files[0]);
       selectedGood = {
         id: event.target.parentNode.parentNode.children[2].children[0].id,
         name: event.target.parentNode.parentNode.children[2].children[1].children[0].textContent,
         type: event.target.parentNode.parentNode.children[2].children[2].children[0].textContent,
-        expiryDate: event.target.parentNode.parentNode.children[2].children[3].children[0].textContent
-        // image: event.target.parentNode.parentNode.children[2].children[1].children[0].files[0]
+        expiryDate: shortDateFormat(event.target.parentNode.parentNode.children[2].children[3].children[0].textContent)
+        // image: event.target.parentNode.parentNode.children[2].children[1].children[0].files[0].filename
       };
-      var shortFormatDate = shortDateFormat(selectedGood.expiryDate);
-      console.log(shortFormatDate);
-      // console.log(new Date(selectedGood.expiryDate).format('dd-m-yy'));
-      // console.log(new Date(selectedGood.expiryDate).getDate());
       document.querySelector('#edit-good-name').value = selectedGood.name;
       document.querySelector('#edit-good-type').value = selectedGood.type;
-      console.log(document.querySelector('#edit-good-expiryDate'));
-      document.querySelector('#edit-good-expiryDate').value = shortFormatDate;
+      document.querySelector('#edit-good-expiryDate').value = selectedGood.expiryDate;
       document.querySelector('#edit-good-id').value = selectedGood.id;
-      // document.querySelector('#edit-good-image').files[0] = selectedGood.image;
     });
   });
 
   Array.from(editGoodCloseBtns).map(function (element) {
     element.addEventListener('click', function () {
-      editGoodModal.classList.remove('show-modal');
-      editGoodModalContent.classList.remove('show-modal-content');
-      // selectedGood = {};
+      removeClasses([editGoodModal, editGoodModalContent], ['show-modal', 'show-modal-content']);
+      selectedGood = {};
     });
   });
 
   Array.from(good).map(function (element) {
     element.addEventListener('mouseover', function (event) {
-      this.classList.add('add-background');
+      addClasses([this], ['add-background']);
     });
 
     element.addEventListener('mouseleave', function (event) {
-      this.classList.remove('add-background');
+      removeClasses([this], ['add-background']);
     });
   });
 
+  function removeClasses (modals, classNames) {
+    modals.map(function (modal, index) { modal.classList.remove(classNames[index]); });
+  }
+
+  function addClasses (modals, classNames) {
+    modals.map(function (modal, index) { modal.classList.add(classNames[index]); });
+  }
+
   function xhrRequest (method, url, data) {
     var xhr = new window.XMLHttpRequest();
-
     xhr.onreadystatechange = function () {
-      window.location.href = '/home';
+      window.location.href = '/';
     };
-
     xhr.open(method, url, true);
-    if (!data) {
-      data = {};
-    }
+    if (!data) data = {};
     xhr.send(data);
   }
-  //
-  // Date.prototype.formatMMDDYYYY = function () {
-  //   return (this.getMonth() + 1) +
-  //   '/' + this.getDate() +
-  //   '/' + this.getFullYear();
-  // };
 
   function shortDateFormat (longDate) {
     var date = new Date(longDate);
     var day = date.getDate();
     var month = date.getMonth();
-
     day = day < 10 ? '0' + day : day;
     month = month < 10 ? '0' + month : month;
-
     return date.getFullYear() + '-' + month + '-' + day;
   }
 };
