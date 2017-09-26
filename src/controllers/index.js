@@ -22,10 +22,10 @@ router.get('/profile', authMiddleware.checkAuth, profile.get);
 router.post('/sign-up', authController.signup);
 router.post('/sign-in', authController.signIn);
 router.get('/logout', authController.logout);
-router.post('/goods/add', addGoods.post);
-router.post('/goods/edit', updateGood.post);
-router.get('/goods/report', report.get);
-router.post('/goods/:id', updateGood.deleteGoodById);
+router.post('/goods/add', authMiddleware.checkAuth, addGoods.post);
+router.post('/goods/edit', authMiddleware.checkAuth, updateGood.post);
+router.get('/goods/report', authMiddleware.checkAuth, report.get);
+router.post('/goods/:id', authMiddleware.checkAuth, updateGood.deleteGoodById);
 
 router.post('/transactions/increment', transactionGood.increment);
 router.post('/transactions/decrement', transactionGood.decrement);
