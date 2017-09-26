@@ -40,6 +40,8 @@ window.onload = function () {
 
   var textSpans = document.querySelectorAll('.text');
 
+  var imagShow = document.querySelector('.image-place-holder');
+
   Array.from(textSpans).map(function (textSpan, index) {
     textSpan.addEventListener('mouseover', function (event) {
       textSpan.style.textIndent = '-110em';
@@ -161,13 +163,16 @@ window.onload = function () {
     element.addEventListener('click', function (event) {
       addClasses([editGoodModal, editGoodModalContent], ['show-modal', 'show-modal-content']);
       // get good data from event object
+      // console.log();
       selectedGood = {
         id: event.target.parentNode.parentNode.children[2].children[0].id,
         name: event.target.parentNode.parentNode.children[2].children[1].children[0].textContent,
         type: event.target.parentNode.parentNode.children[2].children[2].children[0].textContent,
-        expiryDate: shortDateFormat(event.target.parentNode.parentNode.children[2].children[3].children[0].textContent)
-        // image: event.target.parentNode.parentNode.children[2].children[1].children[0].files[0].filename
+        expiryDate: shortDateFormat(event.target.parentNode.parentNode.children[2].children[3].children[0].textContent),
+        image: event.target.parentNode.parentNode.children[2].children[6].value
       };
+      console.log(selectedGood);
+      imagShow.src = selectedGood.image;
       document.querySelector('#edit-good-name').value = selectedGood.name;
       document.querySelector('#edit-good-type').value = selectedGood.type;
       document.querySelector('#edit-good-expiryDate').value = selectedGood.expiryDate;

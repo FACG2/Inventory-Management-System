@@ -15,6 +15,9 @@
   border-radius: 5px;
 }
 
+.image-place-holder{
+  width:50%
+}
 .btn:hover{
   background-color: #FFF;
   color: #008CBA;
