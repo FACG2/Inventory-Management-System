@@ -9,7 +9,6 @@ const updateGood = require('./goods.js');
 const transactionGood = require('./transaction.js');
 
 const report = require('./report');
-
 // const fs = require('fs');
 
 const authController = require('./auth');
