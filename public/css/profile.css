@@ -55,6 +55,8 @@
 
 .userName-style{
   color: #008CBA;
+  width: 50%;
+text-align: center;
 }
 
 table {

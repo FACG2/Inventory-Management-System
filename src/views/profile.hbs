@@ -1,6 +1,8 @@
 {{>homeHeader}}
 
 <main class = 'main'>
+	<!-- <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' /> -->
+
 <link rel='stylesheet' href='/css/profile.css' />
 
 <div class= 'profile-picture' >
@@ -10,30 +12,34 @@
 			<!-- <button class="button button1">تغير الصورة الشخية </button><br> -->
 </div>
 
+
 <div class='user-info'>
-<h2 class='userName-style'>سامر العيلة</h1><br>
+<h2 class='userName-style'> {{data.name}}</h1><br>
 	<table>
+
   <tr>
-    <td class = 'info-style'> اسم المستخدم </td>
-    <td> سامر العيلة </td>
-  </tr>
-	<tr>
-		<td class = 'info-style'> المكان </td>
-    <td> غزة </td>
-  </tr>
-  <tr>
-    <td class = 'info-style'> الموقع </td>
-    <td> مالك المستودع </td>
-  </tr>
-  <tr>
-    <td class = 'info-style'> تاريخ الإنضمام </td>
-    <td> 2/12/2016 </td>
+    <td class = 'info-style'> اﻻسم </td>
+    <td>{{data.name}}</td>
   </tr>
 
+
+	<tr>
+		<td class = 'info-style'> اسم المستخدم </td>
+    <td>{{data.username}} </td>
+  </tr>
+  <tr>
+    <td class = 'info-style'> اﻻيميل </td>
+    <td> {{data.email}} </td>
+  </tr>
+  <!-- <tr>
+    <td class = 'info-style'> كلمة المرور </td>
+    <td> </td>
+  </tr> -->
 </table>
+
 <br>
-<button class="button button2"> تغير المعلومات الشخصية </button><br>
+<!-- <button class="button button2"> تغير المعلومات الشخصية </button><br> -->
 
 </div>
-</di>
+</div>
 </main>
