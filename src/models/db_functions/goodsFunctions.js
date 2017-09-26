@@ -49,7 +49,6 @@ const getAllGoods = (id, cb) => {
     if (err) {
       cb(err);
     } else {
-      console.log(res.rows);
       cb(null, res.rows);
     }
   });
