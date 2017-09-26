@@ -29,7 +29,7 @@ router.get('/goods/graph', authMiddleware.checkAuth, home.getGraph);
 router.post('/goods/:id', authMiddleware.checkAuth, updateGood.deleteGoodById);
 router.post('/transactions/increment', transactionGood.increment);
 router.post('/transactions/decrement', transactionGood.decrement);
-
+router.post('/add-inventory', authMiddleware.checkAuth, home.addInventory);
 router.post('/edit-inventory-status', home.updateInventoryStatus);
 
 router.use(error.client);
