@@ -63,7 +63,6 @@ window.onload = function () {
         name: event.target.parentNode.children[2].children[1].children[0].textContent,
         type: event.target.parentNode.children[2].children[2].children[0].textContent
       };
-      console.log(selectedGood);
       document.querySelector('#decrement-transaction-id').value = selectedGood.id;
       document.querySelector('#transaction-good-name-decrement').value = selectedGood.name;
       document.querySelector('#transaction-good-type-decrement').value = selectedGood.type;
@@ -124,11 +123,16 @@ window.onload = function () {
 
   graphBtn.addEventListener('click', function () {
     addClasses([graphModal, graphModalContent, graphModalContent], ['show-modal', 'show-modal-content', 'show-graph-modal']);
-    createGraph();
+    // createGraph();
+    // /////////////////////////////////////////////////////////////////
+    getGraphData(function (data) {
+      createGraph(data.labels, data.data);
+    });
   });
 
   graphCloseBtn.addEventListener('click', function () {
     removeClasses([graphModal, graphModalContent, graphModalContent], ['show-modal', 'show-modal-content', 'show-graph-modal']);
+    window.location.href = '/home';
   });
 
   addGoodBtn.addEventListener('click', function () {
@@ -148,6 +152,7 @@ window.onload = function () {
       selectedGood = {};
     } else if (event.target === graphModal) {
       removeClasses([graphModal, graphModalContent, graphModalContent], ['show-modal', 'show-modal-content', 'show-graph-modal']);
+      window.location.href = '/home';
     } else if (event.target === deleteGoodModal) {
       removeClasses([deleteGoodModal, deleteGoodModalContent, deleteGoodModalContent], ['show-modal', 'show-modal-content', 'delete-good']);
       selectedGood = {};
@@ -201,9 +206,9 @@ window.onload = function () {
     inventoryStateContainer.classList.add('hidden');
   });
 
-  getGraphData(function (data) {
-    console.log(data);
-  });
+  // getGraphData(function (data) {
+  //   console.log(data);
+  // });
 
   // helper functions
   function getGraphData (cb) {
@@ -240,5 +245,49 @@ window.onload = function () {
     day = day < 10 ? '0' + day : day;
     month = month < 10 ? '0' + month : month;
     return date.getFullYear() + '-' + month + '-' + day;
+  }
+
+  function createGraph (myLabels, myData) {
+    var CHART = document.getElementById('myChart');
+    console.log('CHART', CHART);
+    var barChart = new Chart(CHART, {
+      type: 'bar',
+      data: {
+        labels: myLabels,
+        datasets: [{
+          label: 'Numbers Per Month',
+          data: myData,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              scaleSteps: 50,
+              max: 500
+            }
+          }]
+        }
+      }
+    });
   }
 };
