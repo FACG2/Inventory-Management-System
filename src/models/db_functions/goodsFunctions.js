@@ -18,7 +18,8 @@ const deleteGoods = (good, cb) => {
 
 const addGoods = (req, cb) => {
   dbConnection.query({
-    text: `SELECT * FROM inventories WHERE id=1`
+    text: `SELECT * FROM inventories WHERE id=$1`,
+    values: [req.invId]
   }, (err, inventory) => {
     if (err) {
       cb(err);
@@ -39,10 +40,10 @@ const addGoods = (req, cb) => {
   });
 };
 
-const getAllGoods = (data, cb) => {
+const getAllGoods = (id, cb) => {
   const sql = {
-    text: 'SELECT users.username ,goods.* FROM goods INNER JOIN inventories ON inventories.id = $1 INNER JOIN users ON users.id = inventories.user_id WHERE users.id = $2',
-    values: [data.inventoryId, data.userId]
+    text: 'SELECT users.username ,goods.* FROM goods INNER JOIN inventories ON inventories.id = goods.inventory_id INNER JOIN users ON users.id = inventories.user_id WHERE users.id = $1',
+    values: [id]
   };
   dbConnection.query(sql, (err, res) => {
     if (err) {
@@ -55,7 +56,6 @@ const getAllGoods = (data, cb) => {
 };
 
 const updateGoods = (goods, cb) => {
-  // console.log('goods', goods);
   const sql = {
     text: `UPDATE goods SET name = $1, type = $2,  quantity = $3,  image= $4 WHERE id=$5 RETURNING *`,
     values: [goods.body.goodName, goods.body.goodType, goods.body.quantity, goods.body.image, goods.body.id]
@@ -66,8 +66,6 @@ const updateGoods = (goods, cb) => {
       console.log(err);
       cb(err);
     } else {
-      // console.log(res.rows);
-      // console.log(res.rows[0].type);
       cb(null, res);
     }
   });
@@ -82,7 +80,6 @@ const update = (data, cb) => {
       console.log(err);
       cb(err);
     } else {
-      console.log(result.rows);
       cb(null, result.rows[0]);
     }
   });
