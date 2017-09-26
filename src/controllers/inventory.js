@@ -4,6 +4,7 @@ const {filterTransactions} = require('../helpers/graph');
 const get = (req, res) => {
   db.Goods.getAllGoods(req.user.id, (err, result) => {
     if (err) {
+      console.log(err);
       res.redirect('/500');
     } else {
       getStatus((err1, status) => {
@@ -48,7 +49,15 @@ const getGraph = (req, res, next) => {
     if (err) {
       next(err);
     } else {
-      res.send(JSON.stringify(output));
+      const outputObj = {
+        labels: [],
+        data: []
+      };
+      Object.keys(output).map((key) => {
+        outputObj.labels.push(key);
+        outputObj.data.push(output[key]);
+      });
+      res.send(JSON.stringify(outputObj));
     }
   });
 };
