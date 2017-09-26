@@ -45,7 +45,7 @@ const getStatus = (cb) => {
 };
 
 const getGraph = (req, res, next) => {
-  filterTransactions((err, output) => {
+  filterTransactions(req.user.id, (err, output) => {
     if (err) {
       next(err);
     } else {
