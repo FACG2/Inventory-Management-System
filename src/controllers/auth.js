@@ -34,7 +34,7 @@ const signup = (req, res) => {
               res.redirect('/');
             } else {
               res.setHeader('Set-Cookie', `token=${token}`);
-              res.redirect('/home');
+              res.redirect('/add-inventory');
             }
           });
         }

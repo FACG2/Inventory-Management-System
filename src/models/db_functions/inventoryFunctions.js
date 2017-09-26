@@ -1,14 +1,16 @@
 const dbConnection = require('../Database/db_connection.js');
 
-const addInventory = (inv, cb) => {
-  const sql = {text: 'INSERT INTO inventories(name, location, capacity, status) VALUES ($1, $2, $3, $4) RETURNING *',
-    values: [inv.name, inv.location, inv.capacity, inv.status]
+const addInventory = (data, cb) => {
+  const sql = {
+    text: 'INSERT INTO inventories(name,location,capacity , status , user_id) VALUES($1,$2,$3,$4,$5) RETURNING *',
+    values: [data.name, data.location, data.capacity, data.status, data.user_id]
   };
-  dbConnection.query(sql, (err, res) => {
+
+  dbConnection.query(sql, (err, result) => {
     if (err) {
       cb(err);
     } else {
-      cb(null, res.rows[0]);
+      cb(null, result.rows[0]);
     }
   });
 };
@@ -52,9 +54,24 @@ const getInventoryStatus = (id, cb) => {
   });
 };
 
+const getInventoryByUserId = (id, cb) => {
+  const sql = {
+    text: 'SELECT * FROM inventories WHERE user_id=$1',
+    values: [id]
+  };
+  dbConnection.query(sql, (err, result) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, result.rows[0]);
+    }
+  });
+};
+
 module.exports = {
   addInventory,
   getAllInv,
   updateStatus,
-  getInventoryStatus
+  getInventoryStatus,
+  getInventoryByUserId
 };
