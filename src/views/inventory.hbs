@@ -91,11 +91,11 @@
         <input type='hidden' value='' name='id' id='increment-transaction-id' />
         <label for='transaction-good-name'>الاسم <input type='text' class='txt' id='transaction-good-name' name='transactionGoodName' placeholder='ادخل الاسم' required /></label>
         <br />
-        <label for='transaction-good-type'>النوع  <input type='text' class='txt' id='transaction-good-type' placeholder='ادخل نوع الصنف'  name='transactionGoodType'/></label>
+        <label for='transaction-good-type'>النوع  <input type='text' class='txt' id='transaction-good-type' placeholder='ادخل نوع الصنف'  name='transactionGoodType' required/></label>
         <br />
-        <label for='transaction-good-quantity'>الكمية  <input type='text' class='txt' id='transaction-good-quantity' placeholder='ادخل نوع الصنف'  name='transactionGoodQuantity'/></label>
+        <label for='transaction-good-quantity'>الكمية  <input type='text' class='txt' id='transaction-good-quantity' placeholder='ادخل الكمية'  name='transactionGoodQuantity' required/></label>
         <br />
-        <label for='transaction-good-date'>تاريخ الانتهاء<input type='date' class='txt' id='transaction-good-date' placeholder='ادخل تاريخ الانتهاء'  name='transactionDate'/></label>
+        <label for='transaction-good-date'>تاريخ الانتهاء<input type='date' class='txt' id='transaction-good-date'  name='transactionDate' required/></label>
         <br />
         <br />
         <div class='buttons'>
@@ -117,13 +117,13 @@
         <br />
         <label for='transaction-good-type-decrement'>النوع  <input type='text' class='txt' id='transaction-good-type-decrement' placeholder='ادخل نوع الصنف'  name='transactionGoodType'/></label>
         <br />
-        <label for='transaction-good-quantity-decrement'>الكمية  <input type='text' class='txt' id='transaction-good-quantity-decrement' placeholder='ادخل نوع الصنف'  name='transactionGoodQuantity'/></label>
+        <label for='transaction-good-quantity-decrement'>الكمية  <input type='text' class='txt' id='transaction-good-quantity-decrement' placeholder='ادخل الكمية'  name='transactionGoodQuantity'/></label>
         <br />
-        <label for='transaction-good-date-decrement'>تاريخ الانتهاء<input type='date' class='txt' id='transaction-good-date-decrement' placeholder='ادخل تاريخ الانتهاء'  name='transactionDate'/></label>
+        <label for='transaction-good-date-decrement'>التاريخ<input type='date' class='txt' id='transaction-good-date-decrement'  name='transactionDate'/></label>
         <br />
         <br />
         <div class='buttons'>
-          <button class='submit-btn'><i class='fa fa-plus'></i> إضافة</button>
+          <button class='submit-btn'><i class='fa fa-minus red-icon'></i> سحب</button>
         </div>
       </form>
     </div>
@@ -154,6 +154,7 @@
                 <label class='desc-txt'>تاريخ الشحن: <span> {{shortFormatDate this.charge_date}}</span></label>
                 <label class='desc-txt'>تاريخ الانتهاء: <span>{{shortFormatDate this.expiry_date}}</span></label>
                 <label class='desc-txt'>الكمية: <span>{{this.quantity}}</span></label>
+                <input type='hidden' value='/images/uploadFile/{{this.image}}' />
               </span>
               <button class='incr-btn good-btn'>+</button>
               <button class='decr-btn good-btn'>-</button>
