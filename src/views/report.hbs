@@ -1,51 +1,19 @@
-
-
-{{>homeHeader}}
+ {{>homeHeader}}
 <main class='main'>
   <link rel='stylesheet' href='/css/report.css' />
-     <br />
-     <br />
-     <br />
-     <br />
-    <center>
+  <br />
+  <br />
+  <br />
+  <br />
+  <center>
     <div id="container" class="container">
       <section>
         <select id="dd" id='day-number' type="text" value="" name="day_num">
-      <option value="dd">اليوم</option>
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-      <option value="15">15</option>
-      <option value="16">16</option>
-      <option value="17">17</option>
-      <option value="18">18</option>
-      <option value="19">19</option>
-      <option value="20">20</option>
-      <option value="21">21</option>
-      <option value="22">22</option>
-      <option value="23">23</option>
-      <option value="24">24</option>
-      <option value="25">25</option>
-      <option value="26">26</option>
-      <option value="27">27</option>
-      <option value="28">28</option>
-      <option value="29">29</option>
-      <option value="30">30</option>
-      <option value="31">31</option>
-
-</select>
+          <option value="dd">اليوم</option>
+          {{#each days}}
+          <option value='{{this}}'>{{this}}</option>
+          {{/each}}
+        </select>
 
         <select id="mmm" id='months' type="text" value="" name="months">
        <option value="mmm">الشهر</option>
@@ -88,130 +56,41 @@
          <option value="2021">2021</option>
          <option value="2022">2022</option>
 
-</select>
+      </select>
       </section>
     </div>
   </center>
-    <div class="container">
-              <table>
-                <thead>
-                  <tr>
-                    <th>الرقم</th>
-                    <th>اسم الصنف</th>
-                    <th>نوع الصنف</th>
-                    <th>الكمية</th>
-                    <th>التاريخ</th>
-                    <th>نوع المعاملة</th>
-                  </tr>
-                </thead>
-                <tbody>
-                {{#each result}}
-                  <tr>
-                    <td>{{this.number}}</td>
-                    <td>{{this.good_name}}</td>
-                    <td>{{this.good_type}}</td>
-                    <td>{{this.quantity}}</td>
-                    <td>{{shortFormatDate this.transaction_date}}</td>
-                    <td>{{this.transaction_type}}</td>
-                  </tr>
-                {{/each}}
-                  <!-- <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr>
-
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                  </tr> -->
-                </tbody>
-
-
-              </table>
-        </div>
-        <center>
-        <div id="printBtn" class="printBtn">
-          <button class='print-btn' ><i class='fa fa-print'></i>طباعة</button>
-        </div>
-      </center>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>الرقم</th>
+          <th>اسم الصنف</th>
+          <th>نوع الصنف</th>
+          <th>الكمية</th>
+          <th>التاريخ</th>
+          <th>نوع المعاملة</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each result}}
+          <tr>
+            <td>{{this.number}}</td>
+            <td>{{this.good_name}}</td>
+            <td>{{this.good_type}}</td>
+            <td>{{this.quantity}}</td>
+            <td>{{shortFormatDate this.transaction_date}}</td>
+            <td>{{this.transaction_type}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <center>
+    <div id="printBtn" class="printBtn">
+      <button class='print-btn'><i class='fa fa-print'></i>طباعة</button>
+    </div>
+  </center>
 </main>
 
- <script src='/js/report.js'></script>
+<script src='/js/report.js'></script>
