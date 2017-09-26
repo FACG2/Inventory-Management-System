@@ -3,7 +3,7 @@ const dbConnection = require('../Database/db_connection.js');
 const addInventory = (data, cb) => {
   const sql = {
     text: 'INSERT INTO inventories(name,location,capacity , status , user_id) VALUES($1,$2,$3,$4,$5) RETURNING *',
-    values: [data.name, data.location, data.capacity, data.status, data.userId]
+    values: [data.name, data.location, data.capacity, data.status, data.user_id]
   };
 
   dbConnection.query(sql, (err, result) => {
