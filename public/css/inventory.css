@@ -1,3 +1,5 @@
+@media screen and (min-device-width:960px) {
+    /* STYLES HERE */
 
 .page-content{
   padding-top: 100px;
@@ -16,7 +18,7 @@
 }
 
 .image-place-holder{
-  width:50%
+  width:50%;
 }
 .btn:hover{
   background-color: #FFF;
@@ -164,3 +166,68 @@
   color: #FFF;
   /*border: 1px solid #181818;*/
 }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+  main.css:19 .nav-bar {
+    height: 40px;
+    background-color: #181818;
+    color: #FFF;
+    position: fixed;
+    width: 100%;
+    padding-top: 0px;
+  }
+  .status {
+    padding-right: 70px;
+    margin-top: 30px;
+    display: block;
+  }
+  .page-buttons {
+    margin: auto;
+    width: 78%;
+  }
+
+  .nav-link.signup-btn{
+    margin: 3px
+  }
+  /*.brand {
+    /*padding: 8px;*/
+    /*margin: 4px;*
+  }*/
+  .goods{
+    margin-right: 15%;
+  }
+}
+
+@media only screen and (min-width: 480px)  {
+      /* For landscape layouts only */
+
+      .container {
+        width: 80%;
+      }
+      main.css:19 .nav-bar {
+        height: 50px;
+        background-color: #181818;
+        color: #FFF;
+        position: fixed;
+        width: 100%;
+      }
+      .status {
+        padding-right: 70px;
+        margin-top: 30px;
+        display: block;
+      }
+      .page-buttons {
+        margin: auto;
+        width: 78%;
+      }
+      .page-content {
+        padding-top: 55px;
+      }
+      .goods{
+        margin-right: 15%;
+      }
+    }
