@@ -39,15 +39,16 @@ const addGoods = (req, cb) => {
   });
 };
 
-const getAllGoods = (cb) => {
+const getAllGoods = (data, cb) => {
   const sql = {
-    text: 'SELECT * FROM goods '
+    text: 'SELECT users.username ,goods.* FROM goods INNER JOIN inventories ON inventories.id = $1 INNER JOIN users ON users.id = inventories.user_id WHERE users.id = $2',
+    values: [data.inventoryId, data.userId]
   };
   dbConnection.query(sql, (err, res) => {
     if (err) {
       cb(err);
     } else {
-      // console.log(res.rows);
+      console.log(res.rows);
       cb(null, res.rows);
     }
   });
