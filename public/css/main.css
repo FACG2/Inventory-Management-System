@@ -1,31 +1,32 @@
-*{
+* {
   padding: 0px;
   margin: 0px;
 }
 
-body{
+body {
   background-color: #C3C3C3;
 }
 
-.container{
+.container {
   width: 90%;
   max-width: 1200px;
   margin: auto;
 }
+
 .main {
   flex: 1;
 }
 
-.nav-bar{
+.nav-bar {
   height: 50px;
   background-color: #181818;
   color: #FFF;
   padding-top: 15px;
-  position:fixed;
+  position: fixed;
   width: 100%;
 }
 
-.nav-link , .brand{
+.nav-link, .brand {
   padding: 8px;
   margin: 5px;
   text-decoration: none;
@@ -34,25 +35,25 @@ body{
   border-radius: 5px;
 }
 
-
-.brand{
+.brand {
   float: right;
 }
 
-.nav-link{
+.nav-link {
   float: left;
 }
 
 
 /* Start Modal Styling */
-.modal{
+
+.modal {
   position: fixed;
   width: 100%;
-  background-color: rgba(0 , 0 , 0 , 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
 
-.modal-content{
+.modal-content {
   position: fixed;
   width: 40%;
   left: 25%;
@@ -66,18 +67,18 @@ body{
   opacity: 0;
 }
 
-.close{
+.close {
   font-size: 25px;
   float: left;
   display: block;
 }
 
-.close:hover{
+.close:hover {
   color: #F00;
   cursor: pointer;
 }
 
-.txt{
+.txt {
   width: 90%;
   height: 30px;
   border-radius: 5px;
@@ -85,7 +86,7 @@ body{
   padding: 5px;
 }
 
-.submit-btn{
+.submit-btn {
   padding: 5px;
   width: 100px;
   border-radius: 5px;
@@ -95,33 +96,34 @@ body{
   transition: 0.5s;
 }
 
-.submit-btn:hover{
+.submit-btn:hover {
   background-color: #CCC;
   color: #000;
   font-weight: bolder;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.nav-link:hover{
+.nav-link:hover {
   background-color: #C3C3C3;
   color: #000;
   transition: 0.3s;
 }
 
-.show-modal{
+.show-modal {
   transition: 0.5s;
   height: 100%;
   opacity: 1;
 }
 
-.show-modal-content{
+.show-modal-content {
   /*height: 200px;*/
   opacity: 1;
   top: 0%;
   height: auto;
 }
-/* End Modal Styling */
 
+
+/* End Modal Styling */
 
 .main {
   padding-top: 2rem;
@@ -134,7 +136,7 @@ body{
 .error {
   display: flex;
   justify-content: space-around;
-  align-items:center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -145,12 +147,32 @@ body{
 
 .error__msg {
   /*color: #999;*/
-   color: rgba(0 , 0 , 0 , 0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
-.error__image{
-    width: 70%;
-    height: 60%;
-    background-size: cover;
-    background-position: center;
+.error__image {
+  width: 70%;
+  height: 60%;
+  background-size: cover;
+  background-position: center;
+}
+
+@media only screen and (max-width: 480px) {
+
+  .container {
+    width: 80%;
+  }
+  main.css:19 .nav-bar {
+    height: 50px;
+    background-color: #181818;
+    color: #FFF;
+    position: fixed;
+    width: 100%;
+  }
+  .status {
+    padding-right: 70px;
+    margin-top: 30px;
+    display: block;
+  }
+
 }
