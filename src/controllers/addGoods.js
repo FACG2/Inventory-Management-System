@@ -7,12 +7,12 @@ function get (req, res) {
 
 function post (req, res, next) {
   const Data = {
+    invId: req.user.id,
     body: req.body,
     imageName: req.files.image.name
   };
   queries.addGoods(Data, (err, result) => {
     if (err) {
-      // console.log(err);
       next(err);
     } else {
       if (!req.files) {
