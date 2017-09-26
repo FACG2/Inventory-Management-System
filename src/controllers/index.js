@@ -5,11 +5,10 @@ const profile = require('./profile');
 const home = require('./inventory');
 const addGoods = require('./addGoods');
 const updateGood = require('./goods.js');
-
+const addInventory = require('./addInventory');
 const transactionGood = require('./transaction.js');
 
 const report = require('./report');
-// const fs = require('fs');
 
 const authController = require('./auth');
 const error = require('./error');
@@ -28,7 +27,8 @@ router.get('/goods/graph', authMiddleware.checkAuth, home.getGraph);
 router.post('/goods/:id', authMiddleware.checkAuth, updateGood.deleteGoodById);
 router.post('/transactions/increment', transactionGood.increment);
 router.post('/transactions/decrement', transactionGood.decrement);
-router.post('/add-inventory', authMiddleware.checkAuth, home.addInventory);
+router.get('/add-inventory', authMiddleware.checkAuth, addInventory.get);
+router.post('/add-inventory', authMiddleware.checkAuth, addInventory.post);
 router.post('/edit-inventory-status', home.updateInventoryStatus);
 
 router.use(error.client);
