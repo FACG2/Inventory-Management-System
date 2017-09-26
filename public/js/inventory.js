@@ -126,6 +126,7 @@ window.onload = function () {
 
   graphBtn.addEventListener('click', function () {
     addClasses([graphModal, graphModalContent, graphModalContent], ['show-modal', 'show-modal-content', 'show-graph-modal']);
+    createGraph();
   });
 
   graphCloseBtn.addEventListener('click', function () {
