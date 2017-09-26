@@ -25,8 +25,8 @@ router.get('/logout', authController.logout);
 router.post('/goods/add', authMiddleware.checkAuth, addGoods.post);
 router.post('/goods/edit', authMiddleware.checkAuth, updateGood.post);
 router.get('/goods/report', authMiddleware.checkAuth, report.get);
+router.get('/goods/graph', authMiddleware.checkAuth, home.getGraph);
 router.post('/goods/:id', authMiddleware.checkAuth, updateGood.deleteGoodById);
-
 router.post('/transactions/increment', transactionGood.increment);
 router.post('/transactions/decrement', transactionGood.decrement);
 
