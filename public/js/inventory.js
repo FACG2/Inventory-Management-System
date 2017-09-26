@@ -39,7 +39,23 @@ window.onload = function () {
   var inventoryStateContainer = document.querySelector('.inventory-state-container');
   var selectedGood = {};
 
-  // console.log(decrementBtns);
+  var textSpans = document.querySelectorAll('.text');
+
+  Array.from(textSpans).map(function (textSpan, index) {
+    textSpan.addEventListener('mouseover', function (event) {
+      textSpan.style.textIndent = '-110em';
+      var imgSrc = event.target.parentNode.children[6];
+      if (imgSrc && imgSrc.value) {
+        good[index].style.backgroundImage = 'url(' + imgSrc.value + ')';
+      }
+    });
+
+    textSpan.addEventListener('mouseleave', function (event) {
+      textSpan.style.textIndent = '0em';
+      good[index].style.backgroundImage = 'none';
+    });
+  });
+
   Array.from(decrementBtns).map(function (btn) {
     btn.addEventListener('click', function (event) {
       addClasses([decrementModal, decrementModalContent], ['show-modal', 'show-modal-content']);
@@ -47,13 +63,11 @@ window.onload = function () {
         id: event.target.parentNode.children[2].children[0].id,
         name: event.target.parentNode.children[2].children[1].children[0].textContent,
         type: event.target.parentNode.children[2].children[2].children[0].textContent
-        // transaction_date: shortDateFormat(event.target.parentNode.children[2].children[3].children[0].textContent)
       };
       console.log(selectedGood);
       document.querySelector('#decrement-transaction-id').value = selectedGood.id;
       document.querySelector('#transaction-good-name-decrement').value = selectedGood.name;
       document.querySelector('#transaction-good-type-decrement').value = selectedGood.type;
-      // document.querySelector('#transaction-good-date-decrement').value = selectedGood.transaction_date;
     });
   });
 
@@ -64,15 +78,10 @@ window.onload = function () {
         id: event.target.parentNode.children[2].children[0].id,
         name: event.target.parentNode.children[2].children[1].children[0].textContent,
         type: event.target.parentNode.children[2].children[2].children[0].textContent
-        // transaction_date: shortDateFormat(event.target.parentNode.children[2].children[3].children[0].textContent),
-        // quantity: event.target.parentNode.children[2].children[5].children[0].textContent
       };
-      console.log(selectedGood);
       document.querySelector('#increment-transaction-id').value = selectedGood.id;
       document.querySelector('#transaction-good-name').value = selectedGood.name;
       document.querySelector('#transaction-good-type').value = selectedGood.type;
-      // document.querySelector('#transaction-good-quantity').value = selectedGood.quantity;
-      // document.querySelector('#transaction-good-date').value = selectedGood.transaction_date;
     });
   });
 

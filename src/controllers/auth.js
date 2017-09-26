@@ -63,7 +63,7 @@ const signIn = (req, res, next) => {
             next(err1);
           } else {
             if (userFromDB) {
-              bcrypt.compare(req.body.password, hashedPassword, (err2, result) => {
+              bcrypt.compare(req.body.password, userFromDB.password, (err2, result) => {
                 if (err2) {
                   console.log(err2);
                   next(err2);
@@ -83,7 +83,8 @@ const signIn = (req, res, next) => {
                       }
                     });
                   } else {
-                    next({message: 'error hashing password'});
+                    res.redirect('/');
+                    // next({message: 'error hashing password'});
                   }
                 }
               });
