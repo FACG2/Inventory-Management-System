@@ -35,7 +35,6 @@ window.onload = function () {
   var noBtn = document.querySelector('.no-btn');
   var inventoryStateEditBtn = document.querySelector('.inventory-state');
   var inventoryStateSaveBtn = document.querySelector('.inventory-state-btn');
-  // var inventoryStateInput = document.querySelector('.inventory-state-input');
   var inventoryStateContainer = document.querySelector('.inventory-state-container');
   var selectedGood = {};
 
@@ -201,7 +200,18 @@ window.onload = function () {
     inventoryStateContainer.classList.add('hidden');
   });
 
+  getGraphData(function (data) {
+    console.log(data);
+  });
+
   // helper functions
+  function getGraphData (cb) {
+    xhrRequest('GET', '/goods/graph', null, function (err, data) {
+      if (err) cb(err);
+      else cb(JSON.parse(data));
+    });
+  }
+
   function removeClasses (modals, classNames) {
     modals.map(function (modal, index) { modal.classList.remove(classNames[index]); });
   }

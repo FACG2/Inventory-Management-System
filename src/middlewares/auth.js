@@ -13,7 +13,6 @@ const checkAuth = (req, res, next) => {
         } else {
           db.Users.getUserByName(decoded.username, (err1, userFromDB) => {
             if (err1) {
-              // console.log(err1);
               res.redirect('/logout');
             } else {
               if (req.url === '/') res.redirect('/home');

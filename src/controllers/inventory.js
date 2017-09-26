@@ -1,4 +1,5 @@
 const db = require('../models/db_functions/index');
+const {filterTransactions} = require('../helpers/graph');
 
 const get = (req, res) => {
   db.Goods.getAllGoods((err, result) => {
@@ -42,7 +43,18 @@ const getStatus = (cb) => {
   });
 };
 
+const getGraph = (req, res, next) => {
+  filterTransactions((err, output) => {
+    if (err) {
+      next(err);
+    } else {
+      res.send(JSON.stringify(output));
+    }
+  });
+};
+
 module.exports = {
   get,
-  updateInventoryStatus
+  updateInventoryStatus,
+  getGraph
 };
