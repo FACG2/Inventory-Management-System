@@ -18,7 +18,7 @@ const addTransaction = (req, cb) => {
 
 const getTransaction = (id, cb) => {
   const sql = {
-    text: `SELECT * FROM transactions WHERE id=$1`,
+    text: `SELECT * FROM transactions WHERE id=$1 `,
     values: [id]
   };
   dbConnection.query(sql, (err, res) => {
@@ -30,7 +30,22 @@ const getTransaction = (id, cb) => {
   });
 };
 
+const getAll = (cb) => {
+  const sql = {
+    text: 'SELECT * FROM transactions WHERE inventory_id=$1 AND transaction_type=$2',
+    values: [1, 'حذف']
+  };
+  dbConnection.query(sql, (err, result) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, result.rows);
+    }
+  });
+};
+
 module.exports = {
-  addTransaction: addTransaction,
-  getTransaction: getTransaction
+  addTransaction,
+  getTransaction,
+  getAll
 };
