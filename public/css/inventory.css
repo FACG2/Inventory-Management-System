@@ -161,3 +161,12 @@
   color: #FFF;
   /*border: 1px solid #181818;*/
 }
+
+.inventoryPage{
+  margin: auto;
+  text-align:center;
+}
+
+.add-inventory-txt{
+  width: 50%;
+}
