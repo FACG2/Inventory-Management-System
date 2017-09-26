@@ -2,7 +2,7 @@ const db = require('../models/db_functions/index');
 const {filterTransactions} = require('../helpers/graph');
 
 const get = (req, res) => {
-  db.Goods.getAllGoods((err, result) => {
+  db.Goods.getAllGoods(req.user.id, (err, result) => {
     if (err) {
       res.redirect('/500');
     } else {
@@ -53,8 +53,26 @@ const getGraph = (req, res, next) => {
   });
 };
 
+const addInventory = (req, res, next) => {
+  const data = {
+    name: req.body.name,
+    location: req.body.location,
+    capacity: req.body.capacity,
+    status: req.body.status,
+    user_id: req.user.id
+  };
+  db.Inventories.addInventory(data, (err, result) => {
+    if (err) {
+      res.redirect('/500');
+    } else {
+      res.redirect('/home');
+    }
+  });
+};
+
 module.exports = {
   get,
   updateInventoryStatus,
-  getGraph
+  getGraph,
+  addInventory
 };
