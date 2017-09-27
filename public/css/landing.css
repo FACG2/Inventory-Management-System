@@ -1,0 +1,103 @@
+.welcome{
+  padding-top: 70px;
+  text-align: center;
+  height: 350px;
+}
+
+.app-description{
+  width: 60%;
+  max-width: 960px;
+  margin: auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.clear{
+  clear: both;
+}
+
+.first-section{
+  background-color: #FFF;
+}
+
+.image-div{
+  float: left;
+  width: 650px;
+}
+
+.description{
+  float: right;
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 69px;
+}
+
+.second-section , .third-section{
+  padding-top: 5%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.image-div-reversed{
+  float: right;
+}
+
+.description-reversed{
+  float: left;
+  padding-top: 90px;
+}
+
+hr{
+  height: 3px;
+  color: #000;
+  font-weight: bolder;
+}
+
+
+.contact-us-header{
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  padding-top: 25px;
+}
+
+.right-div{
+  width: 50%;
+  float: right;
+}
+
+.left-div{
+  width: 50%;
+  float: left;
+}
+
+.txt-area{
+  height: 100px;
+  width: 100%;
+}
+
+.footer{
+  background-color: #181818;
+  color: #FFF;
+}
+
+.end-footer{
+  background-color: #000;
+  color: #C3C3C3;
+  text-align: center;
+  margin-top: 15px;
+  padding: 5px;
+}
+
+.reversed{
+  background-color: #C3C3C3;
+  color: #000;
+}
+
+.reversed:hover{
+  background-color: #000;
+  color: #FFF;
+}
+
+.team-name{
+  color: #F2B703;
+  font-size: 25px;
+  font-family: 'Ravi Prakash';
+}

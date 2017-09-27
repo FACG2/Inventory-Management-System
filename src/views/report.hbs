@@ -1,0 +1,96 @@
+ {{>homeHeader}}
+<main class='main'>
+  <link rel='stylesheet' href='/css/report.css' />
+  <br />
+  <br />
+  <br />
+  <br />
+  <center>
+    <div id="container" class="container">
+      <section>
+        <select id="dd" id='day-number' type="text" value="" name="day_num">
+          <option value="dd">اليوم</option>
+          {{#each days}}
+          <option value='{{this}}'>{{this}}</option>
+          {{/each}}
+        </select>
+
+        <select id="mmm" id='months' type="text" value="" name="months">
+       <option value="mmm">الشهر</option>
+       <option value="0">يناير</option>
+       <option value="1">فبراير</option>
+       <option value="2">مارس </option>
+       <option value="3">ابريل</option>
+       <option value="4">مايو</option>
+       <option value="5">يونيو</option>
+       <option value="6">يوليو</option>
+       <option value="7">اغسطس</option>
+       <option value="8">سبتمبر</option>
+       <option value="9">اكتوبر</option>
+       <option value="10">نوفمبر</option>
+       <option value="11">ديسمبر</option>
+      </select>
+
+
+
+        <select id="yyyy" id='year-number' type="text" value="" name="year_num">
+         <option value="yyyy">السنة</option>
+         <option value="2003">2003</option>
+         <option value="2004">2004</option>
+         <option value="2005">2005</option>
+         <option value="2006">2006</option>
+         <option value="2007">2007</option>
+         <option value="2008">2008</option>
+         <option value="2009">2009</option>
+         <option value="2010">2010</option>
+         <option value="2011">2011</option>
+         <option value="2012">2012</option>
+         <option value="2013">2013</option>
+         <option value="2014">2014</option>
+         <option value="2015">2015</option>
+         <option value="2016">2016</option>
+         <option value="2017">2017</option>
+         <option value="2018">2018</option>
+         <option value="2019">2019</option>
+         <option value="2020">2020</option>
+         <option value="2021">2021</option>
+         <option value="2022">2022</option>
+
+      </select>
+      </section>
+    </div>
+  </center>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>الرقم</th>
+          <th>اسم الصنف</th>
+          <th>نوع الصنف</th>
+          <th>الكمية</th>
+          <th>التاريخ</th>
+          <th>نوع المعاملة</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each result}}
+          <tr>
+            <td>{{this.number}}</td>
+            <td>{{this.good_name}}</td>
+            <td>{{this.good_type}}</td>
+            <td>{{this.quantity}}</td>
+            <td>{{shortFormatDate this.transaction_date}}</td>
+            <td>{{this.transaction_type}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <center>
+    <div id="printBtn" class="printBtn">
+      <button class='print-btn'><i class='fa fa-print'></i>طباعة</button>
+    </div>
+  </center>
+</main>
+
+<script src='/js/report.js'></script>

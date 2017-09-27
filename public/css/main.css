@@ -1,0 +1,178 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background-color: #C3C3C3;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.main {
+  flex: 1;
+}
+
+.nav-bar {
+  height: 50px;
+  background-color: #181818;
+  color: #FFF;
+  padding-top: 15px;
+  position: fixed;
+  width: 100%;
+}
+
+.nav-link, .brand {
+  padding: 8px;
+  margin: 5px;
+  text-decoration: none;
+  color: #FFF;
+  position: center;
+  border-radius: 5px;
+}
+
+.brand {
+  float: right;
+}
+
+.nav-link {
+  float: left;
+}
+
+
+/* Start Modal Styling */
+
+.modal {
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.modal-content {
+  position: fixed;
+  width: 40%;
+  left: 25%;
+  background-color: #CCC;
+  top: -100%;
+  height: 200px;
+  overflow: hidden;
+  transition: all 0.5s;
+  padding: 10px;
+  border-radius: 15px;
+  opacity: 0;
+}
+
+.close {
+  font-size: 25px;
+  float: left;
+  display: block;
+}
+
+.close:hover {
+  color: #F00;
+  cursor: pointer;
+}
+
+.txt {
+  width: 90%;
+  height: 30px;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.submit-btn {
+  padding: 5px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #333;
+  color: #CCC;
+  border: 1px solid #333;
+  transition: 0.5s;
+}
+
+.submit-btn:hover {
+  background-color: #CCC;
+  color: #000;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background-color: #C3C3C3;
+  color: #000;
+  transition: 0.3s;
+}
+
+.show-modal {
+  transition: 0.5s;
+  height: 100%;
+  opacity: 1;
+}
+
+.show-modal-content {
+  /*height: 200px;*/
+  opacity: 1;
+  top: 0%;
+  height: auto;
+}
+
+
+/* End Modal Styling */
+
+.main {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+
+/*error*/
+
+.error {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.error__desc {
+  text-align: center;
+  font-size: 3em;
+}
+
+.error__msg {
+  /*color: #999;*/
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.error__image {
+  width: 70%;
+  height: 60%;
+  background-size: cover;
+  background-position: center;
+}
+
+@media only screen and (max-width: 480px) {
+
+  .container {
+    width: 80%;
+  }
+  main.css:19 .nav-bar {
+    height: 50px;
+    background-color: #181818;
+    color: #FFF;
+    position: fixed;
+    width: 100%;
+  }
+  .status {
+    padding-right: 70px;
+    margin-top: 30px;
+    display: block;
+  }
+
+}

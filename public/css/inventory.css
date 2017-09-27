@@ -1,0 +1,233 @@
+@media screen and (min-device-width:960px) {
+    /* STYLES HERE */
+
+.page-content{
+  padding-top: 100px;
+}
+
+.btn{
+  padding: 5px;
+  margin: 3px;
+  width: 100px;
+  height: 60px;
+  text-decoration: none;
+  background-color: #008CBA;
+  color: #FFF;
+  transition: 0.4s;
+  border-radius: 5px;
+}
+
+.image-place-holder{
+  width:50%;
+}
+.btn:hover{
+  background-color: #FFF;
+  color: #008CBA;
+}
+
+.goods{
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.good{
+  height: 210px;
+  width: 200px;
+  background-color: #008CBA;
+  color: #FFF;
+  transition: 0.5s;
+  display: inline;
+  float: right;
+  margin: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-size: cover;
+}
+
+
+.good-description{
+  margin-top: 5%;
+  margin-right: 5%;
+  width: 90%;
+  height: 90%;
+}
+
+.hidden{
+  display: none;
+}
+
+.desc-txt{
+  display: block;
+  padding: 5px;
+}
+
+.incr-btn , .decr-btn{
+  height: 20px;
+  width: 50px;
+  font-weight: bolder;
+}
+
+.delete-good-btn{
+  background-color: #F00;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bolder;
+  transition: 0.3s;
+}
+
+.delete-good-btn:hover{
+  background-color: #a9322f;
+}
+
+.text{
+  transition: 0.5s;
+}
+
+.edit-good-btn{
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-good-btn:hover{
+  color: #F00;
+}
+
+.show-graph-modal{
+  top: 15%;
+  width: 65%;
+}
+
+.delete-good-modal-content{
+  width: 40%;
+}
+
+.delete-good{
+  top: 25%;
+}
+
+.myButton{
+  font-size: 20px;
+  padding: 5px;
+  margin: 3px;
+  width: 50px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+.myButton:hover{
+  cursor: pointer;
+}
+
+.no-btn{
+  background-color: #286090;
+  color: #FFF;
+}
+
+.no-btn:hover{
+  background-color: #1d476c;
+}
+
+.yes-btn{
+  background-color: #C9302C;
+  color: #FFF;
+}
+
+.yes-btn:hover{
+  background-color: #a9322f;
+}
+
+
+.inventory-state:hover{
+  cursor: pointer;
+  color: #C9302C;
+}
+
+.hidden{
+  display: none;
+}
+
+.good-btn{
+  cursor: pointer;
+  background-color: #C3C3C3;
+  color: #000;
+  border: 1px solid #C3C3C3;
+  border-radius: 5px;
+  font-weight: bolder;
+  transition: 0.3s;
+}
+
+.good-btn:hover{
+  background-color: #181818;
+  color: #FFF;
+  /*border: 1px solid #181818;*/
+}
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+  main.css:19 .nav-bar {
+    height: 40px;
+    background-color: #181818;
+    color: #FFF;
+    position: fixed;
+    width: 100%;
+    padding-top: 0px;
+  }
+  .status {
+    padding-right: 70px;
+    margin-top: 30px;
+    display: block;
+  }
+  .page-buttons {
+    margin: auto;
+    width: 78%;
+  }
+
+  .nav-link.signup-btn{
+    margin: 3px
+  }
+  /*.brand {
+    /*padding: 8px;*/
+    /*margin: 4px;*
+  }*/
+  .goods{
+    margin-right: 15%;
+  }
+}
+
+@media only screen and (min-width: 480px)  {
+      /* For landscape layouts only */
+
+      .container {
+        width: 80%;
+      }
+      main.css:19 .nav-bar {
+        height: 50px;
+        background-color: #181818;
+        color: #FFF;
+        position: fixed;
+        width: 100%;
+      }
+      .status {
+        padding-right: 70px;
+        margin-top: 30px;
+        display: block;
+      }
+      .page-buttons {
+        margin: auto;
+        width: 78%;
+      }
+      .page-content {
+        padding-top: 55px;
+      }
+      .goods{
+        margin-right: 15%;
+      }
+    }
