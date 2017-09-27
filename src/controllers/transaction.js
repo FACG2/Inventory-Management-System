@@ -7,6 +7,7 @@ function get (req, res) {
 function increment (req, res, next) {
   console.log('hi');
   const data = {
+    invId: req.user.id,
     body: req.body,
     transactionType: 'إضافة'
   };
@@ -15,7 +16,6 @@ function increment (req, res, next) {
       console.log(err);
       next(err);
     } else {
-      console.log(result, 'good result');
       db.Transactions.addTransaction(data, (err1, result1) => {
         if (err1) {
           console.log(err1);
@@ -28,7 +28,6 @@ function increment (req, res, next) {
               console.log(err2);
               next(err2);
             } else {
-              console.log(result2);
               res.redirect('/home');
             }
           });
@@ -40,6 +39,7 @@ function increment (req, res, next) {
 
 function decrement (req, res, next) {
   const data = {
+    invId: req.user.id,
     body: req.body,
     transactionType: 'حذف'
   };
