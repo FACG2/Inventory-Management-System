@@ -25,11 +25,11 @@ router.post('/goods/edit', authMiddleware.checkAuth, updateGood.post);
 router.get('/goods/report', authMiddleware.checkAuth, report.get);
 router.get('/goods/graph', authMiddleware.checkAuth, home.getGraph);
 router.post('/goods/:id', authMiddleware.checkAuth, updateGood.deleteGoodById);
-router.post('/transactions/increment', transactionGood.increment);
-router.post('/transactions/decrement', transactionGood.decrement);
+router.post('/transactions/increment', authMiddleware.checkAuth, transactionGood.increment);
+router.post('/transactions/decrement', authMiddleware.checkAuth, transactionGood.decrement);
 router.get('/add-inventory', authMiddleware.checkAuth, addInventory.get);
 router.post('/add-inventory', authMiddleware.checkAuth, addInventory.post);
-router.post('/edit-inventory-status', home.updateInventoryStatus);
+router.post('/edit-inventory-status', authMiddleware.checkAuth, home.updateInventoryStatus);
 
 router.use(error.client);
 router.use(error.server);
