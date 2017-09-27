@@ -44,31 +44,31 @@ CREATE TABLE transactions (
   good_type VARCHAR(250) NOT NULL
 );
 
-INSERT INTO users (name, email, role, username, password) VALUES
-         ('سهاد دادر', 'sohadwd9@gmail.com', ' مالك المستودع ' ,
-          ' سهاد ' ,
-          '555'
-);
-
-INSERT INTO inventories (name, location, capacity, status, user_id) VALUES
-        ('  مستودع النصر ' ,
-        ' شارع النصر ' ,
-      300 ,
-    ' ممتلئ ' ,
-  1);
-
-  INSERT INTO goods (name, quantity, type, charge_date, image, expiry_date, inventory_id) VALUES
-          (' قميص ',
-          70,
-        ' قطن ',
-        CURRENT_DATE,
-        'dsfsdfmsdvxcvxc',
-        CURRENT_DATE,
-      1);
-
-INSERT INTO transactions(transaction_type, transaction_date , quantity , inventory_id , good_name , good_type) VALUES
-                        ('إضافة',CURRENT_DATE , 5 , 1
-                           , 'قميص' , 'قطن'
-                        );
+-- INSERT INTO users (name, email, role, username, password) VALUES
+--          ('سهاد دادر', 'sohadwd9@gmail.com', ' مالك المستودع ' ,
+--           ' سهاد ' ,
+--           '555'
+-- );
+--
+-- INSERT INTO inventories (name, location, capacity, status, user_id) VALUES
+--         ('  مستودع النصر ' ,
+--         ' شارع النصر ' ,
+--       300 ,
+--     ' ممتلئ ' ,
+--   1);
+--
+--   INSERT INTO goods (name, quantity, type, charge_date, image, expiry_date, inventory_id) VALUES
+--           (' قميص ',
+--           70,
+--         ' قطن ',
+--         CURRENT_DATE,
+--         'dsfsdfmsdvxcvxc',
+--         CURRENT_DATE,
+--       1);
+--
+-- INSERT INTO transactions(transaction_type, transaction_date , quantity , inventory_id , good_name , good_type) VALUES
+--                         ('إضافة',CURRENT_DATE , 5 , 1
+--                            , 'قميص' , 'قطن'
+--                         );
 
 COMMIT;
