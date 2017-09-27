@@ -3,10 +3,10 @@ window.onload = function () {
   var signInModalContent = document.querySelector('.signin-modal-content');
   var signInBtn = document.querySelector('.signin-btn');
   var signUpBtn = document.querySelector('.signup-btn');
-  var signInCloseBtn = document.querySelector('.signin-close');
   var signUpModal = document.querySelector('.signup-modal');
   var signUpModalContent = document.querySelector('.signup-modal-content');
   var signUpCloseBtn = document.querySelector('.signup-close');
+  var signInCloseBtn = document.querySelector('.signin-close');
 
   signInBtn.addEventListener('click', function () {
     signInModal.classList.add('show-modal');

@@ -1,6 +1,7 @@
 {{>header}}
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
 <link rel='stylesheet' href='/css/landing.css' />
 
 <main class='main'>
@@ -27,9 +28,9 @@
       <form action='/sign-up' method='POST'>
         <label for='signup-name'>الاسم <input type='text' class='txt' id='signup-name' name='name' placeholder='ادخل الاسم' required /></label>
         <br />
-        <label for='signup-username'>اسم المستخدم <input type='text' class='txt' id='signup-username' placeholder='ادخل اسم المستخدم'  name='username'/></label>
+        <label for='signup-username'>اسم المستخدم <input type='text' class='txt' id='signup-username' placeholder='ادخل اسم المستخدم'  name='username' required/></label>
         <br />
-        <label for='signup-email'>البريد الالكتروني <input type='email' class='txt' id='signup-email' placeholder='أدخل البريد الالكتروني'  name='email'/></label>
+        <label for='signup-email'>البريد الالكتروني <input type='email' class='txt' id='signup-email' placeholder='أدخل البريد الالكتروني'  name='email' required/></label>
         <label for='signup-password'>كلمة المرور <input type='password' class='txt' id='signup-password' name='password' placeholder='أدخل كلمة المرور' required /></label>
         <br />
         <label for='signup-password'>تأكيد كلمة المرور <input type='password' class='txt' id='signup-password' name='confirmPassword' placeholder='أدخل كلمة المرور' required /></label>
@@ -55,7 +56,7 @@
   </div>
   <div class='container'>
 
-
+    <hr />
 
     <section class='first-section'>
       <div class='image-div'>
@@ -115,7 +116,7 @@
 
     <section class='third-section'>
       <div class='image-div'>
-        <img src='http://omnas.com/landingpages/new/uploads/Inventory-Screen2.png' alt='Descriptive Image'/>
+        <img src='/images/Inventory-Screen5.jpg' alt='Descriptive Image'/>
       </div>
       <div class='description'>
         <h3>سهولة استخراج التقارير ومراقبة تحركات المخازن </h3>
@@ -139,34 +140,36 @@
       </div>
     </section>
     <div class='clear'></div>
+    <br><br
+    <hr />
   </div>
 
-  <footer class='footer'>
-    <div class='container'>
-
-      <section class='contact-us'>
-        <h2 class='contact-us-header'>تواصل معنا</h2>
-        <form action='/contact-us' method='POST'>
-          <div class='right-div'>
-            <label for='name'>الاسم <input type='text' id='name' class='txt' name='name' placeholder='ادخل الاسم' /></label>
-            <label for='email'>البريد الالكتروني <input type='email' id='email' class='txt' name='email' placeholder='ادخل البريد الالكتروني' /></label>
-          </div>
-          <div class='left-div'>
-            <label>محتوى الرسالة <br /><textarea class='txt-area'></textarea></label>
-            <input type='submit' value='إرسال'  class='submit-btn reversed'/>
-          </div>
-          <div class='clear'></div>
-        </form>
-      </section>
-
-    </div>
-    <div class='end-footer'>
-      <p>
-        Powered By Triple S Team &copy;
-      </p>
-    </div>
-  </footer>
 </main>
+<footer class='footer'>
+  <div class='container'>
+
+    <section class='contact-us'>
+      <h2 class='contact-us-header'>تواصل معنا</h2>
+      <form>
+        <div class='right-div'>
+          <label for='name'>الاسم <input type='text' id='name' class='txt' name='name' placeholder='ادخل الاسم' /></label>
+          <label for='email'>البريد الالكتروني <input type='email' id='email' class='txt' name='email' placeholder='ادخل البريد الالكتروني' /></label>
+        </div>
+        <div class='left-div'>
+          <label>محتوى الرسالة <br /><textarea class='txt-area'></textarea></label>
+          <input type='submit' value='إرسال'  class='submit-btn reversed'/>
+        </div>
+        <div class='clear'></div>
+      </form>
+    </section>
+
+  </div>
+  <div class='end-footer'>
+    <p>
+      Powered By <span class='team-name'>Triple S</span> Team &copy;
+    </p>
+  </div>
+</footer>
 
 
 

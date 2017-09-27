@@ -4,17 +4,11 @@
   height: 350px;
 }
 
-
-/*.app-title{
-  margin-top: 10%;
-}*/
-
 .app-description{
   width: 60%;
   max-width: 960px;
   margin: auto;
   font-family: 'Open Sans', sans-serif;
-
 }
 
 .clear{
@@ -33,14 +27,12 @@
 .description{
   float: right;
   font-family: 'Open Sans', sans-serif;
-      padding-top: 69px;
-
+  padding-top: 69px;
 }
 
 .second-section , .third-section{
   padding-top: 5%;
   font-family: 'Open Sans', sans-serif;
-
 }
 
 .image-div-reversed{
@@ -50,7 +42,6 @@
 .description-reversed{
   float: left;
   padding-top: 90px;
-
 }
 
 hr{
@@ -103,4 +94,10 @@ hr{
 .reversed:hover{
   background-color: #000;
   color: #FFF;
+}
+
+.team-name{
+  color: #F2B703;
+  font-size: 25px;
+  font-family: 'Ravi Prakash';
 }

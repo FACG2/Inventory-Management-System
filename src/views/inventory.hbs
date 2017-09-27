@@ -12,15 +12,15 @@
       <form action='/goods/add' method='POST' encType="multipart/form-data">
         <label for='add-good-name'>الاسم <input type='text' class='txt' id='add-good-name' name='goodName' placeholder='ادخل الاسم' required /></label>
         <br />
-        <label for='add-good-goodType'>النوع  <input type='text' class='txt' id='add-good-goodType' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
+        <label for='add-good-goodType'>النوع  <input type='text' class='txt' id='add-good-goodType' placeholder='ادخل نوع الصنف'  name='goodType' required/></label>
         <br />
-        <label for='edit-good-charge_date'>تاريخ الشحن <input type='date' class='txt' id='edit-good-charge_date' placeholder='ادخل تاريخ الشحن'  name='chargeDate'/></label>
+        <label for='edit-good-charge_date'>تاريخ الشحن <input type='date' class='txt' id='edit-good-charge_date' placeholder='ادخل تاريخ الشحن'  name='chargeDate' required/></label>
         <br />
-        <label for='edit-good-quantity'>الكمية<input type='text' class='txt' id='edit-good-quantity' placeholder='ادخل الكمية'  name='goodQuantity'/></label>
+        <label for='edit-good-quantity'>الكمية<input type='text' class='txt' id='edit-good-quantity' placeholder='ادخل الكمية'  name='goodQuantity' required/></label>
         <br />
 
 
-        <label for='add-good-email'>تاريخ الانتهاء<input type='date' class='txt' id='add-good-email' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate'/></label>
+        <label for='add-good-email'>تاريخ الانتهاء<input type='date' class='txt' id='add-good-email' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate' required/></label>
         <label for='add-good-password'>صورة الصنف<input type='file' id='add-good-password' name='image' placeholder='أدخل كلمة المرور' required /></label>
         <br />
         <br />
@@ -54,9 +54,9 @@
         <input type='hidden' value='' name='id' id='edit-good-id' />
         <label for='edit-good-name'>الاسم <input type='text' class='txt' id='edit-good-name' name='goodName' placeholder='ادخل الاسم' required /></label>
         <br />
-        <label for='edit-good-type'>النوع  <input type='text' class='txt' id='edit-good-type' placeholder='ادخل نوع الصنف'  name='goodType'/></label>
+        <label for='edit-good-type'>النوع  <input type='text' class='txt' id='edit-good-type' placeholder='ادخل نوع الصنف'  name='goodType' required/></label>
         <br />
-        <label for='edit-good-expiryDate'>تاريخ الانتهاء<input type='date' class='txt' id='edit-good-expiryDate' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate'/></label>
+        <label for='edit-good-expiryDate'>تاريخ الانتهاء<input type='date' class='txt' id='edit-good-expiryDate' placeholder='ادخل تاريخ الانتهاء'  name='expiryDate' required/></label>
         <label for='edit-good-image'>صورة الصنف<input type='file' class='txt' id='edit-good-image' name='image' placeholder='أدخل كلمة المرور' required /></label>
           <img class='image-place-holder' alt= 'image' />
         <br />
@@ -115,11 +115,11 @@
         <input type='hidden' value='' name='id' id='decrement-transaction-id' />
         <label for='transaction-good-name-decrement'>الاسم <input type='text' class='txt' id='transaction-good-name-decrement' name='transactionGoodName' placeholder='ادخل الاسم' required /></label>
         <br />
-        <label for='transaction-good-type-decrement'>النوع  <input type='text' class='txt' id='transaction-good-type-decrement' placeholder='ادخل نوع الصنف'  name='transactionGoodType'/></label>
+        <label for='transaction-good-type-decrement'>النوع  <input type='text' class='txt' id='transaction-good-type-decrement' placeholder='ادخل نوع الصنف'  name='transactionGoodType' required/></label>
         <br />
-        <label for='transaction-good-quantity-decrement'>الكمية  <input type='text' class='txt' id='transaction-good-quantity-decrement' placeholder='ادخل الكمية'  name='transactionGoodQuantity'/></label>
+        <label for='transaction-good-quantity-decrement'>الكمية  <input type='text' class='txt' id='transaction-good-quantity-decrement' placeholder='ادخل الكمية'  name='transactionGoodQuantity' required/></label>
         <br />
-        <label for='transaction-good-date-decrement'>التاريخ<input type='date' class='txt' id='transaction-good-date-decrement'  name='transactionDate'/></label>
+        <label for='transaction-good-date-decrement'>التاريخ<input type='date' class='txt' id='transaction-good-date-decrement'  name='transactionDate' required/></label>
         <br />
         <br />
         <div class='buttons'>
