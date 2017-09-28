@@ -1,15 +1,14 @@
 const db = require('../models/db_functions/index');
 const {filterTransactions} = require('../helpers/graph');
+const path = require('path');
 
 const get = (req, res) => {
   db.Goods.getAllGoods(req.user.id, (err, result) => {
     if (err) {
-      console.log(err);
       res.redirect('/500');
     } else {
       getStatus((err1, status) => {
         if (err1) {
-          console.log(err1);
           res.redirect('/500');
         } else {
           if (status) {
@@ -79,9 +78,40 @@ const addInventory = (req, res, next) => {
   });
 };
 
+const addGood = (req, res, next) => {
+  const Data = {
+    invId: req.user.id,
+    body: req.body,
+    imageName: req.files.image.name
+  };
+  db.Goods.addGoods(Data, (err, result) => {
+    if (err) {
+      next(err);
+    } else {
+      if (!req.files) {
+        next(err);
+      }
+      var image = req.files.image;
+
+      if (image) {
+        image.mv(path.join(__dirname, '..', '..', 'public', 'images', 'uploadFile', req.files.image.name), (err) => {
+          if (err) {
+            res.rediect('/500');
+          } else {
+            res.redirect('/home');
+          }
+        });
+      } else {
+        res.redirect('/500');
+      }
+    }
+  });
+};
+
 module.exports = {
   get,
   updateInventoryStatus,
   getGraph,
-  addInventory
+  addInventory,
+  addGood
 };
