@@ -1,12 +1,10 @@
 const dbConnection = require('../Database/db_connection.js');
 
 const addInventory = (data, cb) => {
-  const sql = {
+  dbConnection.query({
     text: 'INSERT INTO inventories(name,location,capacity , status , user_id) VALUES($1,$2,$3,$4,$5) RETURNING *',
     values: [data.name, data.location, data.capacity, data.status, data.user_id]
-  };
-
-  dbConnection.query(sql, (err, result) => {
+  }, (err, result) => {
     if (err) {
       cb(err);
     } else {
@@ -16,10 +14,9 @@ const addInventory = (data, cb) => {
 };
 
 const getAllInv = (cb) => {
-  const sql = {
+  dbConnection.query({
     text: 'SELECT * FROM inventories'
-  };
-  dbConnection.query(sql, (err, res) => {
+  }, (err, res) => {
     if (err) {
       cb(err);
     } else {

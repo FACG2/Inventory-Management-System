@@ -14,7 +14,6 @@ const post = (req, res, next) => {
   };
   db.Inventories.addInventory(data, (err, result) => {
     if (err) {
-      console.log(err);
       res.redirect('/500');
     } else {
       res.redirect('/home');
