@@ -6,15 +6,10 @@ const filterTransactions = (id, cb) => {
     if (err) {
       cb(err);
     } else {
-      const output = {};
-      result.map((row) => {
-        if (output.hasOwnProperty(row.good_name)) {
-          output[row.good_name] += parseInt(row.quantity);
-        } else {
-          output[row.good_name] = row.quantity;
-        }
-      });
-      cb(null, output);
+      cb(null, result.reduce((acc, current) => {
+        acc.hasOwnProperty(current.good_name) ? acc[current.good_name] += parseInt(current.quantity) : acc[current.good_name] = current.quantity;
+        return acc;
+      }, {}));
     }
   });
 };
