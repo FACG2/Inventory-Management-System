@@ -134,10 +134,10 @@ test('All routes should return the expected results', t => {
 test('All routes should return the expected results', t => {
   request(app)
     .get('/goods/report')
-    .expect(200)
-    .expect('Content-Type', 'text/html; charset=utf-8')
+    .expect(302)
+    .expect('Content-Type', 'text/plain; charset=utf-8')
     .end((err, res) => {
-      t.same(res.statusCode, 200, 'Status code is 200');
+      t.same(res.statusCode, 302, 'Status code is 302');
       t.error(err, 'No error');
       t.end();
     });
@@ -149,10 +149,10 @@ test('Should add a new goods', t => {
   request(app)
     .post(`/goods/add`)
     .send(newGoods)
-    .expect(200)
-    .expect('Content-Type', 'text/html; charset=utf-8')
+    .expect(302)
+    .expect('Content-Type', 'text/plain; charset=utf-8')
     .end((err, res) => {
-      t.same(res.statusCode, 200, 'Status code is 200');
+      t.same(res.statusCode, 302, 'Status code is 302');
       t.same(res.body.goodName, res.body.goodQuantity, res.body.goodType, res.body.chargeDate, res.imageName, res.body.expiryDate);
       t.error(err, 'No error');
 

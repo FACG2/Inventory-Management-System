@@ -90,10 +90,10 @@ const getGoodById = (id, cb) => {
 };
 
 module.exports = {
-  addGoods,
+  addGoods,  // ddone
   deleteGoods,
-  getAllGoods,
-  updateGoods,
+  getAllGoods,  // done
+  updateGoods, // done
   update,
-  getGoodById
+  getGoodById // done
 };
