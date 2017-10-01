@@ -3,7 +3,6 @@ const db = require('../models/db_functions/index');
 const get = (req, res, next) => {
   db.Reports.getTransactionsForInventory(req.user.id, (err, result) => {
     if (err) {
-      console.log(err);
       next(err);
     } else {
       let counter = 1;

@@ -1,6 +1,4 @@
-// const cookie = require('cookie');
 const jwt = require('jsonwebtoken');
-// const bcrypt = require('bcrypt');
 require('env2')('config.env');
 
 const verifyToken = (token, cb) => {

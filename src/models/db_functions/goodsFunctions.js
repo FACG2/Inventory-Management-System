@@ -1,13 +1,10 @@
 const dbConnection = require('../Database/db_connection.js');
-// add, update, delet, select
-// add new goods
 
 const deleteGoods = (good, cb) => {
-  const sql = {
+  dbConnection.query({
     text: `DELETE FROM goods WHERE id = $1`,
     values: [good.params.id]
-  };
-  dbConnection.query(sql, (err, res) => {
+  }, (err, res) => {
     if (err) {
       cb(err);
     } else {
@@ -41,11 +38,10 @@ const addGoods = (req, cb) => {
 };
 
 const getAllGoods = (id, cb) => {
-  const sql = {
+  dbConnection.query({
     text: 'SELECT users.username ,goods.* FROM goods INNER JOIN inventories ON inventories.id = goods.inventory_id INNER JOIN users ON users.id = inventories.user_id WHERE users.id = $1',
     values: [id]
-  };
-  dbConnection.query(sql, (err, res) => {
+  }, (err, res) => {
     if (err) {
       cb(err);
     } else {
@@ -55,14 +51,11 @@ const getAllGoods = (id, cb) => {
 };
 
 const updateGoods = (goods, cb) => {
-  const sql = {
+  dbConnection.query({
     text: `UPDATE goods SET name = $1, type = $2, image= $3 WHERE id=$4 RETURNING *`,
     values: [goods.body.goodName, goods.body.goodType, goods.body.image, goods.body.id]
-  };
-
-  dbConnection.query(sql, (err, res) => {
+  }, (err, res) => {
     if (err) {
-      console.log(err);
       cb(err);
     } else {
       cb(null, res);
@@ -76,7 +69,6 @@ const update = (data, cb) => {
     values: [data.newQuantity, data.id]
   }, (err, result) => {
     if (err) {
-      console.log(err);
       cb(err);
     } else {
       cb(null, result.rows[0]);

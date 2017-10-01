@@ -8,7 +8,6 @@ const checkAuth = (req, res, next) => {
     if (token) {
       verifyToken(token, (err, decoded) => {
         if (err) {
-          console.log(err);
           res.redirect('/logout');
         } else {
           db.Users.getUserByName(decoded.username, (err1, userFromDB) => {
@@ -39,5 +38,4 @@ const checkAuth = (req, res, next) => {
 
 module.exports = {
   checkAuth
-  // isAuthed
 };
