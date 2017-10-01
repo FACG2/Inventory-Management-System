@@ -79,6 +79,47 @@ test('GET /goods/report (unauthenticated)  should redirect to home page', t => {
     .end((err, res) => {
       t.equal(res.headers.location, '/', ' return to home page');
       t.same(res.statusCode, 302, 'Status code is 302');
+      console.log(err);
+      t.error(err, 'No error');
+      t.end();
+    });
+});
+
+test('All routes should return the expected results', t => {
+  request(app)
+    .get('/goods/add')
+    .expect(404)
+    .expect('Content-Type', 'text/html; charset=utf-8')
+    .end((err, res) => {
+      console.log(err);
+      t.same(res.statusCode, 404, 'Status code is 404');
+      console.log(err);
+      t.error(err, 'No error');
+      t.end();
+    });
+});
+
+test('All routes should return the expected results', t => {
+  request(app)
+    .get('/goods/:id')
+    .expect(404)
+    .expect('Content-Type', 'text/html; charset=utf-8')
+    .end((err, res) => {
+      console.log(err);
+      t.same(res.statusCode, 404, 'Status code is 404');
+      console.log(err);
+      t.error(err, 'No error');
+      t.end();
+    });
+});
+
+test('All routes should return the expected results', t => {
+  request(app)
+    .get('/goods/report')
+    .expect(302)
+    .expect('Content-Type', 'text/plain; charset=utf-8')
+    .end((err, res) => {
+      t.same(res.statusCode, 302, 'Status code is 302');
       t.error(err, 'No error');
       t.end();
     });
@@ -102,6 +143,22 @@ test('POST /goods/add  (unauthenticated)  should redirect to home page', t => {
   request(app)
     .post(`/goods/add`)
     .send(newGoods)
+    .expect(302)
+    .expect('Content-Type', 'text/plain; charset=utf-8')
+    .end((err, res) => {
+      t.same(res.statusCode, 302, 'Status code is 302');
+      t.same(res.body.goodName, res.body.goodQuantity, res.body.goodType, res.body.chargeDate, res.imageName, res.body.expiryDate);
+      t.error(err, 'No error');
+
+      t.end();
+    });
+});
+
+test('Should  edit goods', t => {
+  const good = { id: 1, goodName: 'قميص', quantity: 10, goodType: 'قطن', image: 'warehouse1.jpg' };
+  request(app)
+    .post('/goods/edit')
+    .send(good)
     .expect(302)
     .expect('Content-Type', 'text/plain; charset=utf-8')
     .end((err, res) => {

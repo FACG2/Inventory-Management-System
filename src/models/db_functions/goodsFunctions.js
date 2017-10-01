@@ -15,17 +15,9 @@ const deleteGoods = (good, cb) => {
 
 const addGoods = (req, cb) => {
   dbConnection.query({
-    text: `SELECT * FROM inventories WHERE id=$1`,
-    values: [req.invId]
-  }, (err, inventory) => {
-    if (err) {
-      cb(err);
-    } else {
-      const sql = `INSERT INTO goods (name, quantity, type, charge_date, image, expiry_date, inventory_id)
-      VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;`;
-      dbConnection.query({
-        text: sql,
-        values: [req.body.goodName, req.body.goodQuantity, req.body.goodType, req.body.chargeDate, req.imageName, req.body.expiryDate, inventory.rows[0].id]},
+    text: `INSERT INTO goods (name, quantity, type, charge_date, image, expiry_date, inventory_id)
+        VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;`,
+    values: [req.body.goodName, req.body.goodQuantity, req.body.goodType, req.body.chargeDate, req.imageName, req.body.expiryDate, req.invId]},
         (error, res1) => {
           if (error) {
             cb(error);
@@ -33,8 +25,6 @@ const addGoods = (req, cb) => {
             cb(null, res1.rows);
           }
         });
-    }
-  });
 };
 
 const getAllGoods = (id, cb) => {
@@ -90,10 +80,10 @@ const getGoodById = (id, cb) => {
 };
 
 module.exports = {
-  addGoods,
+  addGoods,  // ddone
   deleteGoods,
-  getAllGoods,
-  updateGoods,
+  getAllGoods,  // done
+  updateGoods, // done
   update,
-  getGoodById
+  getGoodById // done
 };

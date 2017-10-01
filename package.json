@@ -4,11 +4,16 @@
   "description": "### 1 - Idea :-  Build Website that have a benefit to manage inventory in easy way by software rather than manage it by traditional way using paper. And make the process of tracking goods easier. <br>",
   "main": "index.js",
   "scripts": {
-    "test": "node test/back-end-test.js | tap-spec",
+    "test": "tape test/**/*.js | tap-spec",
     "coverage": "nyc npm run test",
     "start": "node src/server.js",
-    "start:watch": "nodemon src/server.js"
+    "start:watch": "nodemon src/server.js",
+    "lint": "semistandard --fix"
   },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FACG2/Inventory-Management-System.git"
@@ -35,8 +40,10 @@
   },
   "devDependencies": {
     "chart.js": "^2.7.0",
+    "eslint": "^4.8.0",
     "nodemon": "^1.12.1",
     "nyc": "^11.2.1",
+    "pre-commit": "^1.2.2",
     "supertest": "^3.0.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.8.0"
