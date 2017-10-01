@@ -4,8 +4,7 @@
   "description": "### 1 - Idea :-  Build Website that have a benefit to manage inventory in easy way by software rather than manage it by traditional way using paper. And make the process of tracking goods easier. <br>",
   "main": "index.js",
   "scripts": {
-    "test": "node test/database.test.js | tap-spec ",
-    "test:db": "node test/back-end-test.js | tap-spec",
+    "test": "tape test/**/*.js | tap-spec",
     "coverage": "nyc npm run test",
     "start": "node src/server.js",
     "start:watch": "nodemon src/server.js",
