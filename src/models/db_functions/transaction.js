@@ -29,7 +29,7 @@ const getTransaction = (id, cb) => {
 const getAll = (data, cb) => {
   dbConnection.query({
     text: 'SELECT * FROM transactions WHERE inventory_id=$1 AND transaction_type=$2',
-    values: [ data.inventory_id, 'حذف' ]
+    values: [ data.inventory_id, 'سحب' ]
   }, (err, result) => {
     if (err) {
       cb(err);
