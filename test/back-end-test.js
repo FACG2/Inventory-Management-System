@@ -61,6 +61,7 @@ test('GET /profile (unauthenticated)  should redirect to home page', t => {
 test('GET /profile (authenticated) should render user\'s profile', t => {
   request(app)
     .get('/profile')
+    .expect(200)
     .set('Cookie', `token=${process.env.TEST_TOKEN}`)
     .expect('Content-Type', 'text/html; charset=utf-8')
     .end((err, res) => {
@@ -152,7 +153,7 @@ test('POST /goods/edit  (authenticated)  should redirect to edit goods page', t 
     .send(good)
     .expect('Content-Type', 'text/html; charset=utf-8')
     .end((err, res) => {
-      t.same(res.statusCode, 200, 'Status code is 200');
+      t.same(res.statusCode, 200, 'Status code is 302');
       t.same(res.body.goodName, res.body.goodQuantity, res.body.goodType, res.body.image);
       t.error(err, 'No error');
       t.end();
