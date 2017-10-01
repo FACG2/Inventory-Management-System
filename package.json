@@ -25,6 +25,7 @@
     "body-parser": "^1.18.1",
     "cookie": "^0.3.1",
     "env2": "^2.2.0",
+    "expect-cookies": "^0.1.2",
     "express": "^4.15.4",
     "express-fileupload": "^0.2.0",
     "express-handlebars": "^3.0.0",
