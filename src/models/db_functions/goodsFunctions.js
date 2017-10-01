@@ -65,8 +65,8 @@ const updateGoods = (goods, cb) => {
 
 const update = (data, cb) => {
   dbConnection.query({
-    text: 'UPDATE goods SET quantity=$1 WHERE id=$2 RETURNING *',
-    values: [data.newQuantity, data.id]
+    text: 'UPDATE goods SET quantity=$1 WHERE id=$2 AND inventory_id=$3 RETURNING *',
+    values: [data.newQuantity, data.id, data.invId]
   }, (err, result) => {
     if (err) {
       cb(err);
