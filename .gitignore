@@ -1,3 +1,4 @@
 node_modules
 config.env
 public/images/uploadFile
+.nyc_output
