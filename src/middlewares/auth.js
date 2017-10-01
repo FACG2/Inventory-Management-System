@@ -5,10 +5,10 @@ const cookie = require('cookie');
 const checkAuth = (req, res, next) => {
   if (req.headers.cookie) {
     const {token} = cookie.parse(req.headers.cookie);
-    // console.log(token);
+    console.log(token);
     if (token) {
       verifyToken(token, (err, decoded) => {
-        // console.log(decoded, err.message);
+        console.log(decoded, err.message);
         if (err) {
           res.redirect('/logout');
         } else {
