@@ -42,48 +42,19 @@ window.onload = function () {
 
   var imagShow = document.querySelector('.image-place-holder');
 
-  Array.from(textSpans).map(function (textSpan, index) {
-    textSpan.addEventListener('mouseover', function (event) {
-      textSpan.style.textIndent = '-110em';
-      var imgSrc = event.target.parentNode.children[6];
-      if (imgSrc && imgSrc.value) {
-        good[index].style.backgroundImage = 'url(' + imgSrc.value + ')';
-      }
-    });
+  Array.from(textSpans).map(textSpansFunction);
 
-    textSpan.addEventListener('mouseleave', function (event) {
-      textSpan.style.textIndent = '0em';
-      good[index].style.backgroundImage = 'none';
-    });
-  });
+  Array.from(decrementBtns).map(decrementBtnsFunction);
 
-  Array.from(decrementBtns).map(function (btn) {
-    btn.addEventListener('click', function (event) {
-      addClasses([decrementModal, decrementModalContent], ['show-modal', 'show-modal-content']);
-      selectedGood = {
-        id: event.target.parentNode.children[2].children[0].id,
-        name: event.target.parentNode.children[2].children[1].children[0].textContent,
-        type: event.target.parentNode.children[2].children[2].children[0].textContent
-      };
-      document.querySelector('#decrement-transaction-id').value = selectedGood.id;
-      document.querySelector('#transaction-good-name-decrement').value = selectedGood.name;
-      document.querySelector('#transaction-good-type-decrement').value = selectedGood.type;
-    });
-  });
+  Array.from(incrementBtns).map(incrementBtnsFunction);
 
-  Array.from(incrementBtns).map(function (btn) {
-    btn.addEventListener('click', function (event) {
-      addClasses([incrementModal, incrementModalContent], ['show-modal', 'show-modal-content']);
-      selectedGood = {
-        id: event.target.parentNode.children[2].children[0].id,
-        name: event.target.parentNode.children[2].children[1].children[0].textContent,
-        type: event.target.parentNode.children[2].children[2].children[0].textContent
-      };
-      document.querySelector('#increment-transaction-id').value = selectedGood.id;
-      document.querySelector('#transaction-good-name').value = selectedGood.name;
-      document.querySelector('#transaction-good-type').value = selectedGood.type;
-    });
-  });
+  Array.from(deleteBtns).map(deleteBtnsFunction);
+
+  Array.from(editGoodBtns).map(editGoodBtnsFunction);
+
+  Array.from(editGoodCloseBtns).map(editGoodCloseBtnsFunction);
+
+  Array.from(good).map(goodFunction);
 
   incrementModalClosebtn.addEventListener('click', function () {
     removeClasses([incrementModal, incrementModalContent], ['show-modal', 'show-modal-content']);
@@ -93,18 +64,10 @@ window.onload = function () {
     removeClasses([decrementModal, decrementModalContent], ['show-modal', 'show-modal-content']);
   });
 
-  Array.from(deleteBtns).map(function (btn) {
-    btn.addEventListener('click', function (event) {
-      addClasses([deleteGoodModal, deleteGoodModalContent, deleteGoodModalContent], ['show-modal', 'show-modal-content', 'delete-good']);
-      selectedGood = {id: event.target.parentNode.children[2].children[0].id};
-    });
-  });
-
   yesBtn.addEventListener('click', function () {
     if (selectedGood.hasOwnProperty('id')) {
       xhrRequest('POST', '/goods/' + selectedGood.id, null, function (err, result) {
         if (err) {
-          console.log(err);
           window.location.href = '/500';
         } else {
           window.location.href = '/home';
@@ -125,8 +88,6 @@ window.onload = function () {
 
   graphBtn.addEventListener('click', function () {
     addClasses([graphModal, graphModalContent, graphModalContent], ['show-modal', 'show-modal-content', 'show-graph-modal']);
-    // createGraph();
-    // /////////////////////////////////////////////////////////////////
     getGraphData(function (data) {
       createGraph(data.labels, data.data);
     });
@@ -143,6 +104,14 @@ window.onload = function () {
 
   addGoodCloseBtn.addEventListener('click', function () {
     removeClasses([addGoodModal, addGoodModalContent], ['show-modal', 'show-modal-content']);
+  });
+
+  inventoryStateEditBtn.addEventListener('click', function () {
+    inventoryStateContainer.classList.toggle('hidden');
+  });
+
+  inventoryStateSaveBtn.addEventListener('click', function () {
+    inventoryStateContainer.classList.add('hidden');
   });
 
   window.onclick = function (event) {
@@ -165,11 +134,28 @@ window.onload = function () {
     }
   };
 
-  Array.from(editGoodBtns).map(function (element) {
+  // helper functions //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  function editGoodCloseBtnsFunction (element) {
+    element.addEventListener('click', function () {
+      removeClasses([editGoodModal, editGoodModalContent], ['show-modal', 'show-modal-content']);
+      selectedGood = {};
+    });
+  }
+
+  function goodFunction (element) {
+    element.addEventListener('mouseover', function (event) {
+      addClasses([this], ['add-background']);
+    });
+    element.addEventListener('mouseleave', function (event) {
+      removeClasses([this], ['add-background']);
+    });
+  }
+
+  function editGoodBtnsFunction (element) {
     element.addEventListener('click', function (event) {
       addClasses([editGoodModal, editGoodModalContent], ['show-modal', 'show-modal-content']);
       // get good data from event object
-      // console.log();
       selectedGood = {
         id: event.target.parentNode.parentNode.children[2].children[0].id,
         name: event.target.parentNode.parentNode.children[2].children[1].children[0].textContent,
@@ -177,45 +163,64 @@ window.onload = function () {
         expiryDate: shortDateFormat(event.target.parentNode.parentNode.children[2].children[3].children[0].textContent),
         image: event.target.parentNode.parentNode.children[2].children[6].value
       };
-      console.log(selectedGood);
       imagShow.src = selectedGood.image;
       document.querySelector('#edit-good-name').value = selectedGood.name;
       document.querySelector('#edit-good-type').value = selectedGood.type;
       document.querySelector('#edit-good-expiryDate').value = selectedGood.expiryDate;
       document.querySelector('#edit-good-id').value = selectedGood.id;
     });
-  });
+  }
 
-  Array.from(editGoodCloseBtns).map(function (element) {
-    element.addEventListener('click', function () {
-      removeClasses([editGoodModal, editGoodModalContent], ['show-modal', 'show-modal-content']);
-      selectedGood = {};
+  function deleteBtnsFunction (btn) {
+    btn.addEventListener('click', function (event) {
+      addClasses([deleteGoodModal, deleteGoodModalContent, deleteGoodModalContent], ['show-modal', 'show-modal-content', 'delete-good']);
+      selectedGood = {id: event.target.parentNode.children[2].children[0].id};
     });
-  });
+  }
 
-  Array.from(good).map(function (element) {
-    element.addEventListener('mouseover', function (event) {
-      addClasses([this], ['add-background']);
+  function incrementBtnsFunction (btn) {
+    btn.addEventListener('click', function (event) {
+      addClasses([incrementModal, incrementModalContent], ['show-modal', 'show-modal-content']);
+      selectedGood = {
+        id: event.target.parentNode.children[2].children[0].id,
+        name: event.target.parentNode.children[2].children[1].children[0].textContent,
+        type: event.target.parentNode.children[2].children[2].children[0].textContent
+      };
+      document.querySelector('#increment-transaction-id').value = selectedGood.id;
+      document.querySelector('#transaction-good-name').value = selectedGood.name;
+      document.querySelector('#transaction-good-type').value = selectedGood.type;
+    });
+  }
+
+  function decrementBtnsFunction (btn) {
+    btn.addEventListener('click', function (event) {
+      addClasses([decrementModal, decrementModalContent], ['show-modal', 'show-modal-content']);
+      selectedGood = {
+        id: event.target.parentNode.children[2].children[0].id,
+        name: event.target.parentNode.children[2].children[1].children[0].textContent,
+        type: event.target.parentNode.children[2].children[2].children[0].textContent
+      };
+      document.querySelector('#decrement-transaction-id').value = selectedGood.id;
+      document.querySelector('#transaction-good-name-decrement').value = selectedGood.name;
+      document.querySelector('#transaction-good-type-decrement').value = selectedGood.type;
+    });
+  }
+
+  function textSpansFunction (textSpan, index) {
+    textSpan.addEventListener('mouseover', function (event) {
+      textSpan.style.textIndent = '-110em';
+      var imgSrc = event.target.parentNode.children[6];
+      if (imgSrc && imgSrc.value) {
+        good[index].style.backgroundImage = 'url(' + imgSrc.value + ')';
+      }
     });
 
-    element.addEventListener('mouseleave', function (event) {
-      removeClasses([this], ['add-background']);
+    textSpan.addEventListener('mouseleave', function (event) {
+      textSpan.style.textIndent = '0em';
+      good[index].style.backgroundImage = 'none';
     });
-  });
+  }
 
-  inventoryStateEditBtn.addEventListener('click', function () {
-    inventoryStateContainer.classList.toggle('hidden');
-  });
-
-  inventoryStateSaveBtn.addEventListener('click', function () {
-    inventoryStateContainer.classList.add('hidden');
-  });
-
-  // getGraphData(function (data) {
-  //   console.log(data);
-  // });
-
-  // helper functions
   function getGraphData (cb) {
     xhrRequest('GET', '/goods/graph', null, function (err, data) {
       if (err) cb(err);
@@ -254,8 +259,7 @@ window.onload = function () {
 
   function createGraph (myLabels, myData) {
     var CHART = document.getElementById('myChart');
-    console.log('CHART', CHART);
-    var barChart = new Chart(CHART, {
+    var barChart = new Chart(CHART, {//eslint-disable-line
       type: 'bar',
       data: {
         labels: myLabels,
