@@ -83,7 +83,7 @@ test('GET /goods/report (unauthenticated)  should redirect to home page', t => {
     });
 });
 
-test.only('GET /goods/report (authenticated) should render report', t => {
+test('GET /goods/report (authenticated) should render report', t => {
   request(app)
     .get('/goods/report')
     .set('Cookie', `token=${process.env.TEST_TOKEN}`)
@@ -95,7 +95,7 @@ test.only('GET /goods/report (authenticated) should render report', t => {
     });
 });
 
-test('GET /goods/add  (unauthenticated)  should redirect to home page', t => {
+test('POST /goods/add  (unauthenticated)  should redirect to home page', t => {
   const newGoods = { name: 'بنطلون', quantity: 55, type: 'قطن', charge_date: 11 / 3 / 2015, image: 'warehouse1.jpg', expiry_date: 12 / 12 / 2016 };
   // console.log(newGoods);
   request(app)
@@ -106,6 +106,22 @@ test('GET /goods/add  (unauthenticated)  should redirect to home page', t => {
     .end((err, res) => {
       t.equal(res.headers.location, '/', 'shoud return to home page');
       t.same(res.statusCode, 302, 'Status code is 302');
+      t.error(err, 'No error');
+
+      t.end();
+    });
+});
+
+test('POST /goods/add  (authenticated)  should redirect to add goods page', t => {
+  const newGoods = { name: 'بنطلون', quantity: 55, type: 'قطن', charge_date: 11 / 3 / 2015, image: 'warehouse1.jpg', expiry_date: 12 / 12 / 2016 };
+  // console.log(newGoods);
+  request(app)
+    .post(`/goods/add`)
+    .set('Cookie', `token=${process.env.TEST_TOKEN}`)
+    .send(newGoods)
+    .expect('Content-Type', 'text/html; charset=utf-8')
+    .end((err, res) => {
+      t.same(res.statusCode, 200, 'Status code is 200');
       t.same(res.body.goodName, res.body.goodQuantity, res.body.goodType, res.body.chargeDate, res.imageName, res.body.expiryDate);
       t.error(err, 'No error');
 
@@ -113,7 +129,7 @@ test('GET /goods/add  (unauthenticated)  should redirect to home page', t => {
     });
 });
 
-test('GET /goods/edit  (unauthenticated)  should redirect to home page', t => {
+test('POST /goods/edit  (unauthenticated)  should redirect to home page', t => {
   const good = { id: 1, goodName: 'قميص', quantity: 10, goodType: 'قطن', image: 'warehouse1.jpg' };
   request(app)
     .post('/goods/edit')
@@ -123,6 +139,20 @@ test('GET /goods/edit  (unauthenticated)  should redirect to home page', t => {
     .end((err, res) => {
       t.equal(res.headers.location, '/', 'shoud return to home page');
       t.same(res.statusCode, 302, 'Status code is 302');
+      t.error(err, 'No error');
+      t.end();
+    });
+});
+
+test('POST /goods/edit  (authenticated)  should redirect to edit goods page', t => {
+  const good = { id: 1, goodName: 'قميص', quantity: 10, goodType: 'قطن', image: 'warehouse1.jpg' };
+  request(app)
+    .post('/goods/edit')
+    .set('Cookie', `token=${process.env.TEST_TOKEN}`)
+    .send(good)
+    .expect('Content-Type', 'text/html; charset=utf-8')
+    .end((err, res) => {
+      t.same(res.statusCode, 200, 'Status code is 200');
       t.same(res.body.goodName, res.body.goodQuantity, res.body.goodType, res.body.image);
       t.error(err, 'No error');
       t.end();
