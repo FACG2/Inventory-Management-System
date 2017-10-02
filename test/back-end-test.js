@@ -144,8 +144,7 @@ test('POST /goods/edit  (unauthenticated)  should redirect to home page', t => {
       t.end();
     });
 });
-
-test('POST /goods/edit  (authenticated)  should redirect to edit goods page', t => {
++test('POST /goods/edit  (authenticated)  should redirect to edit goods page', t => {
   const good = { id: 1, goodName: 'قميص', quantity: 10, goodType: 'قطن', image: 'warehouse1.jpg' };
   request(app)
     .post('/goods/edit')
