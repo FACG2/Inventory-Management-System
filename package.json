@@ -34,7 +34,7 @@
     "pg": "^7.3.0"
   },
   "devDependencies": {
-    "chart.js": "^2.7.0",
+    "chart.js": "^2.9.4",
     "nodemon": "^1.12.1",
     "nyc": "^11.2.1",
     "supertest": "^3.0.0",
