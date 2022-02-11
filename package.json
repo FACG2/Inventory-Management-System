@@ -28,7 +28,7 @@
     "expect-cookies": "^0.1.2",
     "express": "^4.15.4",
     "express-fileupload": "^0.2.0",
-    "express-handlebars": "^3.0.0",
+    "express-handlebars": "^5.3.1",
     "helmet": "^3.8.1",
     "jsonwebtoken": "^8.0.1",
     "pg": "^7.3.0"
